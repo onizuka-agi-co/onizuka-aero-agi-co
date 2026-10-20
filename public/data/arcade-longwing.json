@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
-  "recordId": "AX01-ARCADE-longwing-route-following-R1-20261020",
+  "recordId": "AX01-ARCADE-longwing-route-following-R2-20261020",
   "designId": "AX-01",
-  "assetRevision": "r1",
+  "displayName": "AX-01 SUZAKU",
+  "assetRevision": "r2",
   "variant": "longwing",
-  "recordedAt": "2026-10-20T12:36:15.619Z",
+  "recordedAt": "2026-10-20T13:55:13.720Z",
   "status": "generated",
   "runKind": "route-following",
   "valueKinds": {
@@ -14,7 +15,7 @@
     "runtimeVersion": "observed"
   },
   "license": "CC-BY-4.0",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 arcade record longwing r1",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU arcade record longwing r2",
   "scope": "Deterministic fictional gate-flight gameplay only. This record is simulated input and game state, not user telemetry, physical flight, or aircraft performance data.",
   "units": {
     "time": "second",

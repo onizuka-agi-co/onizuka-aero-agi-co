@@ -1,34 +1,34 @@
 # ONIZUKA AERO AGI Co.
 
-[日本語](README.ja.md) | English
+ONIZUKA AERO AGI Co. publishes original aviation-themed digital art, geometry checks, and a civilian arcade game as reproducible artifacts. A human mission owner sets the mission and publication policy.
 
-ONIZUKA AERO AGI Co. explores agent-led aviation-themed design, verification, and game production. AI agents make original digital assets, check their geometry, build a civilian arcade game, and publish the work and its records as reproducible artifacts. A human mission owner sets the mission and publication policy; agents work within that approved scope.
+The current design is **AX-01 SUZAKU r2**, a fictional collectible toy with red, ivory, and gold detailing and forward-swept main wings. The `standard` and `longwing` variants retain the existing controls and rules, with their variant-specific in-game tuning unchanged.
 
-The initial release centers on AX-01 KIRIN, a fictional near-future fighter-inspired visual asset, geometry checks, and a civilian gate-flight arcade game. `standard` and `longwing` are artistic variants. The game uses the mesh generated from the corresponding CAD asset. See the [dataset card](docs/dataset-card.md) for the contents and limits.
+Four concept sheets were generated with the built-in `image_gen imagegen` tool. The user selected C / SUZAKU. The prompts and selection are recorded in `design/concepts/ax01-r2/concepts.json`. The PNG files are concept art, not CAD renders or engineering results.
 
-![AX-01 KIRIN, standard artistic variant](public/assets/ax01/standard/preview.svg)
+![Selected C / SUZAKU concept sheet](design/concepts/ax01-r2/c-suzaku.png)
+
+![AX-01 SUZAKU standard CAD preview](public/assets/ax01/standard/preview.svg)
 
 ## Project status
 
-FreeCAD 1.1.3 generated the CAD outputs for both variants. The geometry report passes for all nine parts and 360 mesh triangles per variant. Native FreeCAD, STEP, and STL exports reopened successfully. The mirrored-wing vertex deviation is 0.0 arbitrary design units. The regeneration check matched the SHA-256 hashes of both meshes. See the [geometry report](public/data/geometry-report.json).
+The FreeCAD 1.1.3 geometry report passes for both variants. Each has 40 valid shapes. The standard mesh has 2,800 triangles and the longwing mesh has 2,752. FreeCAD and STEP files reopened with 40 shapes each, and the STL facet counts match the meshes. The mirrored-wing deviation is 0.0 arbitrary design units. The regeneration check matched both mesh SHA-256 hashes. See the [geometry report](public/data/geometry-report.json).
 
-The arcade dataset contains three replay records built from saved input frames. The `standard` and `longwing` route-following runs each passed 14 of 14 gates and scored 3,300 points. The `standard` miss-control run passed no gates and scored 0. See the [arcade summary](public/data/arcade-summary.json).
+The arcade dataset contains three generated replay records. The standard and longwing route-following runs each pass all 14 gates and score 3,300 points. The miss-control run passes no gates and scores 0. All three replay tests passed after regeneration. See the [arcade summary](public/data/arcade-summary.json).
 
-Local validation passed 14 Node tests and 12 Playwright browser checks. The browser records cover Chromium on desktop and a touch-emulated mobile viewport; no physical phone was tested. See the [automated browser report](evidence/browser-automated.json) and [browser UI report](evidence/browser-qa.json).
-
-The repository and [playable site](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) are public. The [initial GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39426065882) succeeded. All 12 browser checks also passed against the public site. Anonymous downloads matched the sizes and SHA-256 hashes of 35 files. The [publication report](evidence/publication.json) and [public-site browser report](evidence/browser-public.json) identify the tested commit and results.
+The r2 local production build and browser checks passed: automated Chromium reported 12/12 checks, and a separate direct in-app-browser session passed 9/9 checks. The Node suite passed 15/15, and the manifest covers 20 public files and 20 hashed sources. The direct session also verified course completion and pause/resume behavior. These checks target local previews; physical phones are untested. GitHub r2 CI, Pages publication, and anonymous verification of the latest public deployment are pending. Older browser and publication reports describe r1 and remain historical. See the [automated browser report](evidence/browser-automated.json) and [direct browser report](evidence/browser-suzaku-ui.json).
 
 ## Reproduce
 
-Install dependencies with `npm ci`, run the checks with `npm test`, and build with `npm run build`. Start the local development server with `npm run dev`. The [reproduction guide](docs/reproduce.md) gives the full CAD, data, and browser-validation sequence.
+Install dependencies with `npm ci`, run the checks with `npm test`, and build with `npm run build`. The [reproduction guide](docs/reproduce.md) gives the CAD, data, and browser-validation commands.
 
 ## Project policies
 
-- [Mission and governance](docs/company.md) describes decision rights and the task lifecycle.
-- [Data policy](docs/data-policy.md) defines publication, provenance, and telemetry rules.
+- [Mission and governance](docs/company.md) explains decision authority and task management.
+- [Data policy](docs/data-policy.md) defines publication, provenance, and telemetry limits.
 - [Dataset card](docs/dataset-card.md) describes the generated records and their limits.
-- [Contributing](CONTRIBUTING.md) explains how to propose and verify changes.
+- [Contributing](CONTRIBUTING.md) explains how to propose and check changes.
 
-## License
+## Licenses
 
-Source code, artwork, images, mesh assets, CAD files, and documentation use the MIT License in [LICENSE](LICENSE); see the [canonical MIT text](https://opensource.org/license/mit). Data records under `public/data/*`, `evidence/*.json`, and `decisions.tsv` use CC BY 4.0 as described in [LICENSE-DATA](LICENSE-DATA). Third-party material keeps its original license; see [third-party notices](THIRD_PARTY.md).
+The MIT License covers source code, art, images, meshes, CAD files, and documentation. The CC BY 4.0 license covers records under `public/data/*`, `evidence/*.json`, and `decisions.tsv`. Third-party materials retain their original licenses. See [THIRD_PARTY.md](THIRD_PARTY.md) for notices.

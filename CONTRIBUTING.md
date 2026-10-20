@@ -14,7 +14,7 @@
 
 ### 変更の境界
 
-初期版の AX-01 KIRIN は架空のビジュアル資産です。現在の対象は形状の妥当性、境界、左右対称性、民生向けアーケードゲームの挙動です。初期版の範囲を広げる場合は、作業前にミッションと公開条件を定めてください。
+AX-01シリーズのKIRIN r1とSUZAKU r2は、架空の玩具向けビジュアル資産です。現在の対象は形状の妥当性、境界、左右対称性、民生向けアーケードゲームの挙動です。この範囲を広げる場合は、作業前にミッションと公開条件を定めてください。
 
 `standard` と `longwing` は造形上のバリアントです。ゲームはCADから生成した同じメッシュを使います。ゲームの調整値を形状の測定値と混同しないでください。
 
@@ -34,7 +34,7 @@
 
 ### Change boundaries
 
-For the initial release, AX-01 KIRIN is a fictional visual asset. Current work covers shape validity, bounds, left-right symmetry, and civilian arcade gameplay. Define the mission and publication conditions before starting work that expands this release's scope.
+The AX-01 series, KIRIN r1 and SUZAKU r2, contains fictional toy visual assets. Current work covers shape validity, bounds, left-right symmetry, and civilian arcade gameplay. Define the mission and publication conditions before starting work that expands this scope.
 
 `standard` and `longwing` are artistic variants. The game uses the same mesh generated from CAD. Keep game tuning values separate from geometry measurements.
 

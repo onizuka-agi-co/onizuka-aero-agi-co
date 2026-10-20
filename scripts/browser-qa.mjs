@@ -17,8 +17,8 @@ const report = { schemaVersion: 1, checkedAt: new Date().toISOString(), target, 
 const check = (name, passed) => { assert.ok(passed, name); report.checks.push({ name, passed }); };
 const state = page => page.evaluate(() => window.__AERO_QA__);
 Object.assign(report, {
-  recordType: 'observed-browser-verification', designId: 'AX-01', revision: 'r1',
-  license: 'CC-BY-4.0', attribution: 'ONIZUKA AERO AGI Co., AX-01 browser verification r1',
+  recordType: 'observed-browser-verification', designId: 'AX-01', displayName: 'AX-01 SUZAKU', revision: 'r2',
+  license: 'CC-BY-4.0', attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r2',
   generator: 'scripts/browser-qa.mjs',
   method: 'Actual Chromium mouse, keyboard and CDP touch input against the built static site.',
   sourceHashes: {},

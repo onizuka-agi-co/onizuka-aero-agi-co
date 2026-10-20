@@ -49,17 +49,21 @@ if (process.argv.includes('--check')) {
       if (/\.(mjs|js|py|json|css)$/.test(path)) sources.push(await describe(path, root, 'MIT'));
     }
   }
-  for (const name of ['package.json', 'package-lock.json', 'vite.config.js', '.gitattributes']) {
+  for (const name of ['package.json', 'package-lock.json', 'vite.config.js', '.gitattributes', 'index.html']) {
     sources.push(await describe(join(root, name), root, 'MIT'));
+  }
+  for (const path of await filesIn(join(root, 'design', 'concepts', 'ax01-r2'))) {
+    sources.push(await describe(path, root, 'MIT'));
   }
   const manifest = {
     schemaVersion: 1,
-    datasetId: 'onizuka-aero-ax01-r1',
+    datasetId: 'onizuka-aero-ax01-r2',
     designId: 'AX-01',
-    revision: 'r1',
+    displayName: 'AX-01 SUZAKU',
+    revision: 'r2',
     generatedAt: new Date().toISOString(),
     publisher: 'ONIZUKA AERO AGI Co.',
-    attribution: 'ONIZUKA AERO AGI Co., AX-01 KIRIN dataset r1',
+    attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU dataset r2',
     repository: 'https://github.com/onizuka-agi-co/onizuka-aero-agi-co',
     scope: 'Fictional art geometry and simulated arcade gameplay. No physical aircraft performance data.',
     files,

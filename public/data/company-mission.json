@@ -2,9 +2,10 @@
   "schemaVersion": 1,
   "recordType": "observed-public-company-task-snapshot",
   "designId": "AX-01",
-  "revision": "r1",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r2",
   "status": "observed",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 first mission task snapshot r1",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU mission task snapshot r2",
   "generator": {
     "command": "node scripts/snapshot-company.mjs",
     "source": "scripts/snapshot-company.mjs",
@@ -12,7 +13,7 @@
   },
   "company": "ONIZUKA AERO AGI Co.",
   "missionId": "AX01-FIRST-RELEASE",
-  "recordedAt": "2026-10-20T13:01:36.706Z",
+  "recordedAt": "2026-10-20T14:04:12.708Z",
   "provenance": {
     "kind": "observed-public-project-state",
     "source": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues",
@@ -51,6 +52,14 @@
       "state": "CLOSED",
       "title": "Verify and publish the first dataset and playable site",
       "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/4"
+    },
+    {
+      "closedAt": null,
+      "createdAt": "2026-10-20T13:44:27Z",
+      "number": 5,
+      "state": "OPEN",
+      "title": "Redesign AX-01 r2 as the selected SUZAKU toy and publish CAD/game update",
+      "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/5"
     }
   ]
 }

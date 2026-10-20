@@ -6,8 +6,9 @@ import { ARCADE_CONFIGS, FIXED_DT_SECONDS, createState, step } from '../src/arca
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDirectory = join(root, 'public', 'data');
-const assetRevision = 'r1';
+const assetRevision = 'r2';
 const designId = 'AX-01';
+const displayName = 'AX-01 SUZAKU';
 const seed = 20_261_020;
 const variants = ['standard', 'longwing'];
 const hash = value => createHash('sha256').update(value).digest('hex');
@@ -73,8 +74,9 @@ function simulate(variant, runKind = 'route-following') {
   const recordedAt = new Date().toISOString();
   const record = {
     schemaVersion: 1,
-    recordId: `AX01-ARCADE-${variant}-${runKind}-R1-${seed}`,
+    recordId: `AX01-ARCADE-${variant}-${runKind}-R2-${seed}`,
     designId,
+    displayName,
     assetRevision,
     variant,
     recordedAt,
@@ -82,7 +84,7 @@ function simulate(variant, runKind = 'route-following') {
     runKind,
     valueKinds: { samples: 'simulated-game-state', inputs: 'scripted-synthetic', tuning: 'artistic', runtimeVersion: 'observed' },
     license: 'CC-BY-4.0',
-    attribution: `ONIZUKA AERO AGI Co., ${designId} arcade record ${variant} r1`,
+    attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade record ${variant} r2`,
     scope: 'Deterministic fictional gate-flight gameplay only. This record is simulated input and game state, not user telemetry, physical flight, or aircraft performance data.',
     units: {
       time: 'second',
@@ -137,11 +139,12 @@ await mkdir(dataDirectory, { recursive: true });
 const summary = {
   schemaVersion: 1,
   designId,
+  displayName,
   assetRevision,
   recordedAt: new Date().toISOString(),
   status: 'generated',
   license: 'CC-BY-4.0',
-  attribution: 'ONIZUKA AERO AGI Co., AX-01 arcade simulations r1',
+  attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade simulations r2`,
   scope: 'Deterministic fictional gate-flight gameplay only. No real-flight simulation or user telemetry.',
   runs: [],
 };

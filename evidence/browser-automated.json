@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-20T12:49:36.987Z",
+  "checkedAt": "2026-10-20T14:09:17.969Z",
   "target": "http://127.0.0.1:4188/",
   "status": "pass",
   "checks": [
@@ -63,18 +63,19 @@
   ],
   "recordType": "observed-browser-verification",
   "designId": "AX-01",
-  "revision": "r1",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r2",
   "license": "CC-BY-4.0",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 browser verification r1",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r2",
   "generator": "scripts/browser-qa.mjs",
   "method": "Actual Chromium mouse, keyboard and CDP touch input against the built static site.",
   "sourceHashes": {
-    "src/main.js": "dbbb65ed011168483f171e4655c5525fb58030ca2e294c7fa31da108e0cd5f9d",
-    "src/scene.js": "7d4ac5599e8668a965cd8840d45ee706af0ec02227a8b666bb2d3a1429d98487",
-    "src/style.css": "66c537ca8634344807da1e047072ab16f75abdf51fd8e085daea57019ce87609",
+    "src/main.js": "dcd70276aac85a2ed433b37392e799cf40b04afa1f971019d5dcad7c3e178fb8",
+    "src/scene.js": "0bd74c0214fe08fbbc54a7d533d61f864ec39b45efc77633f74a48743902e15d",
+    "src/style.css": "a9a03667d8d982856d324a7586f5dbcc1310aff9c13d35cdd93b290dfa863045",
     "src/arcade.mjs": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c",
-    "index.html": "d842e6b6796dca4d417bcd6be3655322f5072c4f3254faf939b65a249df2981c",
-    "scripts/browser-qa.mjs": "9860c066916e423eb411096666d669581e6f0a6e8b3435a710b55ac900fda6ba"
+    "index.html": "db88357ed44ea2028ba9e142988700d49a7932bb93d1f1a7d8c3425227ffd319",
+    "scripts/browser-qa.mjs": "8e2f4a7020dd7eeb27a0a862a34b102c39f5eaaeb2207cd05c50f231aba57c5e"
   },
   "browser": "151.0.7922.34"
 }

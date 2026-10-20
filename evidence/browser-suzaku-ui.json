@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-browser-verification",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r2",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU direct browser verification r2",
+  "checkedAt": "2026-10-20T14:12:27.2376993Z",
+  "target": "http://127.0.0.1:4178/",
+  "status": "pass",
+  "method": "Actual in-app-browser CUA mouse and keyboard actions against the production Vite preview, followed by accessibility-state and screenshot observations.",
+  "viewport": {
+    "width": 785,
+    "height": 985
+  },
+  "checks": [
+    {
+      "passed": true,
+      "name": "SUZAKU r2 standard mesh visibly loaded in hangar"
+    },
+    {
+      "passed": true,
+      "name": "Longwing selection and complete craft visible in hangar"
+    },
+    {
+      "passed": true,
+      "name": "Longwing course completed with 225 points, two gates passed and twelve missed"
+    },
+    {
+      "passed": true,
+      "name": "Native Shift and right/left inputs accepted during a new flight"
+    },
+    {
+      "passed": true,
+      "name": "New flight reached 225 points and two gates"
+    },
+    {
+      "passed": true,
+      "name": "Pause held score 225, two gates and 68 seconds across observations"
+    },
+    {
+      "passed": true,
+      "name": "Resume restored LIVE; remaining time advanced and the course reached FINISHED"
+    },
+    {
+      "passed": true,
+      "name": "Return to selection restored READY controls"
+    },
+    {
+      "passed": true,
+      "name": "CAD projected preview visibly shows the tapered forward-swept red/ivory/gold toy"
+    }
+  ],
+  "screenshots": [
+    "suzaku-ready.jpg",
+    "suzaku-longwing.jpg",
+    "suzaku-play.jpg",
+    "suzaku-finished.jpg",
+    "suzaku-cad-standard.jpg"
+  ],
+  "limits": [
+    "This direct session used the desktop in-app browser. Mobile checks are reported separately by the automated Chromium touch-emulation record; no physical phone was tested."
+  ],
+  "sourceHashes": {
+    "src/main.js": "dcd70276aac85a2ed433b37392e799cf40b04afa1f971019d5dcad7c3e178fb8",
+    "src/scene.js": "0bd74c0214fe08fbbc54a7d533d61f864ec39b45efc77633f74a48743902e15d",
+    "src/style.css": "a9a03667d8d982856d324a7586f5dbcc1310aff9c13d35cdd93b290dfa863045",
+    "src/arcade.mjs": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c",
+    "index.html": "db88357ed44ea2028ba9e142988700d49a7932bb93d1f1a7d8c3425227ffd319",
+    "scripts/generate-cad.py": "9047466d3858619d1fd5124c2b883185b8ad0520151563e8a533e8834825baf5",
+    "public/assets/ax01/standard/mesh.json": "32d6d3be43abc33f687473d6780d14ae54b8288cf595998d2353adc9b72272ad",
+    "public/assets/ax01/longwing/mesh.json": "05dc28266e0eea2f3c9a560c2c81f133de928f24a22466f9cdda6a63a783658c"
+  },
+  "firstFrameRetest": "After the hangar camera switched to immediate fit, the first visible frame showed the whole standard craft; longwing and return-to-selection were also rechecked."
+}

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "designId": "AX-01",
+  "revision": "r2",
+  "recordType": "generated-concept-art",
+  "license": "MIT",
+  "generator": "Built-in image_gen imagegen tool",
+  "status": "concepts-generated-C-selected",
+  "selectedConcept": "c-suzaku",
+  "scope": "Fictional collectible toy visual concepts; not CAD or engineering results.",
+  "concepts": [
+    {
+      "id": "a-kirin-mk2",
+      "title": "A / KIRIN MK.II",
+      "file": "a-kirin-mk2.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: one premium concept-design sheet for ONIZUKA AERO AGI Co.'s fictional collectible toy aircraft, intended as a visual reference for a CAD model and an arcade game.\nPrimary request: make a dramatically cooler original near-future fighter-looking TOY. This is imaginative toy styling, not a real aircraft design.\nStyle/medium: sophisticated Japanese science-fiction industrial-design concept art, polished hard-surface 3D product render, crisp readable forms, strong silhouette, high-quality materials, controlled detail. A few large interlocking surfaces that can be modeled in CAD, with accent panels and toy-like seams, not a noisy pile of greebles.\nComposition: landscape concept sheet. One large complete three-quarter hero view occupying most of the page, with a smaller clear top view and side view of the SAME consistent design along the bottom. Entire aircraft and wing tips visible, nose pointed to the left in the hero view, no cropping. Clean neutral light-gray studio background, soft grounding shadow, no environment or props.\nConstraints: original fictional design, unmistakably a collectible plastic desk toy; harmless rounded edge treatment underneath the sharp visual styling. No weapons, missiles, gun barrels, bomb bays, ammunition, military insignia, real manufacturer logos, schematics, dimensions or engineering specifications. No characters. No watermark. Only the exact small title specified below; no other text. The smaller views must match the hero silhouette and colors. This sheet is conceptual artwork, not a CAD or simulation result.\nSubject and visual direction: A — the elegant spearhead evolution of AX-01 KIRIN. A long sculpted central nose with a dark smoked teal canopy nested into it, broad cranked swept wings forming a clean arrowhead silhouette, two small outward-canted jewel-like fins at the rear, strongly layered dorsal armor panels, restrained cyan light strips and an orange identification accent. Pearl white main surfaces, deep midnight-blue secondary panels, cyan glass. Sleek and fast-looking yet solid and tactile, rather than flat paper wings. Clearly a striking premium Japanese sci-fi model-kit toy.\nText (verbatim): \"A / KIRIN MK.II\", set once in small clean sans-serif typography.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2090354,
+      "sha256": "0da866593dcf87ffdc5f0175f5d477eb10881e7095c0ff97107219fa43141317"
+    },
+    {
+      "id": "b-raikou",
+      "title": "B / RAIKOU",
+      "file": "b-raikou.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: one premium concept-design sheet for ONIZUKA AERO AGI Co.'s fictional collectible toy aircraft, intended as a visual reference for a CAD model and an arcade game.\nPrimary request: make a dramatically cooler original near-future fighter-looking TOY. This is imaginative toy styling, not a real aircraft design.\nStyle/medium: sophisticated Japanese science-fiction industrial-design concept art, polished hard-surface 3D product render, crisp readable forms, strong silhouette, high-quality materials, controlled detail. A few large interlocking surfaces that can be modeled in CAD, with accent panels and toy-like seams, not a noisy pile of greebles.\nComposition: landscape concept sheet. One large complete three-quarter hero view occupying most of the page, with a smaller clear top view and side view of the SAME consistent design along the bottom. Entire aircraft and wing tips visible, nose pointed to the left in the hero view, no cropping. Clean neutral light-gray studio background, soft grounding shadow, no environment or props.\nConstraints: original fictional design, unmistakably a collectible plastic desk toy; harmless rounded edge treatment underneath the sharp visual styling. No weapons, missiles, gun barrels, bomb bays, ammunition, military insignia, real manufacturer logos, schematics, dimensions or engineering specifications. No characters. No watermark. Only the exact small title specified below; no other text. The smaller views must match the hero silhouette and colors. This sheet is conceptual artwork, not a CAD or simulation result.\nSubject and visual direction: B — the compact muscular armored toy interceptor. A short chisel nose, substantial central cockpit pod, very broad angular diamond shoulders, chunky sculpted wing roots, two distinct rear nacelle housings with decorative amber light recesses and tall split rear fins. Gunmetal and graphite surfaces, vivid safety-orange large accent blocks, warm amber transparent details. Strong compact mechanical presence, dense but readable silhouette, larger beveled toy shells and pronounced thickness, unlike a slender white jet. Decorative housings only, no functional engineering cutaways.\nText (verbatim): \"B / RAIKOU\", set once in small clean sans-serif typography.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2253520,
+      "sha256": "2b10215d970a88c527734624eb2ce2b7263da89673fd958354962d94ce6ea678"
+    },
+    {
+      "id": "c-suzaku",
+      "title": "C / SUZAKU",
+      "file": "c-suzaku.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: one premium concept-design sheet for ONIZUKA AERO AGI Co.'s fictional collectible toy aircraft, intended as a visual reference for a CAD model and an arcade game.\nPrimary request: make a dramatically cooler original near-future fighter-looking TOY. This is imaginative toy styling, not a real aircraft design.\nStyle/medium: sophisticated Japanese science-fiction industrial-design concept art, polished hard-surface 3D product render, crisp readable forms, strong silhouette, high-quality materials, controlled detail. A few large interlocking surfaces that can be modeled in CAD, with accent panels and toy-like seams, not a noisy pile of greebles.\nComposition: landscape concept sheet. One large complete three-quarter hero view occupying most of the page, with a smaller clear top view and side view of the SAME consistent design along the bottom. Entire aircraft and wing tips visible, nose pointed to the left in the hero view, no cropping. Clean neutral light-gray studio background, soft grounding shadow, no environment or props.\nConstraints: original fictional design, unmistakably a collectible plastic desk toy; harmless rounded edge treatment underneath the sharp visual styling. No weapons, missiles, gun barrels, bomb bays, ammunition, military insignia, real manufacturer logos, schematics, dimensions or engineering specifications. No characters. No watermark. Only the exact small title specified below; no other text. The smaller views must match the hero silhouette and colors. This sheet is conceptual artwork, not a CAD or simulation result.\nSubject and visual direction: C — the daring forward-swept phoenix-inspired racing toy. Elegant red central fuselage with a clear gold-tinted teardrop canopy, wings with roots toward the rear sweeping distinctly forward toward the nose, small sharply graphic cream-colored leading accent panels, two slim rear fins, a visibly layered belly shell. Vermilion red and warm ivory with charcoal joints and gold highlights. Dynamic, optimistic, flamboyant Japanese sci-fi arcade styling. The aircraft remains a mechanical collectible toy, not a literal bird. The forward-swept silhouette must be unambiguous and visually different from an ordinary swept-back fighter.\nText (verbatim): \"C / SUZAKU\", set once in small clean sans-serif typography.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2040579,
+      "sha256": "f5b1f44f8565680a4c954068cb0879e3e9c4d5029fae3a9d11a80af36fb54a29"
+    },
+    {
+      "id": "d-yatagarasu",
+      "title": "D / YATAGARASU",
+      "file": "d-yatagarasu.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: one premium concept-design sheet for ONIZUKA AERO AGI Co.'s fictional collectible toy aircraft, intended as a visual reference for a CAD model and an arcade game.\nPrimary request: make a dramatically cooler original near-future fighter-looking TOY. This is imaginative toy styling, not a real aircraft design.\nStyle/medium: sophisticated Japanese science-fiction industrial-design concept art, polished hard-surface 3D product render, crisp readable forms, strong silhouette, high-quality materials, controlled detail. A few large interlocking surfaces that can be modeled in CAD, with accent panels and toy-like seams, not a noisy pile of greebles.\nComposition: landscape concept sheet. One large complete three-quarter hero view occupying most of the page, with a smaller clear top view and side view of the SAME consistent design along the bottom. Entire aircraft and wing tips visible, nose pointed to the left in the hero view, no cropping. Clean neutral light-gray studio background, soft grounding shadow, no environment or props.\nConstraints: original fictional design, unmistakably a collectible plastic desk toy; harmless rounded edge treatment underneath the sharp visual styling. No weapons, missiles, gun barrels, bomb bays, ammunition, military insignia, real manufacturer logos, schematics, dimensions or engineering specifications. No characters. No watermark. Only the exact small title specified below; no other text. The smaller views must match the hero silhouette and colors. This sheet is conceptual artwork, not a CAD or simulation result.\nSubject and visual direction: D — the alien manta-shaped tailless toy. A wide broad triangular manta silhouette, compact central smoked-violet canopy ridge, split wingtips with upward-folded sculptural end pieces, smoothly faceted black-purple shell surfaces separated by a few large silver-gray inset panels. A wide geometric scallop in the rear edge and three violet decorative light windows provide a distinctive graphic signature. Obsidian and satin deep purple with intense magenta-violet accents, subtle pale silver panel edges. Visually radical, low and wide, no tall tail fins, no conventional slender jet body. Clearly a toy sci-fi spacecraft aesthetic, no claims about stealth or performance.\nText (verbatim): \"D / YATAGARASU\", set once in small clean sans-serif typography.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2051107,
+      "sha256": "d247c100e80e2f830c83cc080be09470acb8c36e21d0b0f14e073941e33e564c"
+    }
+  ],
+  "selectionProvenance": "The human user explicitly selected C / SUZAKU in this project conversation."
+}

@@ -1,15 +1,16 @@
 {
   "schemaVersion": 1,
   "designId": "AX-01",
-  "assetRevision": "r1",
-  "recordedAt": "2026-10-20T12:36:15.560Z",
+  "displayName": "AX-01 SUZAKU",
+  "assetRevision": "r2",
+  "recordedAt": "2026-10-20T13:55:13.669Z",
   "status": "generated",
   "license": "CC-BY-4.0",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 arcade simulations r1",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU arcade simulations r2",
   "scope": "Deterministic fictional gate-flight gameplay only. No real-flight simulation or user telemetry.",
   "runs": [
     {
-      "recordId": "AX01-ARCADE-standard-route-following-R1-20261020",
+      "recordId": "AX01-ARCADE-standard-route-following-R2-20261020",
       "variant": "standard",
       "runKind": "route-following",
       "status": "generated",
@@ -26,7 +27,7 @@
       ]
     },
     {
-      "recordId": "AX01-ARCADE-longwing-route-following-R1-20261020",
+      "recordId": "AX01-ARCADE-longwing-route-following-R2-20261020",
       "variant": "longwing",
       "runKind": "route-following",
       "status": "generated",
@@ -43,7 +44,7 @@
       ]
     },
     {
-      "recordId": "AX01-ARCADE-standard-miss-control-R1-20261020",
+      "recordId": "AX01-ARCADE-standard-miss-control-R2-20261020",
       "variant": "standard",
       "runKind": "miss-control",
       "status": "generated",

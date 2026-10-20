@@ -6,32 +6,43 @@
 
 ### 概要
 
-このカードは、AX-01 KIRIN r1のCAD形状確認と、民生向けゲート飛行アーケードの決定論的な模擬記録を説明します。AX-01 KIRINは架空の近未来戦闘機風ビジュアル資産です。データ記録は公開リポジトリに含まれます。ゲームサイトはGitHub Pagesで公開済みです。GitHub Actions CIと公開サイトでのブラウザ検証も通過しました。
+このカードは架空のコレクショントイ AX-01 SUZAKU r2 の形状データと、民生向けアーケードゲームの模擬記録を説明します。ゲーム記録は合成入力を再生した結果で、実機の飛行データやユーザーのテレメトリではありません。r2のローカル検証は完了しましたが、公開サイトの確認は未完了です。
 
 | 項目 | 値 |
 | --- | --- |
-| データセットID | `onizuka-aero-ax01-r1` |
-| デザインID / 改訂 | `AX-01` / `r1` |
+| データセットID | `onizuka-aero-ax01-r2` |
+| デザインID / 表示名 / 改訂 | `AX-01` / `AX-01 SUZAKU` / `r2` |
 | CAD生成ツール | FreeCAD 1.1.3 |
 | 造形バリアント | `standard`、`longwing` |
-| CADパーツ | 各バリアント9個。すべて妥当と判定 |
-| メッシュ | 各バリアント360三角形。`schemaVersion: 1` |
-| 左右翼の最大頂点偏差 | 0.0。任意設計単位。許容値は`1e-6` |
+| CAD形状 | 各バリアント40個。すべて妥当と判定 |
+| メッシュ | `standard` 2,800三角形、62,320バイト。`longwing` 2,752三角形、61,278バイト |
+| 左右主翼の最大偏差 | 0.0任意設計単位。許容値は`1e-6` |
 | 形状レポート | `public/data/geometry-report.json`。状態は`passed` |
+| 再生成チェック | 実行済み。両メッシュのSHA-256が一致 |
 | アーケード記録 | 3ケース。JSON 3件とCSV 3件。`schemaVersion: 1` |
-| アーケード記録の状態 | 3件を生成し、データ検証に合格 |
-| 会社ミッション記録 | `public/data/company-mission.json`。公開GitHub Issue状態の観測スナップショット |
+| リプレイテスト | 3件すべて通過 |
+| 現行ローカル検証 | Node 15/15、Chromium 12/12、直接UI 9/9、本番ビルド合格 |
 | データ記録のライセンス | CC BY 4.0 |
+
+メッシュ境界（X/Y/Z、任意設計単位）は、standard が X[-8.35, 8.45]・Y[-9.2, 9.2]・Z[-0.688344, 3.56]、longwing が X[-8.35, 8.45]・Y[-11.4, 11.4]・Z[-0.688344, 3.56] です。各メッシュのSHA-256と出力ファイルの詳細は形状レポートに記録しています。
+
+### コンセプトアートと選択
+
+組み込みの `image_gen imagegen` ツールで4案を生成し、ユーザーが C / SUZAKU を選びました。画像と各案のプロンプトは `design/concepts/ax01-r2/` にあります。選ばれた画像はCADを作るための視覚資料です。CAD出力や工学的解析の結果ではありません。4枚すべてにMIT Licenseを適用します。
+
+![選択された C / SUZAKU のコンセプトシート](../design/concepts/ax01-r2/c-suzaku.png)
 
 ### 内容と用途
 
-各バリアントの`public/assets/ax01/standard/`と`public/assets/ax01/longwing/`に、FreeCADネイティブ形式の`.FCStd`、STEP、STL、`mesh.json`、`preview.svg`があります。FreeCADネイティブ形式とSTEPは各9形状を再インポートして確認し、STLは各360三角形を再読込して確認しました。9パーツは独立した造形要素です。重なりを許容しており、組立状態の水密ソリッドとは扱いません。ゲームも各CAD出力から生成した同じ`mesh.json`を読み込みます。
+各バリアントの `public/assets/ax01/standard/` と `public/assets/ax01/longwing/` に、FreeCAD形式の `.FCStd`、STEP、STL、`mesh.json`、`preview.svg` があります。形状レポートではFreeCAD形式とSTEPを各40形状で再読み込みし、STLの三角形数も確認しました。形状同士は重なる場合があるため、組み立てた水密ソリッドとは扱いません。
 
-形状レポートには形状の妥当性、境界、部品数、三角形数、左右翼の対称性、エクスポート後の再読込結果を記録しています。左右翼は、メッシュ頂点をY軸で反転した集合間の対称Hausdorff距離で比較しています。任意設計単位で測った最大偏差は0.0です。
+両バリアントの主翼パーツ名は `LeftForwardSweptWing` と `RightForwardSweptWing` です。メッシュの座標系は `+X forward, Y span, +Z up` です。主翼の鏡映対称性はY軸で反転した頂点集合の対称Hausdorff距離で測定しました。任意設計単位での最大偏差は0.0で、許容値`1e-6`の範囲内です。
 
-会社ミッション記録 `public/data/company-mission.json` は、`scripts/snapshot-company.mjs` がGitHub CLIで公開Issueの状態を取得し、`recordedAt`時点のミッション進行として保存した観測記録です。議事録や承認記録、航空機性能データではありません。
+形状レポートは各メッシュのバイト数、SHA-256、境界、部品数、三角形数、再読み込み結果を記録します。再生成チェックは `scripts/generate-cad.py --verify-determinism` を実行し、既存メッシュと再生成メッシュのSHA-256を比較します。確認対象は `mesh.json` です。`.FCStd` などを含むすべての出力がバイト単位で一致するとは保証しません。
 
-アーケード記録は保存済みの合成入力を`src/arcade.mjs`で再生した結果です。JSONには再生入力、各フレームのゲーム状態、結果、実行条件と出典を記録し、CSVにはフレームごとの状態を並べています。
+会社ミッション記録 `public/data/company-mission.json` は、`scripts/snapshot-company.mjs` がGitHub CLIで公開Issueの状態を取得し、記録時点のタスク進行として保存する観測記録です。議事録、承認記録、航空機性能データではありません。
+
+アーケード記録は保存済みの合成入力を `src/arcade.mjs` で再生した結果です。JSONには入力、各フレームのゲーム状態、結果、実行条件、来歴を記録します。CSVにはフレームごとの状態を並べます。
 
 | ケース | 再生フレーム数 | 得点 | ゲート結果 |
 | --- | ---: | ---: | --- |
@@ -43,48 +54,59 @@
 
 ### 制限
 
-このデータセットが対象とするのは、CAD形状とゲーム内の模擬操作です。任意設計単位の形状妥当性、境界、要素数、左右対称性は、実在機の寸法、空力、飛行性能、構造強度、推進、ステルス、兵器、製造を評価または保証しません。パーツは独立した外形で、組み上げた航空機の構造や機能を表しません。
+このデータセットが扱うのは、架空のビジュアル資産の形状とゲーム内の模擬操作です。任意設計単位で測った形状の妥当性、境界、要素数、左右対称性は、実在機の寸法、空力、飛行性能、構造強度、推進、製造を評価または保証しません。形状パーツは独立した外形で、組み上げた航空機の構造や機能を表しません。
 
-ゲームはゲート通過を目的とする民生向けアーケードです。実機の飛行を再現せず、兵器も登場しません。記録は合成入力と模擬ゲーム状態で、ユーザーのテレメトリではありません。初期版のゲームはテレメトリを収集しません。
+ゲームはゲート通過を目的とする民生向けアーケードです。実機の飛行を再現せず、兵器も登場しません。記録は合成入力と模擬ゲーム状態で、ユーザーのテレメトリではありません。ゲームはテレメトリを収集しません。
 
-再生成チェックは`mesh.json`のSHA-256を比較します。FreeCADコンテナなどに時刻情報が含まれることがあるため、`.FCStd`を含むすべての出力がバイト単位で一致するとは保証しません。現在のローカル検証ではNodeテスト14件とPlaywrightブラウザ検証12件が通過しています。スマートフォン実機では未確認です。
+FreeCADの形状レポートと再生成チェックは合格しました。リプレイテスト3件、Nodeテスト15件、本番ビルド、ローカルChromium自動確認12件、直接UI確認9件もすべて合格しました。ブラウザ記録は[自動確認](../evidence/browser-automated.json)と[直接UI確認](../evidence/browser-suzaku-ui.json)にあります。いずれもローカルプレビューの結果で、スマートフォン実機では確認していません。GitHub上のr2 CI、Pagesへの公開、最新公開先の匿名確認は未完了です。以前のブラウザ・公開確認記録はr1の履歴です。
 
 ### 来歴と帰属表示
 
-アーケードのJSON記録には`recordId`、`designId`、改訂、スキーマ版、記録時刻、生成ツール、入力ハッシュ、実行条件、状態、ライセンス、帰属表示があります。形状レポートにはデザインID、改訂、スキーマ版、生成スクリプトのハッシュ、チェック設定、測定結果を記録しています。
+アーケードJSONには `recordId`、`designId`、`displayName`、改訂、スキーマ版、記録時刻、生成ツール、入力ハッシュ、実行条件、状態、ライセンス、帰属表示があります。形状レポートにはデザインID、改訂、コンセプト画像のパスとSHA-256、生成スクリプトのハッシュ、チェック設定、測定結果を記録します。
 
-`public/data/manifest.json`は、`public/assets/`のCADアセットと`public/data/`のデータ記録について、パス、バイト数、SHA-256、ライセンスを一覧にします。`evidence/*.json`と`decisions.tsv`の監査記録は別の公開記録群で、このデータセットのマニフェストには含めません。各ファイル自身のハッシュはそのファイルに書かず、マニフェストで管理します。データ記録のライセンス本文は[LICENSE-DATA](../LICENSE-DATA)を参照してください。帰属表示には`ONIZUKA AERO AGI Co.`と対象の記録またはリリースを含めてください。
+`public/data/manifest.json` は、`public/assets/` のCADアセットと `public/data/` のデータ記録について、パス、バイト数、SHA-256、ライセンスを一覧にします。`design/concepts/ax01-r2/` の画像とプロンプトもソースとして記録し、MIT Licenseを付与します。`evidence/*.json` と `decisions.tsv` は別の監査記録群で、データセットのマニフェストには含めません。各ファイルのハッシュはそのファイル内ではなくマニフェストに保存します。データ記録のライセンス本文は[LICENSE-DATA](../LICENSE-DATA)を参照してください。帰属表示には `ONIZUKA AERO AGI Co.` と対象の記録またはリリースを含めてください。
 
 ## English
 
 ### Overview
 
-This card describes CAD geometry checks for AX-01 KIRIN r1 and deterministic simulation records from a civilian gate-flight arcade game. AX-01 KIRIN is a fictional near-future fighter-inspired visual asset. The data records are included in the public repository. The game is published on GitHub Pages; GitHub Actions CI and browser validation against the public site passed.
+This card describes geometry data for AX-01 SUZAKU r2, a fictional collectible toy, and simulated records from a civilian arcade game. The game records replay synthetic inputs. They are not flight data or user telemetry. Verification of the r2 public site is pending.
 
 | Item | Value |
 | --- | --- |
-| Dataset ID | `onizuka-aero-ax01-r1` |
-| Design ID / revision | `AX-01` / `r1` |
+| Dataset ID | `onizuka-aero-ax01-r2` |
+| Design ID / display name / revision | `AX-01` / `AX-01 SUZAKU` / `r2` |
 | CAD generator | FreeCAD 1.1.3 |
 | Artistic variants | `standard`, `longwing` |
-| CAD parts | 9 per variant; all reported valid |
-| Mesh | 360 triangles per variant; `schemaVersion: 1` |
-| Maximum mirrored-wing vertex deviation | 0.0 arbitrary design units; tolerance `1e-6` |
+| CAD shapes | 40 per variant; all reported valid |
+| Mesh | `standard`: 2,800 triangles, 62,320 bytes. `longwing`: 2,752 triangles, 61,278 bytes |
+| Maximum mirrored-wing deviation | 0.0 arbitrary design units; tolerance `1e-6` |
 | Geometry report | `public/data/geometry-report.json`; status `passed` |
+| Regeneration check | Executed; both mesh SHA-256 hashes matched |
 | Arcade records | 3 cases, with 3 JSON files and 3 CSV files; `schemaVersion: 1` |
-| Arcade record status | All 3 generated; data verification passed |
-| Company mission record | `public/data/company-mission.json`; snapshot of public GitHub issue status at `recordedAt` |
+| Replay tests | All 3 passed |
+| Current local checks | Node 15/15, Chromium 12/12, direct UI 9/9, production build passed |
 | Data-record license | CC BY 4.0 |
+
+Mesh bounds (X/Y/Z, in arbitrary design units) are standard X[-8.35, 8.45] / Y[-9.2, 9.2] / Z[-0.688344, 3.56], and longwing X[-8.35, 8.45] / Y[-11.4, 11.4] / Z[-0.688344, 3.56]. The geometry report records each mesh SHA-256 and export details.
+
+### Concept art and selection
+
+Four concept sheets were generated with the built-in `image_gen imagegen` tool. The user selected C / SUZAKU. The images and prompts are in `design/concepts/ax01-r2/`. The selected sheet is a visual reference for the CAD model. It is not a CAD export or an engineering result. All four sheets use the MIT License.
+
+![Selected C / SUZAKU concept sheet](../design/concepts/ax01-r2/c-suzaku.png)
 
 ### Contents and uses
 
-Each variant directory, `public/assets/ax01/standard/` and `public/assets/ax01/longwing/`, contains a native FreeCAD `.FCStd` file, STEP, STL, `mesh.json`, and `preview.svg`. The native FreeCAD files and STEP exports were reopened and checked for 9 shapes each. The STL exports were reopened and checked for 360 triangles each. The nine parts are separate artistic shapes that may overlap; they do not claim to form a watertight assembly. The game loads the same `mesh.json` generated from each CAD asset.
+Each variant directory, `public/assets/ax01/standard/` and `public/assets/ax01/longwing/`, contains a native FreeCAD `.FCStd` file, STEP, STL, `mesh.json`, and `preview.svg`. The geometry report records 40 shapes reopened from the native FreeCAD file and STEP for each variant. It also records STL triangle counts that match each mesh. The separate shapes may overlap; they do not claim to form a watertight assembly.
 
-The geometry report records shape validity, bounds, part and triangle counts, mirrored-wing symmetry, and export-reopen checks. The wing comparison uses the symmetric Hausdorff distance between tessellated vertex sets after reflection across Y. The measured maximum deviation is 0.0 in arbitrary design units.
+The primary wing parts are named `LeftForwardSweptWing` and `RightForwardSweptWing`. The mesh coordinate system is `+X forward, Y span, +Z up`. The report measures mirrored-wing symmetry as the symmetric Hausdorff distance between vertex sets after reflection across Y. The maximum deviation is 0.0 arbitrary design units, within the `1e-6` tolerance.
 
-The company mission record, `public/data/company-mission.json`, is an observation snapshot of public GitHub issue status at `recordedAt`, generated by `scripts/snapshot-company.mjs` using the GitHub CLI. It documents mission progress, not meeting minutes, approval records, or aircraft performance.
+The geometry report records each mesh's byte count, SHA-256, bounds, part count, triangle count, and export-reopen checks. The regeneration check runs `scripts/generate-cad.py --verify-determinism` and compares SHA-256 hashes for the existing and regenerated `mesh.json` files. It does not promise byte-for-byte identity for every output, including `.FCStd` archives.
 
-The arcade records replay saved synthetic inputs through `src/arcade.mjs`. Each JSON record stores replay inputs, per-frame game state, results, run conditions, and provenance. CSV files list the per-frame state for tabular review.
+The company mission record, `public/data/company-mission.json`, is an observation snapshot of public GitHub issue status at `recordedAt`. `scripts/snapshot-company.mjs` generates it with the GitHub CLI. The record is not meeting minutes, an approval record, or aircraft performance data.
+
+The arcade records replay saved synthetic inputs through `src/arcade.mjs`. Each JSON file stores inputs, per-frame game state, results, run conditions, and provenance. CSV files list per-frame state.
 
 | Case | Replay frames | Score | Gate result |
 | --- | ---: | ---: | --- |
@@ -96,14 +118,14 @@ See the [arcade summary](../public/data/arcade-summary.json), [geometry report](
 
 ### Limits
 
-The dataset covers CAD geometry and simulated gameplay. Geometry validity, bounds, element counts, and symmetry in arbitrary design units do not evaluate or guarantee real aircraft dimensions, aerodynamics, flight performance, structural strength, propulsion, stealth, weapons, or manufacturing. The parts are separate outer shapes and do not describe an assembled aircraft structure or function.
+The dataset covers the geometry of a fictional visual asset and simulated gameplay. Shape validity, bounds, element counts, and symmetry in arbitrary design units do not evaluate or guarantee real aircraft dimensions, aerodynamics, flight performance, structural strength, propulsion, or manufacturing. The parts are separate outer shapes and do not describe an assembled aircraft structure or function.
 
-The game is a civilian gate-flight arcade experience. It does not simulate real flight and includes no weapons. The records contain synthetic inputs and simulated game state, not user telemetry. The initial game collects no telemetry.
+The game is a civilian gate-flight arcade experience. It does not simulate real flight and includes no weapons. The records contain synthetic inputs and simulated game state, not user telemetry. The game collects no telemetry.
 
-The regeneration check compares SHA-256 hashes of `mesh.json`. FreeCAD containers and other files may include timestamps, so the project does not claim byte-for-byte determinism for every output. Current local validation passed 14 Node tests and 12 Playwright browser checks. Physical phones have not been tested.
+The FreeCAD geometry report and regeneration check passed. All three replay tests, all 15 Node tests, the production build, 12 automated Chromium checks, and 9 direct UI checks passed locally. The browser reports are [automated](../evidence/browser-automated.json) and [direct UI](../evidence/browser-suzaku-ui.json). Both target local previews; physical phones have not been tested. GitHub r2 CI, Pages publication, and anonymous verification of the latest public deployment are pending. Older browser and publication reports are historical r1 records.
 
 ### Provenance and attribution
 
-Arcade JSON records include `recordId`, `designId`, revision, schema version, recording time, generator, input hash, run conditions, status, license, and attribution. The geometry report includes its design ID, revision, schema version, generator-script hash, check settings, and measurements.
+Arcade JSON records include `recordId`, `designId`, `displayName`, revision, schema version, recording time, generator, input hash, run conditions, status, license, and attribution. The geometry report includes the design ID, revision, concept image path and SHA-256, generator-script hash, check settings, and measurements.
 
-`public/data/manifest.json` lists paths, byte counts, SHA-256 hashes, and licenses for CAD assets under `public/assets/` and data records under `public/data/`. Audit records under `evidence/*.json` and `decisions.tsv` are a separate public record set and are not part of this dataset manifest. The manifest stores file hashes separately from the files. See [LICENSE-DATA](../LICENSE-DATA) for the data-record license notice. Include `ONIZUKA AERO AGI Co.` and the relevant record or release in attribution.
+`public/data/manifest.json` lists paths, byte counts, SHA-256 hashes, and licenses for CAD assets under `public/assets/` and data records under `public/data/`. The catalog also records concept images and prompts under `design/concepts/ax01-r2/` as MIT sources. Audit records under `evidence/*.json` and `decisions.tsv` are a separate record set and are not part of the dataset manifest. The manifest stores file hashes separately from the files. See [LICENSE-DATA](../LICENSE-DATA) for the data-record license notice. Include `ONIZUKA AERO AGI Co.` and the relevant record or release in attribution.

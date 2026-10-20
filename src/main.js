@@ -39,6 +39,16 @@ let accumulator = 0;
 let lastHudUpdate = 0;
 let frameInput = { steerX: 0, steerY: 0, boost: false };
 
+function familyFrameHalfExtents() {
+  const bounds = { x: 0, y: 0, z: 0 };
+  for (const asset of assets.values()) {
+    for (const axis of Object.keys(bounds)) {
+      bounds[axis] = Math.max(bounds[axis], asset.userData.frameHalfExtents[axis]);
+    }
+  }
+  return bounds;
+}
+
 function setStatus(message, kind = 'normal') {
   elements.status.textContent = message;
   elements.status.dataset.kind = kind;
@@ -98,7 +108,7 @@ function updatePhaseUI() {
   });
 
   if (loading) {
-    setLoadCover('機体データを確認中', 'AX-01 / STANDARD + LONGWING');
+    setLoadCover('SUZAKUの機体データを確認中', 'AX-01 SUZAKU / STANDARD + LONGWING / R2');
     setStatus('3Dメッシュを読み込んでいます。');
   } else if (displayError) {
     setLoadCover('3D表示を開始できません', displayError);
@@ -153,7 +163,7 @@ function selectVariant(variant) {
   if (!assets.has(variant) || gameState.phase !== 'ready') return;
   selectedVariant = variant;
   gameState = createState({ variant, seed: 2026 });
-  scene?.setAircraft(variant, assets.get(variant));
+  scene?.setAircraft(variant, assets.get(variant), familyFrameHalfExtents());
   scene?.update(gameState, frameInput);
   updatePhaseUI();
   updateHud();
@@ -270,10 +280,10 @@ async function initialize() {
 
   if (!assets.has(selectedVariant) && assets.size > 0) selectedVariant = assets.keys().next().value;
   gameState = createState({ variant: selectedVariant, seed: 2026 });
-  if (scene && assets.has(selectedVariant)) scene.setAircraft(selectedVariant, assets.get(selectedVariant));
+  if (scene && assets.has(selectedVariant)) scene.setAircraft(selectedVariant, assets.get(selectedVariant), familyFrameHalfExtents());
 
   if (assets.size === 0 && !displayError) {
-    displayError = 'AX-01の3Dメッシュを読み込めません。CAD出力を確認してください。';
+    displayError = 'AX-01 SUZAKUの3Dメッシュを読み込めません。CAD出力を確認してください。';
   }
   updatePhaseUI();
   updateHud();

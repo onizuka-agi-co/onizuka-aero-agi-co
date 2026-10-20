@@ -1,9 +1,22 @@
 import * as THREE from 'three';
 
 const EXPECTED_COORDINATES = Object.freeze({ forward: '+X', span: 'Y', up: '+Z' });
+const HANGAR_FORWARD_LENGTH = 18;
+const HANGAR_FRAME_FILL = 0.88;
+const HANGAR_CAMERA_DIRECTION = new THREE.Vector3(0.65, 0.5, 0.65).normalize();
+const HANGAR_CAMERA_FORWARD = HANGAR_CAMERA_DIRECTION.clone().negate();
+const HANGAR_CAMERA_RIGHT = HANGAR_CAMERA_FORWARD.clone().cross(new THREE.Vector3(0, 1, 0)).normalize();
+const HANGAR_CAMERA_UP = HANGAR_CAMERA_RIGHT.clone().cross(HANGAR_CAMERA_FORWARD).normalize();
+const DEFAULT_PART_FINISH = Object.freeze({ metalness: 0.12, roughness: 0.27 });
+const PART_FINISHES = Object.freeze([
+  Object.freeze({ match: /canopy$/i, finish: Object.freeze({ metalness: 0.28, roughness: 0.17, emissive: '#59300f', emissiveIntensity: 0.1 }) }),
+  Object.freeze({ match: /gold|trim|tip|chevron|collar/i, finish: Object.freeze({ metalness: 0.44, roughness: 0.22 }) }),
+  Object.freeze({ match: /ivory|leading.?edge/i, finish: Object.freeze({ metalness: 0.14, roughness: 0.28 }) }),
+  Object.freeze({ match: /pod|nozzle|exhaust|graphite|charcoal/i, finish: Object.freeze({ metalness: 0.28, roughness: 0.31 }) }),
+]);
 
 function assertMeshDocument(document, variant) {
-  if (!document || document.schemaVersion !== 1 || document.designId !== 'AX-01' || document.revision !== 'r1') {
+  if (!document || document.schemaVersion !== 1 || document.designId !== 'AX-01' || document.displayName !== 'AX-01 SUZAKU' || document.revision !== 'r2') {
     throw new Error('AX-01のメッシュ識別情報が契約と一致しません。');
   }
   if (document.variant !== variant || document.units !== 'arbitrary-design-unit') {
@@ -37,6 +50,10 @@ function assertMeshDocument(document, variant) {
   }
 }
 
+function getPartFinish(partName) {
+  return PART_FINISHES.find(({ match }) => match.test(partName))?.finish ?? DEFAULT_PART_FINISH;
+}
+
 export async function loadAircraftAsset(variant) {
   const baseUrl = new URL(import.meta.env.BASE_URL, document.baseURI);
   const meshUrl = new URL(`assets/ax01/${variant}/mesh.json`, baseUrl);
@@ -46,7 +63,7 @@ export async function loadAircraftAsset(variant) {
   const meshDocument = await response.json();
   assertMeshDocument(meshDocument, variant);
   const aircraft = new THREE.Group();
-  aircraft.name = `${meshDocument.designId}-${variant}`;
+  aircraft.name = `${meshDocument.designId}-SUZAKU-${variant}`;
 
   for (const part of meshDocument.parts) {
     const coordinates = new Float32Array(part.positions.length);
@@ -61,12 +78,7 @@ export async function loadAircraftAsset(variant) {
     geometry.computeVertexNormals();
     geometry.computeBoundingSphere();
 
-    const material = new THREE.MeshStandardMaterial({
-      color: part.color,
-      metalness: 0.38,
-      roughness: 0.36,
-      side: THREE.DoubleSide,
-    });
+    const material = new THREE.MeshStandardMaterial({ color: part.color, ...getPartFinish(part.name), side: THREE.DoubleSide });
     const piece = new THREE.Mesh(geometry, material);
     piece.name = part.name;
     piece.castShadow = true;
@@ -76,16 +88,19 @@ export async function loadAircraftAsset(variant) {
 
   const bounds = new THREE.Box3().setFromObject(aircraft);
   const size = bounds.getSize(new THREE.Vector3());
+  if (!Number.isFinite(size.z) || size.z <= 0) throw new Error('AX-01 SUZAKUの前後方向サイズが不正です。');
   const center = bounds.getCenter(new THREE.Vector3());
-  const scale = 18 / Math.max(size.x, size.y, size.z);
+  const scale = HANGAR_FORWARD_LENGTH / size.z;
   aircraft.scale.setScalar(scale);
   aircraft.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
   aircraft.userData = {
     designId: meshDocument.designId,
+    displayName: meshDocument.displayName,
     revision: meshDocument.revision,
     variant: meshDocument.variant,
     units: meshDocument.units,
     partCount: meshDocument.parts.length,
+    frameHalfExtents: { x: size.x * scale / 2, y: size.y * scale / 2, z: size.z * scale / 2 },
   };
   return aircraft;
 }
@@ -113,8 +128,11 @@ export class FlightScene {
     this.scene.background = new THREE.Color('#0d1b25');
     this.scene.fog = new THREE.FogExp2('#0d1b25', 0.00072);
     this.camera = new THREE.PerspectiveCamera(48, 1, 0.5, 2_200);
-    this.camera.position.set(31, 23, -54);
-    this.cameraTarget = new THREE.Vector3(0, 0, 42);
+    this.camera.position.set(21, 17, -24);
+    this.cameraTarget = new THREE.Vector3(0, 0, 4);
+    this.hangarTarget = new THREE.Vector3(0, 0, 4);
+    this.hangarCameraGoal = new THREE.Vector3();
+    this.hangarFrameHalfExtents = null;
     this.clock = new THREE.Clock();
     this.viewMode = 'hangar';
     this.courseKey = '';
@@ -142,7 +160,7 @@ export class FlightScene {
   }
 
   configureLights() {
-    this.scene.add(new THREE.HemisphereLight('#cde9ed', '#111c25', 1.65));
+    this.scene.add(new THREE.HemisphereLight('#fff3e4', '#392d2a', 2));
     this.keyLight = new THREE.DirectionalLight('#fff2de', 4.2);
     this.keyLight.position.set(-45, 74, -30);
     this.keyLight.castShadow = true;
@@ -156,7 +174,7 @@ export class FlightScene {
     this.keyLight.shadow.bias = -0.0005;
     this.keyLight.shadow.normalBias = 0.12;
     this.scene.add(this.keyLight);
-    this.rimLight = new THREE.DirectionalLight('#5bd8ce', 2.1);
+    this.rimLight = new THREE.DirectionalLight('#ffd184', 2.3);
     this.rimLight.position.set(50, 18, 72);
     this.scene.add(this.rimLight);
     this.boostLight = new THREE.PointLight('#ff7955', 0, 48, 1.6);
@@ -235,7 +253,7 @@ export class FlightScene {
     this.activeGateMaterial = new THREE.MeshStandardMaterial({ color: '#ff875f', emissive: '#a5422d', emissiveIntensity: 0.9, metalness: 0.2, roughness: 0.28 });
   }
 
-  setAircraft(variant, source) {
+  setAircraft(variant, source, familyFrameHalfExtents = source.userData.frameHalfExtents) {
     if (this.activeAircraft) this.scene.remove(this.activeAircraft);
     this.activeAircraft = source.clone(true);
     this.activeAircraft.userData.variant = variant;
@@ -246,7 +264,25 @@ export class FlightScene {
       }
     });
     this.scene.add(this.activeAircraft);
+    this.hangarFrameHalfExtents = familyFrameHalfExtents;
+    this.updateHangarCameraGoal();
     this.boostLight.position.set(0, 0, -12);
+  }
+
+  updateHangarCameraGoal() {
+    if (!this.activeAircraft) return;
+    const verticalFov = THREE.MathUtils.degToRad(this.camera.fov);
+    const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * this.camera.aspect);
+    const halfExtents = this.hangarFrameHalfExtents;
+    const projectedHalfWidth = halfExtents.x * Math.abs(HANGAR_CAMERA_RIGHT.x) +
+      halfExtents.y * Math.abs(HANGAR_CAMERA_RIGHT.y) + halfExtents.z * Math.abs(HANGAR_CAMERA_RIGHT.z);
+    const projectedHalfHeight = halfExtents.x * Math.abs(HANGAR_CAMERA_UP.x) +
+      halfExtents.y * Math.abs(HANGAR_CAMERA_UP.y) + halfExtents.z * Math.abs(HANGAR_CAMERA_UP.z);
+    const distance = Math.max(
+      projectedHalfWidth / (Math.tan(horizontalFov / 2) * HANGAR_FRAME_FILL),
+      projectedHalfHeight / (Math.tan(verticalFov / 2) * HANGAR_FRAME_FILL),
+    );
+    this.hangarCameraGoal.copy(this.hangarTarget).addScaledVector(HANGAR_CAMERA_DIRECTION, distance);
   }
 
   setCourse(course, seed) {
@@ -276,6 +312,7 @@ export class FlightScene {
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
+    this.updateHangarCameraGoal();
   };
 
   update(state, input = {}) {
@@ -293,8 +330,8 @@ export class FlightScene {
       if (this.viewMode === 'hangar') {
         aircraft.position.set(0, 0, 4);
         aircraft.rotation.set(0.025, Math.sin(time * 0.12) * 0.12, Math.sin(time * 0.38) * 0.025);
-        this.cameraTarget.set(0, 0, 4);
-        this.camera.position.lerp(new THREE.Vector3(21, 17, -24), 0.055);
+        this.cameraTarget.copy(this.hangarTarget);
+        this.camera.position.copy(this.hangarCameraGoal);
       } else {
         aircraft.position.set(state.x, state.y, state.distance);
         aircraft.rotation.order = 'YXZ';

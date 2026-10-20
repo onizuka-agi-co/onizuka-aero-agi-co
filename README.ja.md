@@ -1,26 +1,28 @@
 # ONIZUKA AERO AGI Co.
 
-日本語 | [English](README.md)
+[日本語](README.ja.md) | [English](README.md)
 
-ONIZUKA AERO AGI Co. は、航空をテーマにした設計・検証・ゲーム制作をAIエージェントが進め、活動と成果をオープンデータとして公開する実験会社です。人間のミッション責任者が使命と公開方針を定めます。エージェントは事前承認された範囲で設計から公開まで担います。
+ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、形状確認、民生向けアーケードゲームを再現可能な成果物として公開する実験会社です。使命と公開方針は人間のミッションオーナーが定めます。
 
-初期版には、架空の近未来戦闘機風ビジュアル資産 AX-01 KIRIN のCAD形状確認と、民生向けゲート飛行アーケードゲームを収録しています。`standard` と `longwing` は造形上のバリアントです。ゲームは各CAD資産から生成したメッシュを読み込みます。収録データと利用上の制限は[データセットカード](docs/dataset-card.md)を参照してください。
+現行デザインは赤・アイボリー・金の配色と前進翼を持つ架空のコレクショントイ `AX-01 SUZAKU r2` です。`standard` と `longwing` は造形上のバリアントで、操作・ルールと、バリアントごとのゲーム内調整値は従来のままです。
 
-![AX-01 KIRIN standard バリアント](public/assets/ax01/standard/preview.svg)
+組み込みの `image_gen imagegen` ツールで4枚のコンセプトシートを生成しました。ユーザーは C / SUZAKU を選びました。各案のプロンプトと選択結果は `design/concepts/ax01-r2/concepts.json` にあります。PNGはコンセプトアートであり、CADレンダリングや工学的解析の結果ではありません。
 
-## プロジェクトの状態
+![選択された C / SUZAKU のコンセプトシート](design/concepts/ax01-r2/c-suzaku.png)
 
-FreeCAD 1.1.3で両バリアントのCAD出力を生成しました。形状レポートでは各9パーツとメッシュ360三角形が妥当と判定されています。FreeCAD形式、STEP、STLを再度開いて確認しました。左右翼を反転して比較した頂点偏差は任意設計単位で0.0です。再生成チェックでは両メッシュのSHA-256が一致しました。詳細は[形状レポート](public/data/geometry-report.json)を参照してください。
+![AX-01 SUZAKU standard のCADプレビュー](public/assets/ax01/standard/preview.svg)
 
-保存した入力フレームからアーケード記録を3件生成しました。`standard` と `longwing` のコース走行は、それぞれ14ゲート中14ゲートを通過し、3,300点を記録しました。`standard` のミス制御例では14ゲートすべてを逃し、得点は0点です。[アーケード記録の概要](public/data/arcade-summary.json)に結果をまとめています。
+## プロジェクトの状況
 
-ローカル検証ではNodeの14テストとPlaywrightのブラウザ12項目が通過しました。Chromiumのデスクトップ表示とタッチ操作をエミュレートしたモバイル画面で確認しています。実機のスマートフォンでは確認していません。[自動ブラウザ検証](evidence/browser-automated.json)と[画面確認記録](evidence/browser-qa.json)を参照してください。
+FreeCAD 1.1.3 の形状レポートは両バリアントで合格しました。各バリアントは妥当な形状を40個含みます。メッシュは `standard` が2,800三角形、`longwing` が2,752三角形です。FreeCAD形式とSTEPは各40形状を再読み込みでき、STLの三角形数もメッシュと一致しました。左右主翼の最大偏差は任意設計単位で0.0です。再生成チェックでは両メッシュのSHA-256が一致しました。詳細は[形状レポート](public/data/geometry-report.json)を参照してください。
 
-GitHubリポジトリと[ゲームサイト](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/)を公開しました。[初回のGitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39426065882)は成功しています。公開サイトでもブラウザ12項目が通過し、匿名で取得した35ファイルのサイズとSHA-256が一致しました。[公開確認](evidence/publication.json)と[公開サイトの操作記録](evidence/browser-public.json)に対象コミットと確認結果を保存しています。
+アーケード記録は3件です。`standard` と `longwing` のコース走行はどちらも14ゲートを通過し、3,300点を記録しました。ミス制御の記録はゲートを通過せず、0点でした。再生成後のリプレイテストは3件すべて通過しました。[アーケード記録の概要](public/data/arcade-summary.json)に結果をまとめています。
+
+r2では本番ビルドが成功し、Chromiumによる自動確認12/12件、直接UI確認9/9件に合格しました。Node.jsテストは15件すべてに合格し、マニフェストには公開ファイル20件とハッシュ付きソース20件が登録されています。直接UI確認ではコースの完了とポーズ／再開の動作も確認しました。いずれもローカルプレビューでの結果です。スマートフォン実機では確認していません。GitHub上のr2 CI、Pagesへの公開、最新公開先の匿名確認は未完了です。以前のブラウザ・公開確認はr1の履歴です。[自動ブラウザ確認](evidence/browser-automated.json)と[直接操作のUI確認](evidence/browser-suzaku-ui.json)を参照してください。
 
 ## 再現方法
 
-依存関係は`npm ci`で導入し、テストは`npm test`で実行します。`npm run build`でビルドした後、`npm run dev`でローカルの開発サーバーを起動できます。CAD、データ、ブラウザ確認を含む手順は[再現手順](docs/reproduce.md)にあります。
+依存関係は `npm ci` で導入します。テストは `npm test`、本番ビルドは `npm run build` で実行できます。CAD、データ、ブラウザ確認のコマンドは[再現手順](docs/reproduce.md)を参照してください。
 
 ## プロジェクトの方針
 
@@ -31,4 +33,4 @@ GitHubリポジトリと[ゲームサイト](https://onizuka-agi-co.github.io/on
 
 ## ライセンス
 
-ソースコード、アート、画像、メッシュ、CADファイル、文書には[MIT License](LICENSE)を適用します。[MIT Licenseの公式本文](https://opensource.org/license/mit)も参照してください。`public/data/*`、`evidence/*.json`、`decisions.tsv`のデータ記録には[CC BY 4.0](LICENSE-DATA)を適用します。第三者の素材には元のライセンスを維持します。詳細は[サードパーティ通知](THIRD_PARTY.md)を参照してください。
+ソースコード、アート、画像、メッシュ、CADファイル、文書には[MIT License](LICENSE)を適用します。`public/data/*`、`evidence/*.json`、`decisions.tsv`の記録は[CC BY 4.0](LICENSE-DATA)の対象です。第三者の素材には元のライセンスを維持します。詳細は[サードパーティ通知](THIRD_PARTY.md)を参照してください。

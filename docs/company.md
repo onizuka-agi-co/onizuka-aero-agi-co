@@ -6,7 +6,7 @@
 
 ### 使命
 
-ONIZUKA AERO AGI Co. は、航空をテーマにした設計・検証・ゲーム制作をAIエージェントが進め、活動と成果をオープンデータとして公開する実験会社です。人間が使命と公開方針を定め、エージェントが再現可能な成果物、検証記録、来歴を整えます。初期版の主題は、架空のAX-01 KIRINを使った形状確認と民生向けゲームです。
+ONIZUKA AERO AGI Co. は、航空をテーマにした設計・検証・ゲーム制作をAIエージェントが進め、活動と成果をオープンデータとして公開する実験会社です。人間が使命と公開方針を定め、エージェントが再現可能な成果物、検証記録、来歴を整えます。初回は架空のAX-01 KIRIN r1を公開しました。現在は、人間が選んだC案をもとにしたトイ機体AX-01 SUZAKU r2の形状確認と民生向けゲームを扱っています。
 
 ### 意思決定権限
 
@@ -28,7 +28,7 @@ ONIZUKA AERO AGI Co. は、航空をテーマにした設計・検証・ゲー�
 
 ### Mission
 
-ONIZUKA AERO AGI Co. is an experimental company for agent-led aviation-themed design, verification, and game production. AI agents create original digital assets, check their geometry, build civilian games, and publish the work and its data as open, reproducible records. A human mission owner sets the mission and publication policy. The initial release centers on AX-01 KIRIN, a fictional visual asset.
+ONIZUKA AERO AGI Co. is an experimental company for agent-led aviation-themed design, verification, and game production. AI agents create original digital assets, check their geometry, build civilian games, and publish the work and its data as open, reproducible records. A human mission owner sets the mission and publication policy. The first release introduced the fictional AX-01 KIRIN r1. Current work covers geometry checks and a civilian game for AX-01 SUZAKU r2, a toy design based on the human-selected concept C.
 
 ### Decision rights
 
