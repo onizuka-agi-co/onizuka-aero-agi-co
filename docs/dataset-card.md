@@ -6,7 +6,7 @@
 
 ### 概要
 
-このカードは架空のコレクショントイ AX-01 SUZAKU r3 の形状データと、民生向けアーケードゲームの模擬記録を説明します。ゲーム記録は合成入力を再生した結果で、実機の飛行データやユーザーのテレメトリではありません。形状と定性的な見た目の確認は合格しました。Nodeテスト、本番ビルド、カタログ、Chromiumの自動確認も合格しています。CIと公開確認は未実施です。r2の記録は履歴として保存しています。
+このカードは架空のコレクショントイ AX-01 SUZAKU r3 の形状データと、民生向けアーケードゲームの模擬記録を説明します。ゲーム記録は合成入力を再生した結果で、実機の飛行データやユーザーのテレメトリではありません。形状と定性的な見た目の確認は合格しました。Nodeテスト、本番ビルド、カタログ、Chromiumの自動確認も合格しています。[GitHub CIとPages公開](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448)が成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した42ファイルのサイズとSHA-256が一致しました（[操作記録](../evidence/browser-public.json)、[照合記録](../evidence/publication.json)）。r2の記録は履歴として保存しています。
 
 | 項目 | 値 |
 | --- | --- |
@@ -56,7 +56,7 @@
 
 ゲームはゲート通過を目的とする民生向けアーケードです。実機の飛行を再現せず、兵器も登場しません。記録は合成入力と模擬ゲーム状態で、ユーザーのテレメトリではありません。ゲームはテレメトリを収集しません。
 
-r3の形状、決定性、リプレイ、Nodeテスト、本番ビルド、カタログ確認、Chromium自動確認は合格しました。ビルドでは572 kBのチャンクサイズ警告が出ました。カタログは公開ファイル20件とハッシュ付きソース21件を照合しています。Chromiumの自動確認はタッチ操作をエミュレートしたローカル画面で実施し、スマートフォン実機では確認していません。最初の失敗記録は[初回のブラウザレポート](../evidence/suzaku-r3-browser-first-failure.json)にあります。CIと公開確認は未実施です。r2のローカル・公開確認は[履歴記録](../evidence/history/suzaku-r2/)に保存しています。[r2のCIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)の成功は、r3の検証結果ではありません。
+r3の形状、決定性、リプレイ、Nodeテスト、本番ビルド、カタログ確認、Chromium自動確認は合格しました。ビルドでは572 kBのチャンクサイズ警告が出ました。カタログは公開ファイル20件とハッシュ付きソース21件を照合しています。Chromiumの自動確認はタッチ操作をエミュレートしたローカル画面で実施し、スマートフォン実機では確認していません。最初の失敗記録は[初回のブラウザレポート](../evidence/suzaku-r3-browser-first-failure.json)にあります。[GitHub CIとPages公開](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448)が成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した42ファイルのサイズとSHA-256が一致しました（[操作記録](../evidence/browser-public.json)、[照合記録](../evidence/publication.json)）。r2のローカル・公開確認は[履歴記録](../evidence/history/suzaku-r2/)に保存しています。[r2のCIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)の成功は、r3の検証結果ではありません。
 
 ### 来歴と帰属表示
 
@@ -68,7 +68,7 @@ r3の形状、決定性、リプレイ、Nodeテスト、本番ビルド、カ�
 
 ### Overview
 
-This card describes geometry data for AX-01 SUZAKU r3, a fictional collectible toy, and simulated records from a civilian arcade game. The game records replay synthetic inputs. They are not flight data or user telemetry. Geometry and qualitative visual review passed. Node tests, the production build, catalog verification, and automated Chromium checks also passed. CI and publication checks remain pending. R2 records remain historical.
+This card describes geometry data for AX-01 SUZAKU r3, a fictional collectible toy, and simulated records from a civilian arcade game. The game records replay synthetic inputs. They are not flight data or user telemetry. Geometry and qualitative visual review passed. Node tests, the production build, catalog verification, and automated Chromium checks also passed. [GitHub CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448) passed for r3. All 12 browser checks passed on the public site, and 42 anonymous downloads matched byte sizes and SHA-256 hashes. See the [browser report](../evidence/browser-public.json) and [publication record](../evidence/publication.json). R2 records remain historical.
 
 | Item | Value |
 | --- | --- |
@@ -118,7 +118,7 @@ The dataset covers the geometry of a fictional visual asset and simulated gamepl
 
 The game is a civilian gate-flight arcade experience. It does not simulate real flight and includes no weapons. The records contain synthetic inputs and simulated game state, not user telemetry. The game collects no telemetry.
 
-R3 geometry, deterministic regeneration, replay, Node tests, production build, catalog verification, and automated Chromium checks passed. The build emitted a 572 kB chunk-size warning; the catalog verified 20 public files and 21 hashed source entries. Chromium used an emulated touch viewport; physical phones are untested. An earlier mobile-touch failure is retained in the [first-failure report](../evidence/suzaku-r3-browser-first-failure.json). CI and public-site verification are pending. The r2 local and public reports are archived under [evidence/history/suzaku-r2](../evidence/history/suzaku-r2/). The [r2 CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2 and does not verify r3.
+R3 geometry, deterministic regeneration, replay, Node tests, production build, catalog verification, and automated Chromium checks passed. The build emitted a 572 kB chunk-size warning; the catalog verified 20 public files and 21 hashed source entries. Chromium used an emulated touch viewport; physical phones are untested. An earlier mobile-touch failure is retained in the [first-failure report](../evidence/suzaku-r3-browser-first-failure.json). [GitHub CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448) passed for r3. All 12 browser checks passed on the public site, and 42 anonymous downloads matched byte sizes and SHA-256 hashes. See the [browser report](../evidence/browser-public.json) and [publication record](../evidence/publication.json). The r2 local and public reports are archived under [evidence/history/suzaku-r2](../evidence/history/suzaku-r2/). The [r2 CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2 and does not verify r3.
 
 ### Provenance and attribution
 

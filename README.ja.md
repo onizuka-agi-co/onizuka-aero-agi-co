@@ -2,7 +2,7 @@
 
 [日本語](README.ja.md) | [English](README.md)
 
-[公開中のr2ゲーム](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [公開中のr2 CADプレビュー](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
+[SUZAKU r3で遊ぶ](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [SUZAKU r3 CADプレビュー](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
 
 ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、形状確認、民生向けアーケードゲームを再現可能な成果物として公開する実験会社です。使命と公開方針は人間のミッションオーナーが定めます。
 
@@ -20,11 +20,11 @@ ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、�
 
 現在のr3アーケード概要には、合成入力を使った記録を3件収録しています。`npm test` はリプレイテストを含むNodeテスト15件すべてに合格しました。[アーケード記録の概要](public/data/arcade-summary.json)を参照してください。
 
-r3の本番ビルドとカタログ確認は合格しました。ビルドでは572 kBのチャンクサイズ警告が出ており、カタログは公開ファイル20件とハッシュ付きソース21件を照合しています。タッチ操作をエミュレートしたChromiumの自動確認は12/12件に合格しました。[成功レポート](evidence/browser-automated.json)を参照してください。スマートフォン実機では確認していません。最初のモバイルタッチ確認が停止した記録は[初回失敗レポート](evidence/suzaku-r3-browser-first-failure.json)にあります。CIと公開サイトの確認は未実施です。r2のビルド、ブラウザ、CI、公開確認の記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)にあります。冒頭のゲームとCADプレビューのリンクは、現在公開中のr2を指しています。
+r3の本番ビルドとカタログ確認は合格しました。ビルドでは572 kBのチャンクサイズ警告が出ており、カタログは公開ファイル20件とハッシュ付きソース21件を照合しています。タッチ操作をエミュレートしたChromiumの自動確認は12/12件に合格しました。[成功レポート](evidence/browser-automated.json)を参照してください。スマートフォン実機では確認していません。最初のモバイルタッチ確認が停止した記録は[初回失敗レポート](evidence/suzaku-r3-browser-first-failure.json)にあります。[GitHub CIとPages公開](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448)が成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した42ファイルのサイズとSHA-256が一致しました（[操作記録](evidence/browser-public.json)、[照合記録](evidence/publication.json)）。r2のビルド、ブラウザ、CI、公開確認の記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)にあります。冒頭のゲームとCADプレビューのリンクでr3を確認できます。
 
 ## 再現方法
 
-r3の形状、Nodeテスト、本番ビルド、カタログ確認、Chromium自動確認は合格しました。CIと公開サイトの確認は未実施です。実行コマンドと記録は[再現手順](docs/reproduce.md)にあります。r2の公開確認記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)に保存しています。
+r3の形状、Nodeテスト、本番ビルド、カタログ確認、Chromium自動確認は合格しました。[GitHub CIとPages公開](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448)が成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した42ファイルのサイズとSHA-256が一致しました（[操作記録](evidence/browser-public.json)、[照合記録](evidence/publication.json)）。実行コマンドと記録は[再現手順](docs/reproduce.md)にあります。r2の公開確認記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)に保存しています。
 
 依存関係は `npm ci` で導入します。テストは `npm test`、本番ビルドは `npm run build` で実行できます。CAD、データ、ブラウザ確認のコマンドは[再現手順](docs/reproduce.md)を参照してください。
 

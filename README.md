@@ -1,6 +1,6 @@
 # ONIZUKA AERO AGI Co.
 
-[日本語](README.ja.md) · [Published r2 game](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [Published r2 CAD preview](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
+[日本語](README.ja.md) · [Play SUZAKU r3](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [SUZAKU r3 CAD preview](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
 
 ONIZUKA AERO AGI Co. publishes original aviation-themed digital art, geometry checks, and a civilian arcade game as reproducible artifacts. A human mission owner sets the mission and publication policy.
 
@@ -18,11 +18,11 @@ The r3 [geometry report](public/data/geometry-report.json) passes shape validity
 
 The r3 arcade summary contains three generated synthetic-input records. `npm test` passed all 15 Node tests, including replay tests. See the [arcade summary](public/data/arcade-summary.json).
 
-The r3 production build and catalog verification passed. The build emitted a 572 kB chunk-size warning; the catalog verifies 20 public files and 21 hashed source entries. Automated Chromium validation passed 12/12 checks with an emulated touch viewport; see the [passing browser report](evidence/browser-automated.json). Physical phones are untested. An earlier mobile-touch failure is retained in the [first-failure report](evidence/suzaku-r3-browser-first-failure.json). CI and public-site verification are pending. The r2 build, browser, CI, and publication results are historical in [evidence/history/suzaku-r2](evidence/history/suzaku-r2/); the published game and CAD preview links above still point to r2.
+The r3 production build and catalog verification passed. The build emitted a 572 kB chunk-size warning; the catalog verifies 20 public files and 21 hashed source entries. Automated Chromium validation passed 12/12 checks with an emulated touch viewport; see the [passing browser report](evidence/browser-automated.json). Physical phones are untested. An earlier mobile-touch failure is retained in the [first-failure report](evidence/suzaku-r3-browser-first-failure.json). [GitHub CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448) passed for r3. All 12 browser checks passed on the public site, and 42 anonymous downloads matched byte sizes and SHA-256 hashes. See the [browser report](evidence/browser-public.json) and [publication record](evidence/publication.json). The r2 build, browser, CI, and publication results are historical in [evidence/history/suzaku-r2](evidence/history/suzaku-r2/); the game and CAD preview links above now serve r3.
 
 ## Reproduce
 
-The r3 geometry, Node, build, catalog, and automated Chromium checks passed. CI and public-site verification are pending. See [docs/reproduce.md](docs/reproduce.md) for commands and evidence. The r2 public-site and anonymous-download reports remain in [evidence/history/suzaku-r2](evidence/history/suzaku-r2/).
+The r3 geometry, Node, build, catalog, and automated Chromium checks passed. [GitHub CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39448567448) passed for r3. All 12 browser checks passed on the public site, and 42 anonymous downloads matched byte sizes and SHA-256 hashes. See the [browser report](evidence/browser-public.json) and [publication record](evidence/publication.json). See [docs/reproduce.md](docs/reproduce.md) for commands and evidence. The r2 public-site and anonymous-download reports remain in [evidence/history/suzaku-r2](evidence/history/suzaku-r2/).
 
 Install dependencies with `npm ci`, run the checks with `npm test`, and build with `npm run build`. The [reproduction guide](docs/reproduce.md) gives the CAD, data, and browser-validation commands.
 
