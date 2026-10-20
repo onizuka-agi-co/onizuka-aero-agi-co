@@ -7,3 +7,6 @@ ts	phase	decision	why	evidence	result
 2026-10-20T12:29:03.5846609Z	cad-qa	Validate both exported variants and geometry report against current files	Checks must bind measured records to real artifacts	tests/data.test.mjs	4 focused tests passed
 2026-10-20T12:46:18.3465471Z	game-qa	Apply camera target before rendering and improve mobile play view	Actual browser showed blank craft and offscreen mobile view	evidence/browser-qa.json	10 observed UI checks passed
 2026-10-20T12:46:18.3465471Z	game-qa	Add repeatable Chromium desktop and touch verification	Future company releases need the same user-level checks	evidence/browser-automated.json	12 automated browser checks passed
+2026-10-20T13:02:12.5884211Z	release-review	Resolve independent publication review findings	Align audit provenance policy and describe company issue snapshot	docs/data-policy.md;docs/dataset-card.md	independent review PASS
+2026-10-20T13:02:12.5884211Z	public-qa	Verify deployed game and anonymous artifact downloads	Public delivery requires evidence from the hosted bytes and real browser	evidence/publication.json;evidence/browser-public.json	35 downloads matched;12 browser checks passed
+2026-10-20T13:02:12.5884211Z	company-state	Close completed first-mission issues and record actual states	Company dataset must use real task progress	public/data/company-mission.json	4 public issues closed

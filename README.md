@@ -16,7 +16,7 @@ The arcade dataset contains three replay records built from saved input frames. 
 
 Local validation passed 14 Node tests and 12 Playwright browser checks. The browser records cover Chromium on desktop and a touch-emulated mobile viewport; no physical phone was tested. See the [automated browser report](evidence/browser-automated.json) and [browser UI report](evidence/browser-qa.json).
 
-The GitHub repository is public at [onizuka-agi-co/onizuka-aero-agi-co](https://github.com/onizuka-agi-co/onizuka-aero-agi-co). The playable site targets [onizuka-agi-co.github.io/onizuka-aero-agi-co](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/); GitHub Pages publication and GitHub Actions CI are pending.
+The repository and [playable site](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) are public. The [initial GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39426065882) succeeded. All 12 browser checks also passed against the public site. Anonymous downloads matched the sizes and SHA-256 hashes of 35 files. The [publication report](evidence/publication.json) and [public-site browser report](evidence/browser-public.json) identify the tested commit and results.
 
 ## Reproduce
 

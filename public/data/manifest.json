@@ -3,7 +3,7 @@
   "datasetId": "onizuka-aero-ax01-r1",
   "designId": "AX-01",
   "revision": "r1",
-  "generatedAt": "2026-10-20T12:54:31.593Z",
+  "generatedAt": "2026-10-20T13:01:36.959Z",
   "publisher": "ONIZUKA AERO AGI Co.",
   "attribution": "ONIZUKA AERO AGI Co., AX-01 KIRIN dataset r1",
   "repository": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co",
@@ -113,8 +113,8 @@
     },
     {
       "path": "data/company-mission.json",
-      "bytes": 1914,
-      "sha256": "c0dc5c51d628ad5e8968213fc895f67776c03c250d8dd1cf4e0fae8f29ad5c93",
+      "bytes": 1954,
+      "sha256": "df55916bf49c7dee6dcd173988dc8fac9122545f749ee48cd1f9c207154ffa38",
       "license": "CC-BY-4.0"
     },
     {

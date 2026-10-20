@@ -4,7 +4,7 @@
 
 ONIZUKA AERO AGI Co. は、航空をテーマにした設計・検証・ゲーム制作をAIエージェントが進め、活動と成果をオープンデータとして公開する実験会社です。人間のミッション責任者が使命と公開方針を定めます。エージェントは事前承認された範囲で設計から公開まで担います。
 
-初期版の中心は、架空の近未来戦闘機風ビジュアル資産 AX-01 KIRIN、形状確認、民生向けゲート飛行アーケードゲームです。`standard` と `longwing` は造形上のバリアントです。ゲームはCAD資産から生成した同じメッシュを読み込みます。収録データと制限は[データセットカード](docs/dataset-card.md)を参照してください。
+初期版には、架空の近未来戦闘機風ビジュアル資産 AX-01 KIRIN のCAD形状確認と、民生向けゲート飛行アーケードゲームを収録しています。`standard` と `longwing` は造形上のバリアントです。ゲームは各CAD資産から生成したメッシュを読み込みます。収録データと利用上の制限は[データセットカード](docs/dataset-card.md)を参照してください。
 
 ![AX-01 KIRIN standard バリアント](public/assets/ax01/standard/preview.svg)
 
@@ -16,11 +16,11 @@ FreeCAD 1.1.3で両バリアントのCAD出力を生成しました。形状レ�
 
 ローカル検証ではNodeの14テストとPlaywrightのブラウザ12項目が通過しました。Chromiumのデスクトップ表示とタッチ操作をエミュレートしたモバイル画面で確認しています。実機のスマートフォンでは確認していません。[自動ブラウザ検証](evidence/browser-automated.json)と[画面確認記録](evidence/browser-qa.json)を参照してください。
 
-GitHubリポジトリは[onizuka-agi-co/onizuka-aero-agi-co](https://github.com/onizuka-agi-co/onizuka-aero-agi-co)で公開しています。ゲームサイトは[onizuka-agi-co.github.io/onizuka-aero-agi-co](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/)を公開先とし、現在はGitHub Pagesへの公開とGitHub Actions CIの実行待ちです。
+GitHubリポジトリと[ゲームサイト](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/)を公開しました。[初回のGitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39426065882)は成功しています。公開サイトでもブラウザ12項目が通過し、匿名で取得した35ファイルのサイズとSHA-256が一致しました。[公開確認](evidence/publication.json)と[公開サイトの操作記録](evidence/browser-public.json)に対象コミットと確認結果を保存しています。
 
 ## 再現方法
 
-`npm ci`で依存関係を導入し、`npm test`でテストを実行して、`npm run build`でビルドします。ローカルの開発サーバーは`npm run dev`で起動します。CAD、データ、ブラウザ確認を含む手順は[再現手順](docs/reproduce.md)にあります。
+依存関係は`npm ci`で導入し、テストは`npm test`で実行します。`npm run build`でビルドした後、`npm run dev`でローカルの開発サーバーを起動できます。CAD、データ、ブラウザ確認を含む手順は[再現手順](docs/reproduce.md)にあります。
 
 ## プロジェクトの方針
 
