@@ -5,9 +5,9 @@
   "revision": "r1",
   "license": "CC-BY-4.0",
   "attribution": "ONIZUKA AERO AGI Co., AX-01 publication verification r1",
-  "checkedAt": "2026-10-20T12:59:57.559Z",
+  "checkedAt": "2026-10-20T13:05:22.130Z",
   "method": "Anonymous HTTP GET without authorization; bytes and SHA256 matched local published manifest.",
-  "commit": "1130267d26ca6a714268fca344d9456892115ce5",
+  "commit": "51f466bfccafbda3ae54dd69cd4d8e7d4db987b0",
   "site": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/",
   "status": "pass",
   "checks": [
@@ -15,7 +15,7 @@
       "url": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/data/manifest.json",
       "status": 200,
       "bytes": 6737,
-      "sha256": "f91161f56375341d9df627d75b1b01679e56a94b4b235aa36356857c7e8aee4e"
+      "sha256": "7212fe0e40721a877cca727735a8a5b98555e6faa879cec9fbd8758daa05c16e"
     },
     {
       "url": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/longwing/ax01.FCStd",
@@ -122,8 +122,8 @@
     {
       "url": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/data/company-mission.json",
       "status": 200,
-      "bytes": 1914,
-      "sha256": "c0dc5c51d628ad5e8968213fc895f67776c03c250d8dd1cf4e0fae8f29ad5c93"
+      "bytes": 1954,
+      "sha256": "df55916bf49c7dee6dcd173988dc8fac9122545f749ee48cd1f9c207154ffa38"
     },
     {
       "url": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/data/geometry-report.json",
@@ -138,85 +138,85 @@
       "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/src/arcade.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/src/arcade.mjs",
       "status": 200,
       "bytes": 5593,
       "sha256": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/src/main.js",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/src/main.js",
       "status": 200,
       "bytes": 13262,
       "sha256": "dbbb65ed011168483f171e4655c5525fb58030ca2e294c7fa31da108e0cd5f9d"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/src/scene.js",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/src/scene.js",
       "status": 200,
       "bytes": 14261,
       "sha256": "7d4ac5599e8668a965cd8840d45ee706af0ec02227a8b666bb2d3a1429d98487"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/src/style.css",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/src/style.css",
       "status": 200,
       "bytes": 19582,
       "sha256": "66c537ca8634344807da1e047072ab16f75abdf51fd8e085daea57019ce87609"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/browser-qa.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/browser-qa.mjs",
       "status": 200,
       "bytes": 6549,
       "sha256": "9860c066916e423eb411096666d669581e6f0a6e8b3435a710b55ac900fda6ba"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/catalog.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/catalog.mjs",
       "status": 200,
       "bytes": 3355,
       "sha256": "541780eb51a951428b6c12a6492a65ee80e12fb8ae471216bbaf1f2d4d117b6e"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/generate-cad.py",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/generate-cad.py",
       "status": 200,
       "bytes": 30933,
       "sha256": "29884a079bcea379cf641bb8e28e29925d0e357a0a93f154b62552bd319c2c6f"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/record-arcade.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/record-arcade.mjs",
       "status": 200,
       "bytes": 6660,
       "sha256": "7664b71220eb86c06475fb0bf40f8fb66fee3df6992c9de0e251cc83ad85d985"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/snapshot-company.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/snapshot-company.mjs",
       "status": 200,
       "bytes": 1544,
       "sha256": "db535019dfacc9bb50bc61ef3b30ec066a457729ceedcad834d5509cff2a7b22"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/scripts/verify-public.mjs",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/scripts/verify-public.mjs",
       "status": 200,
       "bytes": 2444,
       "sha256": "49bda4bb0d8264c0c858e53a55a3e365a2b01304ef7f1763d6394c9845722058"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/package.json",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/package.json",
       "status": 200,
       "bytes": 548,
       "sha256": "34744e4d8f2887df807bd2f01a817df15b321fd9833f00eb072bd419f5e8d530"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/package-lock.json",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/package-lock.json",
       "status": 200,
       "bytes": 27262,
       "sha256": "27b1c607373041ebe18ba21be4f81756c1223a5a2f121881721bf72d9529f887"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/vite.config.js",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/vite.config.js",
       "status": 200,
       "bytes": 184,
       "sha256": "1e20a73c87c00ab419f4703525631e0fd16eb5528b0507545d7a5e98f7123a0f"
     },
     {
-      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/1130267d26ca6a714268fca344d9456892115ce5/.gitattributes",
+      "url": "https://raw.githubusercontent.com/onizuka-agi-co/onizuka-aero-agi-co/51f466bfccafbda3ae54dd69cd4d8e7d4db987b0/.gitattributes",
       "status": 200,
       "bytes": 90,
       "sha256": "7b26f20e4e7be1b170adef27b65f24743f09aea42d2cf46a6415c718b6413d04"
