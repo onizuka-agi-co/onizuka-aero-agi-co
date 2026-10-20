@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-ci-failure",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r2",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU CI failure observation r2",
+  "status": "failed",
+  "commit": "a59a875bdd90ef7b0f42ae9623a788af80f27706",
+  "source": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39437808988",
+  "method": "Read the actual GitHub Actions failed job log with gh run view --log-failed.",
+  "failedStep": "Run npm run test:browser",
+  "failedCheck": "Real touch right",
+  "observedError": "AssertionError [ERR_ASSERTION]: Real touch right",
+  "passedEarlierSteps": [
+    "npm ci",
+    "catalog check",
+    "npm test",
+    "npm run build",
+    "playwright install"
+  ],
+  "deployment": "skipped because verification failed",
+  "causeStatus": "The original log did not capture event or frame timing, so the exact original cause is unproven.",
+  "repair": "The test now waits for a stable actionable control, received touch and observed state change while the touch remains held, then verifies release. All 12 local browser checks passed; GitHub retry remains pending."
+}

@@ -76,16 +76,30 @@ try {
   await touch.goto(target, { waitUntil: 'networkidle' });
   check('390px layout does not overflow', await touch.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await touch.locator('#start-button').tap();
-  await touch.waitForTimeout(600);
+  await touch.waitForFunction(() => window.__AERO_QA__.phase === 'running');
   const protocol = await mobile.newCDPSession(touch);
   for (const name of ['right', 'boost']) {
-    const box = await touch.locator(`[data-control="${name}"]`).boundingBox();
+    const control = touch.locator(`[data-control="${name}"]`);
+    await control.scrollIntoViewIfNeeded();
+    await control.click({ trial: true });
+    const box = await control.boundingBox();
     assert.ok(box && box.x >= 0 && box.y >= 0 && box.y + box.height <= 844, 'Touch control is visible.');
-    await protocol.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: box.x + box.width / 2, y: box.y + box.height / 2, id: 1 }] });
-    await touch.waitForTimeout(300);
-    await protocol.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-    const actual = await state(touch);
-    check(`Real touch ${name}`, name === 'right' ? actual.position.x > 0 : actual.boostEnergy < 100);
+    const before = await state(touch);
+    try {
+      await protocol.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: box.x + box.width / 2, y: box.y + box.height / 2, id: 1 }] });
+      await touch.waitForFunction(({ name, before }) => {
+        const pressed = document.querySelector(`[data-control="${name}"]`)?.getAttribute('aria-pressed') === 'true';
+        const actual = window.__AERO_QA__;
+        return pressed && (name === 'right' ? actual.position.x > before.position.x : actual.boostEnergy < before.boostEnergy);
+      }, { name, before }, { timeout: 5000 });
+      const actual = await state(touch);
+      check(`Real touch ${name}`, name === 'right' ? actual.position.x > before.position.x : actual.boostEnergy < before.boostEnergy);
+    } catch (error) {
+      throw new Error(`Touch ${name}: ${JSON.stringify({ before, after: await state(touch), pressed: await control.getAttribute('aria-pressed'), box })}`, { cause: error });
+    } finally {
+      await protocol.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    }
+    assert.equal(await control.getAttribute('aria-pressed'), 'false', 'Touch control released.');
   }
   await touch.locator('#pause-button').tap();
   await touch.screenshot({ path: resolve(dirname(output), 'browser-auto-mobile.png') });

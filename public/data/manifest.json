@@ -4,7 +4,7 @@
   "designId": "AX-01",
   "displayName": "AX-01 SUZAKU",
   "revision": "r2",
-  "generatedAt": "2026-10-20T14:09:12.348Z",
+  "generatedAt": "2026-10-20T14:25:15.326Z",
   "publisher": "ONIZUKA AERO AGI Co.",
   "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU dataset r2",
   "repository": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co",
@@ -158,8 +158,8 @@
     },
     {
       "path": "scripts/browser-qa.mjs",
-      "bytes": 6585,
-      "sha256": "8e2f4a7020dd7eeb27a0a862a34b102c39f5eaaeb2207cd05c50f231aba57c5e",
+      "bytes": 7502,
+      "sha256": "f762e9aa1219fceeb2ded771669185f473cfb011650cc87748f136f91015357b",
       "license": "MIT"
     },
     {
