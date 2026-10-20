@@ -2,6 +2,8 @@
 
 [日本語](README.ja.md) | [English](README.md)
 
+[SUZAKUで遊ぶ](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [CADプレビュー](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
+
 ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、形状確認、民生向けアーケードゲームを再現可能な成果物として公開する実験会社です。使命と公開方針は人間のミッションオーナーが定めます。
 
 現行デザインは赤・アイボリー・金の配色と前進翼を持つ架空のコレクショントイ `AX-01 SUZAKU r2` です。`standard` と `longwing` は造形上のバリアントで、操作・ルールと、バリアントごとのゲーム内調整値は従来のままです。
@@ -18,9 +20,11 @@ FreeCAD 1.1.3 の形状レポートは両バリアントで合格しました。
 
 アーケード記録は3件です。`standard` と `longwing` のコース走行はどちらも14ゲートを通過し、3,300点を記録しました。ミス制御の記録はゲートを通過せず、0点でした。再生成後のリプレイテストは3件すべて通過しました。[アーケード記録の概要](public/data/arcade-summary.json)に結果をまとめています。
 
-r2では本番ビルドが成功し、Chromiumによる自動確認12/12件、直接UI確認9/9件に合格しました。Node.jsテストは15件すべてに合格し、マニフェストには公開ファイル20件とハッシュ付きソース20件が登録されています。直接UI確認ではコースの完了とポーズ／再開の動作も確認しました。いずれもローカルプレビューでの結果です。スマートフォン実機では確認していません。GitHub上のr2 CI、Pagesへの公開、最新公開先の匿名確認は未完了です。以前のブラウザ・公開確認はr1の履歴です。[自動ブラウザ確認](evidence/browser-automated.json)と[直接操作のUI確認](evidence/browser-suzaku-ui.json)を参照してください。
+r2では本番ビルドが成功し、Chromiumによる自動確認12/12件、直接UI確認9/9件に合格しました。Node.jsテストは15件すべてに合格し、マニフェストには公開ファイル20件とハッシュ付きソース20件が登録されています。直接UI確認ではコースの完了とポーズ／再開の動作も確認しました。いずれもローカルプレビューでの結果です。スマートフォン実機では確認していません。[GitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)は成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した41ファイルのサイズとSHA-256が一致しました。r1と明記された記録は履歴として扱います。[自動ブラウザ確認](evidence/browser-automated.json)と[直接操作のUI確認](evidence/browser-suzaku-ui.json)を参照してください。
 
 ## 再現方法
+
+[公開サイトの操作記録](evidence/browser-public.json)と[匿名取得・ハッシュ照合記録](evidence/publication.json)を保存しています。
 
 依存関係は `npm ci` で導入します。テストは `npm test`、本番ビルドは `npm run build` で実行できます。CAD、データ、ブラウザ確認のコマンドは[再現手順](docs/reproduce.md)を参照してください。
 

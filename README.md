@@ -1,5 +1,7 @@
 # ONIZUKA AERO AGI Co.
 
+[日本語](README.ja.md) · [Play SUZAKU](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [CAD preview](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
+
 ONIZUKA AERO AGI Co. publishes original aviation-themed digital art, geometry checks, and a civilian arcade game as reproducible artifacts. A human mission owner sets the mission and publication policy.
 
 The current design is **AX-01 SUZAKU r2**, a fictional collectible toy with red, ivory, and gold detailing and forward-swept main wings. The `standard` and `longwing` variants retain the existing controls and rules, with their variant-specific in-game tuning unchanged.
@@ -16,9 +18,11 @@ The FreeCAD 1.1.3 geometry report passes for both variants. Each has 40 valid sh
 
 The arcade dataset contains three generated replay records. The standard and longwing route-following runs each pass all 14 gates and score 3,300 points. The miss-control run passes no gates and scores 0. All three replay tests passed after regeneration. See the [arcade summary](public/data/arcade-summary.json).
 
-The r2 local production build and browser checks passed: automated Chromium reported 12/12 checks, and a separate direct in-app-browser session passed 9/9 checks. The Node suite passed 15/15, and the manifest covers 20 public files and 20 hashed sources. The direct session also verified course completion and pause/resume behavior. These checks target local previews; physical phones are untested. GitHub r2 CI, Pages publication, and anonymous verification of the latest public deployment are pending. Older browser and publication reports describe r1 and remain historical. See the [automated browser report](evidence/browser-automated.json) and [direct browser report](evidence/browser-suzaku-ui.json).
+The r2 local production build and browser checks passed: automated Chromium reported 12/12 checks, and a separate direct in-app-browser session passed 9/9 checks. The Node suite passed 15/15, and the manifest covers 20 public files and 20 hashed sources. The direct session also verified course completion and pause/resume behavior. These checks target local previews; physical phones are untested. [GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2. All 12 browser checks also passed on the public site, and 41 anonymous downloads matched byte sizes and SHA-256 hashes. Reports labeled r1 remain historical. See the [automated browser report](evidence/browser-automated.json) and [direct browser report](evidence/browser-suzaku-ui.json).
 
 ## Reproduce
+
+See the [public-site browser report](evidence/browser-public.json) and [anonymous-download verification](evidence/publication.json) for the published r2 checks.
 
 Install dependencies with `npm ci`, run the checks with `npm test`, and build with `npm run build`. The [reproduction guide](docs/reproduce.md) gives the CAD, data, and browser-validation commands.
 

@@ -6,7 +6,7 @@
 
 ### 概要
 
-このカードは架空のコレクショントイ AX-01 SUZAKU r2 の形状データと、民生向けアーケードゲームの模擬記録を説明します。ゲーム記録は合成入力を再生した結果で、実機の飛行データやユーザーのテレメトリではありません。r2のローカル検証は完了しましたが、公開サイトの確認は未完了です。
+このカードは架空のコレクショントイ AX-01 SUZAKU r2 の形状データと、民生向けアーケードゲームの模擬記録を説明します。ゲーム記録は合成入力を再生した結果で、実機の飛行データやユーザーのテレメトリではありません。r2のローカル検証と公開サイトでの操作・匿名取得の確認は完了しました。
 
 | 項目 | 値 |
 | --- | --- |
@@ -58,7 +58,7 @@
 
 ゲームはゲート通過を目的とする民生向けアーケードです。実機の飛行を再現せず、兵器も登場しません。記録は合成入力と模擬ゲーム状態で、ユーザーのテレメトリではありません。ゲームはテレメトリを収集しません。
 
-FreeCADの形状レポートと再生成チェックは合格しました。リプレイテスト3件、Nodeテスト15件、本番ビルド、ローカルChromium自動確認12件、直接UI確認9件もすべて合格しました。ブラウザ記録は[自動確認](../evidence/browser-automated.json)と[直接UI確認](../evidence/browser-suzaku-ui.json)にあります。いずれもローカルプレビューの結果で、スマートフォン実機では確認していません。GitHub上のr2 CI、Pagesへの公開、最新公開先の匿名確認は未完了です。以前のブラウザ・公開確認記録はr1の履歴です。
+FreeCADの形状レポートと再生成チェックは合格しました。リプレイテスト3件、Nodeテスト15件、本番ビルド、ローカルChromium自動確認12件、直接UI確認9件もすべて合格しました。ブラウザ記録は[自動確認](../evidence/browser-automated.json)と[直接UI確認](../evidence/browser-suzaku-ui.json)にあります。いずれもローカルプレビューの結果で、スマートフォン実機では確認していません。[GitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)は成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した41ファイルのサイズとSHA-256が一致しました。r1と明記された記録は履歴として扱います。
 
 ### 来歴と帰属表示
 
@@ -70,7 +70,7 @@ FreeCADの形状レポートと再生成チェックは合格しました。リ�
 
 ### Overview
 
-This card describes geometry data for AX-01 SUZAKU r2, a fictional collectible toy, and simulated records from a civilian arcade game. The game records replay synthetic inputs. They are not flight data or user telemetry. Verification of the r2 public site is pending.
+This card describes geometry data for AX-01 SUZAKU r2, a fictional collectible toy, and simulated records from a civilian arcade game. The game records replay synthetic inputs. They are not flight data or user telemetry. The r2 public site passed browser and anonymous-download verification.
 
 | Item | Value |
 | --- | --- |
@@ -122,7 +122,7 @@ The dataset covers the geometry of a fictional visual asset and simulated gamepl
 
 The game is a civilian gate-flight arcade experience. It does not simulate real flight and includes no weapons. The records contain synthetic inputs and simulated game state, not user telemetry. The game collects no telemetry.
 
-The FreeCAD geometry report and regeneration check passed. All three replay tests, all 15 Node tests, the production build, 12 automated Chromium checks, and 9 direct UI checks passed locally. The browser reports are [automated](../evidence/browser-automated.json) and [direct UI](../evidence/browser-suzaku-ui.json). Both target local previews; physical phones have not been tested. GitHub r2 CI, Pages publication, and anonymous verification of the latest public deployment are pending. Older browser and publication reports are historical r1 records.
+The FreeCAD geometry report and regeneration check passed. All three replay tests, all 15 Node tests, the production build, 12 automated Chromium checks, and 9 direct UI checks passed locally. The browser reports are [automated](../evidence/browser-automated.json) and [direct UI](../evidence/browser-suzaku-ui.json). Both target local previews; physical phones have not been tested. [GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2. All 12 browser checks also passed on the public site, and 41 anonymous downloads matched byte sizes and SHA-256 hashes. Reports labeled r1 remain historical.
 
 ### Provenance and attribution
 

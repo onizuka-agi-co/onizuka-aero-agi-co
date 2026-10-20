@@ -22,5 +22,11 @@
   ],
   "deployment": "skipped because verification failed",
   "causeStatus": "The original log did not capture event or frame timing, so the exact original cause is unproven.",
-  "repair": "The test now waits for a stable actionable control, received touch and observed state change while the touch remains held, then verifies release. All 12 local browser checks passed; GitHub retry remains pending."
+  "repair": "Verification now waits for an actionable control, received touch and observed state change while touch is held, then verifies release. Subsequent local, GitHub CI and public-site browser checks all passed.",
+  "resolution": {
+    "publicBrowserChecks": 12,
+    "status": "subsequent verification passed",
+    "commit": "f551a882ad06a39fb76cf7523785a0e093df78fb",
+    "run": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215"
+  }
 }

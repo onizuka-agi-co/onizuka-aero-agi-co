@@ -43,7 +43,7 @@ npx playwright install chromium
 npm run test:browser
 ~~~
 
-`npm test` はNodeのテストを実行し、`npm run build` は本番用ファイルを生成します。r2の実行ではNodeテスト15件と本番ビルドが合格しました。`npm run test:browser` はビルド済みアプリを使い、ポート4188で専用のVite previewを起動します。別途 `npm run preview` を起動する必要はありません。現在のローカル記録では自動Chromium確認12件、直接UI確認9件が合格しています（[自動確認](../evidence/browser-automated.json)、[直接UI確認](../evidence/browser-suzaku-ui.json)）。スマートフォン実機では未確認です。GitHub r2 CI、Pagesへの公開、最新公開先の確認は未完了です。
+`npm test` はNodeのテストを実行し、`npm run build` は本番用ファイルを生成します。r2の実行ではNodeテスト15件と本番ビルドが合格しました。`npm run test:browser` はビルド済みアプリを使い、ポート4188で専用のVite previewを起動します。別途 `npm run preview` を起動する必要はありません。現在のローカル記録では自動Chromium確認12件、直接UI確認9件が合格しています（[自動確認](../evidence/browser-automated.json)、[直接UI確認](../evidence/browser-suzaku-ui.json)）。スマートフォン実機では未確認です。[GitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)は成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した41ファイルのサイズとSHA-256が一致しました。
 
 開発サーバーは `npm run dev` で起動します。ビルド済みアプリを確認する場合は、先に `npm run build` を実行し、その後 `npm run preview` を起動します。
 
@@ -60,7 +60,7 @@ node .\scripts\verify-public.mjs
 
 ### 記録の解釈
 
-形状値は任意設計単位です。アーケード記録は模擬ゲーム状態です。どちらも実際の飛行性能や航空宇宙工学の評価として解釈しないでください。ブラウザ確認はChromiumの画面とタッチ操作のエミュレーションです。スマートフォン実機の確認とは異なります。r2のローカルブラウザ確認は完了しましたが、公開確認は未完了です。r1と明記された以前のブラウザ・公開記録は履歴資料として扱います。
+形状値は任意設計単位です。アーケード記録は模擬ゲーム状態です。どちらも実際の飛行性能や航空宇宙工学の評価として解釈しないでください。ブラウザ確認はChromiumの画面とタッチ操作のエミュレーションです。スマートフォン実機の確認とは異なります。r2のローカル確認に加え、公開URLでの操作と匿名取得も確認しました。r1と明記された以前のブラウザ・公開記録は履歴資料として扱います。
 
 ## English
 
@@ -120,4 +120,4 @@ node .\scripts\verify-public.mjs
 
 ### Interpret the records
 
-Geometry values use arbitrary design units. Arcade records are simulated game state. Do not interpret either as actual flight performance or aerospace engineering results. Current local r2 browser checks are recorded in the automated Chromium and direct UI reports. The automated touch check uses an emulated viewport; the direct session used a desktop in-app browser. Neither tests physical phones. GitHub r2 CI, Pages publication, and anonymous verification of the latest public deployment are pending. Older reports labeled r1 are historical.
+Geometry values use arbitrary design units. Arcade records are simulated game state. Do not interpret either as actual flight performance or aerospace engineering results. Current local r2 browser checks are recorded in the automated Chromium and direct UI reports. The automated touch check uses an emulated viewport; the direct session used a desktop in-app browser. Neither tests physical phones. [GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2. All 12 browser checks also passed on the public site, and 41 anonymous downloads matched byte sizes and SHA-256 hashes. Older reports labeled r1 are historical.
