@@ -1,0 +1,23 @@
+{
+  "name": "onizuka-aero-agi-co",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "test:browser": "node scripts/browser-qa.mjs",
+    "record:arcade": "node scripts/record-arcade.mjs",
+    "catalog": "node scripts/catalog.mjs",
+    "verify:data": "node scripts/catalog.mjs --check"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "vite": "8.3.4"
+  }
+}

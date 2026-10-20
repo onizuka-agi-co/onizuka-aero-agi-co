@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-20T12:42:19.066Z",
+  "status": "pass",
+  "browser": "151.0.7922.34",
+  "method": "Actual Chromium UI using mouse, keyboard and CDP touch input. Visual screenshots inspected separately.",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "touchEmulated": true
+    }
+  ],
+  "checks": [
+    {
+      "check": "variant-select-longwing",
+      "pass": true
+    },
+    {
+      "check": "pause-freezes-clock",
+      "pass": true
+    },
+    {
+      "check": "touch-steering",
+      "pass": true
+    },
+    {
+      "check": "touch-boost",
+      "pass": true
+    },
+    {
+      "check": "desktop-score-and-finish",
+      "pass": true
+    },
+    {
+      "check": "restart-clears-score",
+      "pass": true
+    },
+    {
+      "check": "ready-input-does-not-move",
+      "pass": true
+    },
+    {
+      "check": "missing-assets-disable-start",
+      "pass": true
+    },
+    {
+      "check": "longwing-flight-keyboard-boost",
+      "pass": true
+    },
+    {
+      "check": "desktop-and-mobile-no-horizontal-overflow",
+      "pass": true
+    }
+  ],
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/main.js": "dbbb65ed011168483f171e4655c5525fb58030ca2e294c7fa31da108e0cd5f9d",
+    "src/scene.js": "7d4ac5599e8668a965cd8840d45ee706af0ec02227a8b666bb2d3a1429d98487",
+    "src/style.css": "66c537ca8634344807da1e047072ab16f75abdf51fd8e085daea57019ce87609",
+    "src/arcade.mjs": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c",
+    "index.html": "d842e6b6796dca4d417bcd6be3655322f5072c4f3254faf939b65a249df2981c"
+  },
+  "limits": [
+    "Mobile viewport emulation; no physical phone test.",
+    "Arcade gameplay, not physical flight validation."
+  ],
+  "screenshots": [
+    "desktop-ready.png",
+    "desktop-play.png",
+    "desktop-paused.png",
+    "desktop-finished.png",
+    "mobile-ready.png",
+    "mobile-play.png"
+  ],
+  "recordType": "observed-browser-verification",
+  "designId": "AX-01",
+  "revision": "r1",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 browser verification r1",
+  "generator": "Playwright Interactive session; see scripts/browser-qa.mjs for the repeatable checks"
+}

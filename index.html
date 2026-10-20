@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1e9" />
+    <meta name="description" content="架空のビジュアル資産 AX-01 KIRIN を使った、ゲート飛行アーケード。" />
+    <title>AX-01 KIRIN | ONIZUKA AERO FLIGHT ARCADE</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="wordmark" href="https://github.com/onizuka-agi-co/onizuka-aero-agi-co" target="_blank" rel="noreferrer" aria-label="ONIZUKA AERO AGI Co. GitHub">
+          <span class="wordmark-icon" aria-hidden="true">O</span>
+          <span><strong>ONIZUKA AERO</strong><small>AGI CO. / DIGITAL FLIGHT LAB</small></span>
+        </a>
+        <div class="topbar-right">
+          <span class="model-tag"><i aria-hidden="true"></i> 架空機・ゲーム用モデル</span>
+          <a class="top-link" href="https://github.com/onizuka-agi-co/onizuka-aero-agi-co/tree/main/docs" target="_blank" rel="noreferrer">プロジェクト資料 <span aria-hidden="true">↗</span></a>
+          <a class="top-link" href="./data/manifest.json" download>データ一覧 <span aria-hidden="true">↓</span></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span>01</span> VISUAL FLIGHT ARCADE <i></i> AX SERIES</p>
+            <h1 id="hero-title">空を、<br /><em>なぞる。</em></h1>
+            <p class="intro">AX-01 KIRIN の3Dモデルで、浮かぶゲートをくぐる。<br />短いコースを、自分のラインで飛び抜けよう。</p>
+            <div class="variant-block">
+              <div class="section-label"><span>機体の外観</span><span>VARIANT / GAME TUNING</span></div>
+              <div class="variant-picker" role="group" aria-label="機体バリアント">
+                <button class="variant-button is-selected" type="button" data-variant="standard" aria-pressed="true">
+                  <span class="variant-index">A</span><span><strong>STANDARD</strong><small>小回り重視 / ゲーム内設定</small></span><span class="variant-check" aria-hidden="true">●</span>
+                </button>
+                <button class="variant-button" type="button" data-variant="longwing" aria-pressed="false">
+                  <span class="variant-index">B</span><span><strong>LONGWING</strong><small>直進加速重視 / ゲーム内設定</small></span><span class="variant-check" aria-hidden="true">○</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="action-row">
+              <button id="start-button" class="primary-button" type="button" disabled>
+                <span class="button-icon" aria-hidden="true">▶</span><span><strong>フライトを開始</strong><small>START FLIGHT</small></span>
+              </button>
+              <div class="key-hint"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><small>移動</small></div>
+            </div>
+            <p id="status-message" class="status-message" role="status" aria-live="polite">3Dメッシュを読み込んでいます。</p>
+          </div>
+
+          <div class="visual-column">
+            <div class="flight-stage" id="flight-stage">
+              <canvas id="flight-view" aria-label="AX-01 KIRINの3Dビューとゲート飛行コース"></canvas>
+              <div class="stage-grain" aria-hidden="true"></div>
+              <div class="stage-topline"><span><b class="live-dot"></b> FLIGHT DECK <span class="stage-divider">/</span> AX-01</span><span id="phase-label">HANGAR / READY</span></div>
+              <div class="stage-coordinate" aria-hidden="true"><span>AX-01</span><span>SIM COURSE 01 / 14</span></div>
+              <div class="stage-hud" id="stage-hud" hidden>
+                <div><span>スコア</span><strong id="score-value">000000</strong></div>
+                <div><span>のこり</span><strong><span id="time-value">76</span><small>秒</small></strong></div>
+                <div><span>ゲート</span><strong><span id="gate-value">00</span><small> / 14</small></strong></div>
+              </div>
+              <div class="stage-center-label" id="stage-message" aria-live="polite" hidden></div>
+              <div class="stage-bottomline"><span>ARTISTIC ASSET <b>·</b> GAME ONLY</span><span>REV. R1 <i></i> 2026</span></div>
+              <div class="load-cover" id="load-cover">
+                <span class="load-mark" aria-hidden="true"></span>
+                <strong id="load-title">機体データを確認中</strong>
+                <small id="load-detail">AX-01 / STANDARD + LONGWING</small>
+              </div>
+            </div>
+
+            <div class="stage-controls">
+              <div class="control-summary"><span class="control-led"></span><span id="control-status">HANGAR CONTROL</span><span class="control-divider">/</span><span>ARCADE FLIGHT</span></div>
+              <div class="mobile-controls" aria-label="タッチ飛行操作">
+                <div class="direction-pad">
+                  <button type="button" data-control="up" aria-label="上へ移動" aria-pressed="false">↑</button>
+                  <button type="button" data-control="left" aria-label="左へ移動" aria-pressed="false">←</button>
+                  <button type="button" data-control="down" aria-label="下へ移動" aria-pressed="false">↓</button>
+                  <button type="button" data-control="right" aria-label="右へ移動" aria-pressed="false">→</button>
+                </div>
+                <button class="boost-control" type="button" data-control="boost" aria-label="ブースト" aria-pressed="false"><span>BOOST</span><b>↗</b></button>
+              </div>
+              <div class="keyboard-controls"><span>MOVE</span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span class="control-divider">·</span><kbd>SHIFT</kbd><span>BOOST</span><kbd>ESC</kbd><span>PAUSE</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="flight-bar" aria-label="フライト操作と結果">
+          <div class="flight-copy"><span class="flight-number">FLIGHT 001</span><span id="flight-state-copy">準備完了。外観を選んでフライトを始めよう。</span></div>
+          <div class="flight-actions">
+            <button id="pause-button" class="secondary-button" type="button" hidden>一時停止 <span>Ⅱ</span></button>
+            <button id="resume-button" class="secondary-button" type="button" hidden>再開 <span>▶</span></button>
+            <button id="restart-button" class="secondary-button" type="button" hidden>機体選択に戻る <span>↻</span></button>
+            <span id="result-summary" class="result-summary" aria-live="polite" hidden></span>
+          </div>
+        </section>
+
+        <section class="data-shelf" aria-labelledby="data-title">
+          <div class="data-heading"><div><p class="eyebrow"><span>02</span> OPEN DATA / DOWNLOADS</p><h2 id="data-title">機体と記録</h2></div><p>ゲーム内の記録はシミュレーションです。<br />ユーザーの操作データは収集しません。</p></div>
+          <div class="data-grid">
+            <article class="data-card data-card-airframe"><div class="data-card-top"><span>01 / AIRFRAME</span><span class="data-card-symbol" aria-hidden="true">↗</span></div><h3>AX-01 KIRIN</h3><p>架空のビジュアルモデル。2つの外観を取得できます。</p><div class="download-links"><a href="./assets/ax01/standard/ax01.FCStd" download>STD / FCStd <span>↓</span></a><a href="./assets/ax01/standard/ax01.step" download>STD / STEP <span>↓</span></a><a href="./assets/ax01/standard/ax01.stl" download>STD / STL <span>↓</span></a><a href="./assets/ax01/longwing/ax01.FCStd" download>LONG / FCStd <span>↓</span></a><a href="./assets/ax01/longwing/ax01.step" download>LONG / STEP <span>↓</span></a><a href="./assets/ax01/longwing/ax01.stl" download>LONG / STL <span>↓</span></a></div></article>
+            <article class="data-card"><div class="data-card-top"><span>02 / GEOMETRY</span><span class="data-card-symbol" aria-hidden="true">↗</span></div><h3>形状データ</h3><p>メッシュ、形状確認レポート、プレビュー。</p><div class="download-links"><a href="./assets/ax01/standard/mesh.json" download>STD Mesh <span>↓</span></a><a href="./assets/ax01/longwing/mesh.json" download>LONG Mesh <span>↓</span></a><a href="./data/geometry-report.json" download>Report <span>↓</span></a><a href="./assets/ax01/standard/preview.svg" download>Preview <span>↓</span></a></div></article>
+            <article class="data-card"><div class="data-card-top"><span>03 / ARCADE LOG</span><span class="data-card-symbol" aria-hidden="true">↗</span></div><h3>ゲーム記録</h3><p>固定コースと入力列から作った模擬プレイ。通過例と見逃し例を公開。</p><div class="download-links"><a href="./data/arcade-standard.json" download>STD JSON <span>↓</span></a><a href="./data/arcade-standard.csv" download>STD CSV <span>↓</span></a><a href="./data/arcade-longwing.json" download>LONG JSON <span>↓</span></a><a href="./data/arcade-longwing.csv" download>LONG CSV <span>↓</span></a><a href="./data/arcade-miss.json" download>MISS JSON <span>↓</span></a><a href="./data/arcade-miss.csv" download>MISS CSV <span>↓</span></a><a href="./data/manifest.json" download>Manifest <span>↓</span></a></div></article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer"><span>© ONIZUKA AERO AGI CO. <i></i> AX-01 KIRIN / REV. R1</span><span>FICTIONAL VISUAL ASSET <i></i> NON-SCIENTIFIC GAME</span><a href="https://github.com/onizuka-agi-co/onizuka-aero-agi-co/blob/main/docs/dataset-card.md" target="_blank" rel="noreferrer">データの使い方 <span aria-hidden="true">↗</span></a></footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

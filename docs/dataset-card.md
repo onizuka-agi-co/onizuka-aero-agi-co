@@ -1,0 +1,103 @@
+# Dataset card
+
+[日本語](#日本語) | [English](#english)
+
+## 日本語
+
+### 概要
+
+このカードは、AX-01 KIRIN r1のCAD形状確認と、民生向けゲート飛行アーケードの決定論的な模擬記録を説明します。AX-01 KIRINは架空の近未来戦闘機風ビジュアル資産です。データ記録は公開リポジトリに含まれます。ゲームサイトのGitHub Pages公開とGitHub Actions CIは保留中です。
+
+| 項目 | 値 |
+| --- | --- |
+| データセットID | `onizuka-aero-ax01-r1` |
+| デザインID / 改訂 | `AX-01` / `r1` |
+| CAD生成ツール | FreeCAD 1.1.3 |
+| 造形バリアント | `standard`、`longwing` |
+| CADパーツ | 各バリアント9個。すべて妥当と判定 |
+| メッシュ | 各バリアント360三角形。`schemaVersion: 1` |
+| 左右翼の最大頂点偏差 | 0.0。任意設計単位。許容値は`1e-6` |
+| 形状レポート | `public/data/geometry-report.json`。状態は`passed` |
+| アーケード記録 | 3ケース。JSON 3件とCSV 3件。`schemaVersion: 1` |
+| アーケード記録の状態 | 3件を生成し、データ検証に合格 |
+| データ記録のライセンス | CC BY 4.0 |
+
+### 内容と用途
+
+各バリアントの`public/assets/ax01/standard/`と`public/assets/ax01/longwing/`に、FreeCADネイティブ形式の`.FCStd`、STEP、STL、`mesh.json`、`preview.svg`があります。FreeCADネイティブ形式とSTEPは各9形状を再インポートして確認し、STLは各360三角形を再読込して確認しました。9パーツは独立した造形要素です。重なりを許容しており、組立状態の水密ソリッドとは扱いません。ゲームも各CAD出力から生成した同じ`mesh.json`を読み込みます。
+
+形状レポートには形状の妥当性、境界、部品数、三角形数、左右翼の対称性、エクスポート後の再読込結果を記録しています。左右翼は、メッシュ頂点をY軸で反転した集合間の対称Hausdorff距離で比較しています。任意設計単位で測った最大偏差は0.0です。
+
+アーケード記録は保存済みの合成入力を`src/arcade.mjs`で再生した結果です。JSONには再生入力、各フレームのゲーム状態、結果、実行条件と出典を記録し、CSVにはフレームごとの状態を並べています。
+
+| ケース | 再生フレーム数 | 得点 | ゲート結果 |
+| --- | ---: | ---: | --- |
+| `standard` route-following | 1,334 | 3,300 | 14通過、0ミス |
+| `longwing` route-following | 1,233 | 3,300 | 14通過、0ミス |
+| `standard` miss-control | 1,426 | 0 | 0通過、14ミス |
+
+各ケースの詳細は[アーケード概要](../public/data/arcade-summary.json)、形状確認の詳細は[形状レポート](../public/data/geometry-report.json)、ファイルとSHA-256の一覧は[マニフェスト](../public/data/manifest.json)を参照してください。
+
+### 制限
+
+このデータセットが対象とするのは、CAD形状とゲーム内の模擬操作です。任意設計単位の形状妥当性、境界、要素数、左右対称性は、実在機の寸法、空力、飛行性能、構造強度、推進、ステルス、兵器、製造を評価または保証しません。パーツは独立した外形で、組み上げた航空機の構造や機能を表しません。
+
+ゲームはゲート通過を目的とする民生向けアーケードです。実機の飛行を再現せず、兵器も登場しません。記録は合成入力と模擬ゲーム状態で、ユーザーのテレメトリではありません。初期版のゲームはテレメトリを収集しません。
+
+再生成チェックは`mesh.json`のSHA-256を比較します。FreeCADコンテナなどに時刻情報が含まれることがあるため、`.FCStd`を含むすべての出力がバイト単位で一致するとは保証しません。現在のローカル検証ではNodeテスト14件とPlaywrightブラウザ検証12件が通過しています。スマートフォン実機では未確認です。
+
+### 来歴と帰属表示
+
+アーケードのJSON記録には`recordId`、`designId`、改訂、スキーマ版、記録時刻、生成ツール、入力ハッシュ、実行条件、状態、ライセンス、帰属表示があります。形状レポートにはデザインID、改訂、スキーマ版、生成スクリプトのハッシュ、チェック設定、測定結果を記録しています。
+
+`public/data/manifest.json`は、`public/assets/`のCADアセットと`public/data/`のデータ記録について、パス、バイト数、SHA-256、ライセンスを一覧にします。`evidence/*.json`と`decisions.tsv`の監査記録は別の公開記録群で、このデータセットのマニフェストには含めません。各ファイル自身のハッシュはそのファイルに書かず、マニフェストで管理します。データ記録のライセンス本文は[LICENSE-DATA](../LICENSE-DATA)を参照してください。帰属表示には`ONIZUKA AERO AGI Co.`と対象の記録またはリリースを含めてください。
+
+## English
+
+### Overview
+
+This card describes CAD geometry checks for AX-01 KIRIN r1 and deterministic simulation records from a civilian gate-flight arcade game. AX-01 KIRIN is a fictional near-future fighter-inspired visual asset. The data records are included in the public repository. GitHub Pages publication of the game and GitHub Actions CI are pending.
+
+| Item | Value |
+| --- | --- |
+| Dataset ID | `onizuka-aero-ax01-r1` |
+| Design ID / revision | `AX-01` / `r1` |
+| CAD generator | FreeCAD 1.1.3 |
+| Artistic variants | `standard`, `longwing` |
+| CAD parts | 9 per variant; all reported valid |
+| Mesh | 360 triangles per variant; `schemaVersion: 1` |
+| Maximum mirrored-wing vertex deviation | 0.0 arbitrary design units; tolerance `1e-6` |
+| Geometry report | `public/data/geometry-report.json`; status `passed` |
+| Arcade records | 3 cases, with 3 JSON files and 3 CSV files; `schemaVersion: 1` |
+| Arcade record status | All 3 generated; data verification passed |
+| Data-record license | CC BY 4.0 |
+
+### Contents and uses
+
+Each variant directory, `public/assets/ax01/standard/` and `public/assets/ax01/longwing/`, contains a native FreeCAD `.FCStd` file, STEP, STL, `mesh.json`, and `preview.svg`. The native FreeCAD files and STEP exports were reopened and checked for 9 shapes each. The STL exports were reopened and checked for 360 triangles each. The nine parts are separate artistic shapes that may overlap; they do not claim to form a watertight assembly. The game loads the same `mesh.json` generated from each CAD asset.
+
+The geometry report records shape validity, bounds, part and triangle counts, mirrored-wing symmetry, and export-reopen checks. The wing comparison uses the symmetric Hausdorff distance between tessellated vertex sets after reflection across Y. The measured maximum deviation is 0.0 in arbitrary design units.
+
+The arcade records replay saved synthetic inputs through `src/arcade.mjs`. Each JSON record stores replay inputs, per-frame game state, results, run conditions, and provenance. CSV files list the per-frame state for tabular review.
+
+| Case | Replay frames | Score | Gate result |
+| --- | ---: | ---: | --- |
+| `standard` route-following | 1,334 | 3,300 | 14 passed, 0 missed |
+| `longwing` route-following | 1,233 | 3,300 | 14 passed, 0 missed |
+| `standard` miss-control | 1,426 | 0 | 0 passed, 14 missed |
+
+See the [arcade summary](../public/data/arcade-summary.json), [geometry report](../public/data/geometry-report.json), and [manifest](../public/data/manifest.json) for case details and file hashes.
+
+### Limits
+
+The dataset covers CAD geometry and simulated gameplay. Geometry validity, bounds, element counts, and symmetry in arbitrary design units do not evaluate or guarantee real aircraft dimensions, aerodynamics, flight performance, structural strength, propulsion, stealth, weapons, or manufacturing. The parts are separate outer shapes and do not describe an assembled aircraft structure or function.
+
+The game is a civilian gate-flight arcade experience. It does not simulate real flight and includes no weapons. The records contain synthetic inputs and simulated game state, not user telemetry. The initial game collects no telemetry.
+
+The regeneration check compares SHA-256 hashes of `mesh.json`. FreeCAD containers and other files may include timestamps, so the project does not claim byte-for-byte determinism for every output. Current local validation passed 14 Node tests and 12 Playwright browser checks. Physical phones have not been tested.
+
+### Provenance and attribution
+
+Arcade JSON records include `recordId`, `designId`, revision, schema version, recording time, generator, input hash, run conditions, status, license, and attribution. The geometry report includes its design ID, revision, schema version, generator-script hash, check settings, and measurements.
+
+`public/data/manifest.json` lists paths, byte counts, SHA-256 hashes, and licenses for CAD assets under `public/assets/` and data records under `public/data/`. Audit records under `evidence/*.json` and `decisions.tsv` are a separate public record set and are not part of this dataset manifest. The manifest stores file hashes separately from the files. See [LICENSE-DATA](../LICENSE-DATA) for the data-record license notice. Include `ONIZUKA AERO AGI Co.` and the relevant record or release in attribution.

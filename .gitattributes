@@ -1,0 +1,6 @@
+* -text
+*.png binary
+*.FCStd binary
+*.stl binary
+*.step binary
+*.tsv whitespace=cr-at-eol

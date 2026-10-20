@@ -1,0 +1,30 @@
+name: Public company mission
+description: Define a bounded task whose outputs and execution records can be published.
+title: '[Mission] '
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What can a user open, run, inspect or play when this mission is complete?
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Inputs and publication rights
+      description: Link the source data and its license. Do not attach credentials or private data.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance checks
+      description: List the checks, expected artifacts and limits on the claims those checks support.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Outputs and execution evidence
+      description: During execution, link actual files, commands and results. Keep planned work distinct from completed work.

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "designId": "AX-01",
+  "assetRevision": "r1",
+  "recordedAt": "2026-10-20T12:36:15.560Z",
+  "status": "generated",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 arcade simulations r1",
+  "scope": "Deterministic fictional gate-flight gameplay only. No real-flight simulation or user telemetry.",
+  "runs": [
+    {
+      "recordId": "AX01-ARCADE-standard-route-following-R1-20261020",
+      "variant": "standard",
+      "runKind": "route-following",
+      "status": "generated",
+      "configHash": "ea22ebe2ef6be854d9c7ab644408f27e9dbded86010fd00f003fdf920ba754d2",
+      "inputSha256": "c0fc3baca7eb5937fd2545ca45f33a4c033e5f1293a0f2c880afcc306ea8c432",
+      "frameCount": 1334,
+      "finishReason": "course-complete",
+      "score": 3300,
+      "gatesPassed": 14,
+      "gatesMissed": 0,
+      "files": [
+        "arcade-standard.json",
+        "arcade-standard.csv"
+      ]
+    },
+    {
+      "recordId": "AX01-ARCADE-longwing-route-following-R1-20261020",
+      "variant": "longwing",
+      "runKind": "route-following",
+      "status": "generated",
+      "configHash": "1b0a192df98ab9f7e9f3e52d608a9121242e8be674b9fd4808f2417e396b2806",
+      "inputSha256": "921f4641e2492e4d1b5ad7503999711647ba25f8efef9d43257c6b99e3f34fde",
+      "frameCount": 1233,
+      "finishReason": "course-complete",
+      "score": 3300,
+      "gatesPassed": 14,
+      "gatesMissed": 0,
+      "files": [
+        "arcade-longwing.json",
+        "arcade-longwing.csv"
+      ]
+    },
+    {
+      "recordId": "AX01-ARCADE-standard-miss-control-R1-20261020",
+      "variant": "standard",
+      "runKind": "miss-control",
+      "status": "generated",
+      "configHash": "ea22ebe2ef6be854d9c7ab644408f27e9dbded86010fd00f003fdf920ba754d2",
+      "inputSha256": "d4f4710dfe32d6cdd7e632715d276b165eef94e554d2cb0e65e3b5ea71096ee8",
+      "frameCount": 1426,
+      "finishReason": "course-complete",
+      "score": 0,
+      "gatesPassed": 0,
+      "gatesMissed": 14,
+      "files": [
+        "arcade-miss.json",
+        "arcade-miss.csv"
+      ]
+    }
+  ]
+}

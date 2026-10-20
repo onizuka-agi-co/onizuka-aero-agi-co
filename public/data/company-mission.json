@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-public-company-task-snapshot",
+  "designId": "AX-01",
+  "revision": "r1",
+  "status": "observed",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 first mission task snapshot r1",
+  "generator": {
+    "command": "node scripts/snapshot-company.mjs",
+    "source": "scripts/snapshot-company.mjs",
+    "tool": "GitHub CLI issue list"
+  },
+  "company": "ONIZUKA AERO AGI Co.",
+  "missionId": "AX01-FIRST-RELEASE",
+  "recordedAt": "2026-10-20T12:50:24.760Z",
+  "provenance": {
+    "kind": "observed-public-project-state",
+    "source": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues",
+    "method": "GitHub CLI issue list, public fields only; no invented meeting or approval records."
+  },
+  "license": "CC-BY-4.0",
+  "tasks": [
+    {
+      "closedAt": null,
+      "createdAt": "2026-10-20T12:20:41Z",
+      "number": 1,
+      "state": "OPEN",
+      "title": "Publish company charter and open-data policy",
+      "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/1"
+    },
+    {
+      "closedAt": "2026-10-20T12:29:25Z",
+      "createdAt": "2026-10-20T12:20:43Z",
+      "number": 2,
+      "state": "CLOSED",
+      "title": "Generate AX-01 visual CAD and execute geometry checks",
+      "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/2"
+    },
+    {
+      "closedAt": "2026-10-20T12:46:16Z",
+      "createdAt": "2026-10-20T12:20:45Z",
+      "number": 3,
+      "state": "CLOSED",
+      "title": "Build AX-01 gate-flight arcade and record simulated runs",
+      "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/3"
+    },
+    {
+      "closedAt": null,
+      "createdAt": "2026-10-20T12:20:47Z",
+      "number": 4,
+      "state": "OPEN",
+      "title": "Verify and publish the first dataset and playable site",
+      "url": "https://github.com/onizuka-agi-co/onizuka-aero-agi-co/issues/4"
+    }
+  ]
+}

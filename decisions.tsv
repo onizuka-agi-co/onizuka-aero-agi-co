@@ -1,0 +1,9 @@
+ts	phase	decision	why	evidence	result
+2026-10-20T12:15:00Z	start	Start ONIZUKA AERO AGI Co. public prototype	User authorized company policies CAD analysis game and GitHub publication	README.md	open
+2026-10-20T12:15:00Z	scope	Use original fictional art CAD with geometry checks and arcade gameplay	Provide a complete creative prototype without military engineering analysis	AGENTS.md	chosen
+2026-10-20T12:15:00Z	publication	Create public repository in existing onizuka-agi-co organization	Authenticated account has active admin membership	https://github.com/onizuka-agi-co/onizuka-aero-agi-co	created
+2026-10-20T12:29:03.5846609Z	architecture	Use one FreeCAD geometry source and generated colored mesh	Avoid drift between CAD and game; retain versioned provenance	docs/architecture.md	chosen
+2026-10-20T12:29:03.5846609Z	cad-qa	Fix per-part preview scaling at the projection transform	Rendered preview exposed incorrect relative component sizes	evidence/cad-standard.png	corrected and visually checked
+2026-10-20T12:29:03.5846609Z	cad-qa	Validate both exported variants and geometry report against current files	Checks must bind measured records to real artifacts	tests/data.test.mjs	4 focused tests passed
+2026-10-20T12:46:18.3465471Z	game-qa	Apply camera target before rendering and improve mobile play view	Actual browser showed blank craft and offscreen mobile view	evidence/browser-qa.json	10 observed UI checks passed
+2026-10-20T12:46:18.3465471Z	game-qa	Add repeatable Chromium desktop and touch verification	Future company releases need the same user-level checks	evidence/browser-automated.json	12 automated browser checks passed
