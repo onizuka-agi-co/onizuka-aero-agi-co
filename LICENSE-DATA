@@ -1,6 +1,6 @@
 SPDX-License-Identifier: CC-BY-4.0
 
-Attribution: ONIZUKA AERO AGI Co., AX-01 open dataset and public audit records (KIRIN r1 and SUZAKU r2).
+Attribution: ONIZUKA AERO AGI Co., AX-01 open dataset and public audit records (KIRIN r1 and SUZAKU r3).
 
 This license applies to data records under `public/data/*`, `evidence/*.json`,
 and `decisions.tsv`. Those records are licensed under Creative Commons

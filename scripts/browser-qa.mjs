@@ -17,8 +17,8 @@ const report = { schemaVersion: 1, checkedAt: new Date().toISOString(), target, 
 const check = (name, passed) => { assert.ok(passed, name); report.checks.push({ name, passed }); };
 const state = page => page.evaluate(() => window.__AERO_QA__);
 Object.assign(report, {
-  recordType: 'observed-browser-verification', designId: 'AX-01', displayName: 'AX-01 SUZAKU', revision: 'r2',
-  license: 'CC-BY-4.0', attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r2',
+  recordType: 'observed-browser-verification', designId: 'AX-01', displayName: 'AX-01 SUZAKU', revision: 'r3',
+  license: 'CC-BY-4.0', attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r3',
   generator: 'scripts/browser-qa.mjs',
   method: 'Actual Chromium mouse, keyboard and CDP touch input against the built static site.',
   sourceHashes: {},
@@ -70,6 +70,7 @@ try {
   check('Course completion shows result', await page.locator('#result-summary').isVisible());
   await page.locator('#restart-button').click();
   check('Return to selection resets score', (await state(page)).phase === 'ready' && (await state(page)).score === 0);
+  await page.close();
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   const touch = await mobile.newPage();
   touch.on('pageerror', error => report.pageErrors.push(error.message));

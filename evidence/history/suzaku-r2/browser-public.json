@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-20T14:29:56.182Z",
+  "target": "https://onizuka-agi-co.github.io/onizuka-aero-agi-co/",
+  "status": "pass",
+  "checks": [
+    {
+      "name": "CAD mesh loaded into ready screen",
+      "passed": true
+    },
+    {
+      "name": "Long-wing selection",
+      "passed": true
+    },
+    {
+      "name": "Visible score changes after real-time gate crossing",
+      "passed": true
+    },
+    {
+      "name": "Keyboard changes position and boost energy",
+      "passed": true
+    },
+    {
+      "name": "Pause freezes clock",
+      "passed": true
+    },
+    {
+      "name": "Course completion shows result",
+      "passed": true
+    },
+    {
+      "name": "Return to selection resets score",
+      "passed": true
+    },
+    {
+      "name": "390px layout does not overflow",
+      "passed": true
+    },
+    {
+      "name": "Real touch right",
+      "passed": true
+    },
+    {
+      "name": "Real touch boost",
+      "passed": true
+    },
+    {
+      "name": "Missing assets prevent start",
+      "passed": true
+    },
+    {
+      "name": "No uncaught page errors",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    "browser-public-desktop.png",
+    "browser-public-mobile.png"
+  ],
+  "limits": [
+    "Chromium with emulated touch viewport; physical devices are untested."
+  ],
+  "recordType": "observed-browser-verification",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r2",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r2",
+  "generator": "scripts/browser-qa.mjs",
+  "method": "Actual Chromium mouse, keyboard and CDP touch input against the built static site.",
+  "sourceHashes": {
+    "src/main.js": "dcd70276aac85a2ed433b37392e799cf40b04afa1f971019d5dcad7c3e178fb8",
+    "src/scene.js": "0bd74c0214fe08fbbc54a7d533d61f864ec39b45efc77633f74a48743902e15d",
+    "src/style.css": "a9a03667d8d982856d324a7586f5dbcc1310aff9c13d35cdd93b290dfa863045",
+    "src/arcade.mjs": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c",
+    "index.html": "db88357ed44ea2028ba9e142988700d49a7932bb93d1f1a7d8c3425227ffd319",
+    "scripts/browser-qa.mjs": "f762e9aa1219fceeb2ded771669185f473cfb011650cc87748f136f91015357b"
+  },
+  "browser": "151.0.7922.34",
+  "deployedCommit": "f551a882ad06a39fb76cf7523785a0e093df78fb"
+}

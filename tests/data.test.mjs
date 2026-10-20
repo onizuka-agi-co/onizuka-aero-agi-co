@@ -12,11 +12,11 @@ for (const variant of ['standard', 'longwing']) {
     assert.equal(mesh.schemaVersion, 1);
     assert.equal(mesh.designId, 'AX-01');
     assert.equal(mesh.displayName, 'AX-01 SUZAKU');
-    assert.equal(mesh.revision, 'r2');
+    assert.equal(mesh.revision, 'r3');
     assert.equal(mesh.variant, variant);
     assert.equal(mesh.units, 'arbitrary-design-unit');
     assert.deepEqual(mesh.coordinateSystem, { forward: '+X', span: 'Y', up: '+Z' });
-    assert.ok(mesh.parts.length > 9, 'The r2 mesh must contain more parts than the r1 mesh.');
+    assert.ok(mesh.parts.length > 9, 'The r3 mesh must contain more parts than the r1 mesh.');
     assert.ok(Buffer.byteLength(JSON.stringify(mesh)) < 2 * 1024 * 1024, 'Keep each browser mesh below 2 MiB.');
     assert.ok(mesh.parts.reduce((count, part) => count + part.indices.length / 3, 0) < 30000, 'Keep each craft below 30,000 triangles.');
     const names = new Set();
@@ -43,7 +43,7 @@ test('wing variants contain genuinely different exported geometry', async () => 
   assert.ok(span(b) > span(a), 'Long-wing visual variant must have greater exported span.');
 });
 
-test('r2 mesh uses forward-swept wings on both variants', async () => {
+test('r3 mesh uses forward-swept wings on both variants', async () => {
   for (const variant of ['standard', 'longwing']) {
     const mesh = await read(`assets/ax01/${variant}/mesh.json`);
     for (const name of ['LeftForwardSweptWing', 'RightForwardSweptWing']) {
@@ -67,7 +67,7 @@ test('public catalog labels scope, licenses and provenance', async () => {
   const manifest = await read('data/manifest.json');
   assert.equal(manifest.designId, 'AX-01');
   assert.equal(manifest.displayName, 'AX-01 SUZAKU');
-  assert.equal(manifest.revision, 'r2');
+  assert.equal(manifest.revision, 'r3');
   assert.match(manifest.scope, /No physical aircraft performance/);
   assert.ok(manifest.files.length >= 12);
   for (const file of manifest.files) {

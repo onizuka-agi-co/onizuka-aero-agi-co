@@ -246,10 +246,10 @@ h1 em {
   position: relative;
   min-height: 540px;
   overflow: hidden;
-  border: 1px solid rgba(21, 44, 53, 0.17);
+  border: 1px solid rgba(67, 69, 64, 0.16);
   border-radius: 11px;
-  background: #0d1b25;
-  box-shadow: 0 24px 52px rgba(34, 48, 47, 0.16), 0 2px 8px rgba(21, 38, 43, 0.09);
+  background: #dedbd4;
+  box-shadow: 0 20px 42px rgba(46, 47, 43, 0.13), 0 2px 8px rgba(47, 47, 42, 0.07);
   isolation: isolate;
 }
 
@@ -259,9 +259,9 @@ h1 em {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.1;
-  background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(225, 243, 239, 0.06) 3px 4px);
-  mix-blend-mode: screen;
+  opacity: 0.55;
+  background-image: repeating-linear-gradient(0deg, transparent 0 4px, rgba(55, 59, 54, 0.025) 4px 5px);
+  mix-blend-mode: multiply;
 }
 
 .stage-topline, .stage-bottomline {
@@ -272,17 +272,17 @@ h1 em {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #c0d1cf;
+  color: #455553;
   font: 9px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
   letter-spacing: 0.11em;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: none;
 }
 
 .stage-topline { top: 20px; }
 .stage-topline > span:first-child { display: inline-flex; align-items: center; gap: 9px; }
 .stage-topline .live-dot { width: 6px; height: 6px; }
-.stage-topline > span:last-child { color: #93adae; }
-.stage-divider { padding: 0 3px; color: #527075; }
+.stage-topline > span:last-child { color: #77817d; }
+.stage-divider { padding: 0 3px; color: #9aa29c; }
 
 .stage-coordinate {
   position: absolute;
@@ -291,7 +291,7 @@ h1 em {
   right: 24px;
   display: grid;
   gap: 5px;
-  color: rgba(191, 213, 210, 0.63);
+  color: rgba(69, 82, 79, 0.72);
   font: 8px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
   letter-spacing: 0.11em;
   text-align: right;
@@ -315,9 +315,14 @@ h1 em {
 .stage-hud span { color: #8eaaaa; font-size: 9px; letter-spacing: 0.06em; }
 .stage-hud strong { color: #f4f5eb; font: 600 17px/1 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 0.02em; }
 .stage-hud strong small { color: #91aaaa; font-size: 9px; font-weight: 400; }
-.stage-bottomline { bottom: 18px; color: rgba(183, 205, 200, 0.74); font-size: 8px; }
+.stage-bottomline { bottom: 18px; color: rgba(69, 82, 79, 0.72); font-size: 8px; }
 .stage-bottomline b { color: var(--orange); }
-.stage-bottomline i { display: inline-block; width: 25px; height: 1px; margin-left: 7px; vertical-align: middle; background: #557379; }
+.stage-bottomline i { display: inline-block; width: 25px; height: 1px; margin-left: 7px; vertical-align: middle; background: #9da6a0; }
+
+#flight-stage[data-view="flight"] .stage-topline,
+#flight-stage[data-view="flight"] .stage-topline > span:last-child,
+#flight-stage[data-view="flight"] .stage-coordinate,
+#flight-stage[data-view="flight"] .stage-bottomline { color: #c4d7d4; text-shadow: 0 1px 3px #06131b; }
 
 .stage-center-label {
   position: absolute;
@@ -344,8 +349,8 @@ h1 em {
   align-items: center;
   justify-content: center;
   padding: 32px;
-  color: #f1f5ed;
-  background: rgba(8, 20, 27, 0.88);
+  color: #2e4142;
+  background: rgba(242, 239, 231, 0.93);
   text-align: center;
   backdrop-filter: blur(8px);
 }
@@ -353,7 +358,7 @@ h1 em {
 .load-cover[hidden], .stage-hud[hidden], .stage-center-label[hidden], .flight-actions [hidden] { display: none; }
 .load-mark { width: 31px; height: 31px; margin-bottom: 19px; border: 1px solid rgba(106, 209, 192, 0.4); border-top-color: #f08b66; border-radius: 50%; animation: spin 1s linear infinite; }
 .load-cover strong { max-width: 360px; font-size: 14px; font-weight: 600; line-height: 1.7; }
-.load-cover small { max-width: 380px; margin-top: 8px; color: #8fa8a7; font: 9px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 0.1em; overflow-wrap: anywhere; }
+.load-cover small { max-width: 380px; margin-top: 8px; color: #75827d; font: 9px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: 0.1em; overflow-wrap: anywhere; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 

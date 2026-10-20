@@ -1,6 +1,6 @@
 # One CAD source, two public experiences
 
-AX-01 SUZAKU r2 is a fictional collectible toy. The selected concept sheet is visual reference art. It is not a CAD render or an engineering result. The native CAD document and browser mesh describe the generated appearance, not aircraft performance.
+AX-01 SUZAKU r3 is a fictional collectible toy. The selected concept sheet is visual reference art. It is not a CAD render or an engineering result. The native CAD document and browser mesh describe the generated appearance, not aircraft performance.
 
 The FreeCAD generator owns the geometry. It exports an editable document, STEP, STL, and an indexed JSON mesh with named colored parts. The browser renderer loads that exported mesh directly. It does not draw a second aircraft from hand-written shapes.
 
@@ -30,6 +30,7 @@ flowchart LR
 | `scripts/catalog.mjs` | Public file inventory, source hashes, and license mapping |
 | `scripts/snapshot-company.mjs` | Observed public issue states, without invented company activity |
 | `scripts/verify-public.mjs` | Anonymous site downloads and commit-pinned source verification |
+| `scripts/review-visibility.mjs` | Repeatable triangle-center ray samples for decorative panel occlusion |
 
 ## Mesh interface
 
@@ -47,6 +48,8 @@ Geometry measurements do not determine arcade turning or speed values. Differenc
 
 ## Design decision
 
-The project uses CAD as the geometry authority. This avoids two implementations of geometric semantics. The r2 generator records concept-reference provenance and exports the same mesh consumed by the game. The mesh keeps each CAD part's color without a separate GLB conversion dependency.
+The project uses CAD as the geometry authority. This avoids two implementations of geometric semantics. The r3 generator records concept-reference provenance and exports the same mesh consumed by the game. The mesh keeps each CAD part's color without a separate GLB conversion dependency.
 
-The generated r2 report records fixed tessellation settings, measured part and triangle counts, export-reopen checks, and the selected concept image hash. It reports 40 parts per variant. The standard mesh has 2,800 triangles and the longwing mesh has 2,752. The regeneration check matched both mesh hashes. Local browser evidence is recorded in the automated Chromium and direct UI reports; GitHub r2 CI and Pages publication remain pending.
+The [geometry report](../public/data/geometry-report.json) records fixed tessellation settings, measured part and triangle counts, export-reopen checks, deterministic mesh regeneration, and the selected concept image hash. The SVG preview embeds four orthographic PNG views rendered from those mesh triangles with a CPU depth buffer and supersampling. Depth testing handles overlapping toy panels; sorting whole parts or triangle centroids cannot reliably hide their intersections.
+
+The game centers the exported vertices once, computes normals with crease boundaries, and fits its studio camera to the actual vertices and viewport. Material finishes and lighting affect display only. The [visual review](../evidence/suzaku-concept-review.json) records qualitative comparison with concept C separately from geometry validity, browser controls, and publication checks.

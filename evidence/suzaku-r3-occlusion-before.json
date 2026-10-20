@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-mesh-occlusion-review",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "variant": "standard",
+  "revision": "r3",
+  "checkedAt": "2026-10-20T15:03:09.524Z",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., SUZAKU mesh visibility review",
+  "meshSha256": "956d800ef209de7ce406d2964329a3d7e6177506c218b30405f3e84929c6d7fa",
+  "method": "Orthographic ray casts from the studio direction to each target triangle center; geometric occlusion samples, not pixels or a concept similarity score.",
+  "direction": [
+    0.709936753618497,
+    0.48483485612970534,
+    0.5108081519937966
+  ],
+  "checks": [
+    {
+      "part": "LeftIntakeGraphite",
+      "triangleCenterSamples": 24,
+      "unoccludedSamples": 0,
+      "firstHitParts": {
+        "LeftWingArmorPanel": 18,
+        "LeftIvoryLeadingEdge": 6
+      }
+    },
+    {
+      "part": "RightIntakeGraphite",
+      "triangleCenterSamples": 24,
+      "unoccludedSamples": 0,
+      "firstHitParts": {
+        "UpperSpineArmor": 3,
+        "TeardropCanopy": 3,
+        "RightShoulderRedShell": 18
+      }
+    }
+  ]
+}

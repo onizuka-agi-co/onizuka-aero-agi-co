@@ -1,6 +1,6 @@
 # Working rules
 
-- Treat AX-01 SUZAKU r2 (formerly KIRIN r1) as an original fictional toy visual asset. CAD and arcade controls do not describe a real aircraft.
+- Treat AX-01 SUZAKU r3 (formerly KIRIN r1) as an original fictional toy visual asset. CAD and arcade controls do not describe a real aircraft.
 - Analysis covers geometric validity, asset properties and arcade gameplay tests. Do not add weapon systems or military engineering analysis.
 - Run the generator and preserve its real outputs. Never invent solver results, successful tests, meetings, approvals or revenue.
 - Keep design IDs, revisions, units and provenance attached to public data. Preserve failed runs with an explicit status when publishing them.

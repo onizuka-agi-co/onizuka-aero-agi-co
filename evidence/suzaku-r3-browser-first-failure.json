@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-20T15:16:05.069Z",
+  "target": "http://127.0.0.1:4188/",
+  "status": "failed",
+  "checks": [
+    {
+      "name": "CAD mesh loaded into ready screen",
+      "passed": true
+    },
+    {
+      "name": "Long-wing selection",
+      "passed": true
+    },
+    {
+      "name": "Visible score changes after real-time gate crossing",
+      "passed": true
+    },
+    {
+      "name": "Keyboard changes position and boost energy",
+      "passed": true
+    },
+    {
+      "name": "Pause freezes clock",
+      "passed": true
+    },
+    {
+      "name": "Course completion shows result",
+      "passed": true
+    },
+    {
+      "name": "Return to selection resets score",
+      "passed": true
+    },
+    {
+      "name": "390px layout does not overflow",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    "browser-auto-desktop.png"
+  ],
+  "limits": [
+    "Chromium with emulated touch viewport; physical devices are untested."
+  ],
+  "recordType": "observed-browser-verification",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r3",
+  "license": "CC-BY-4.0",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU browser verification r3",
+  "generator": "scripts/browser-qa.mjs",
+  "method": "Actual Chromium mouse, keyboard and CDP touch input against the built static site.",
+  "sourceHashes": {
+    "src/main.js": "79bdb7fcac5e61fbf2c8096d88a02aeec05c57d6e40ef89d5f40b044fe47534f",
+    "src/scene.js": "91047954bbdc1146dd1837aaab0db2ce742c2167db55d8066d286b0f9451749b",
+    "src/style.css": "327666258c1dad3ea7e26f2577a15697016de96725b4c8a7592a8288cc820e58",
+    "src/arcade.mjs": "e728f0f843bb2843f9b72f4fa0185256c6d26d474d5b8aa2fee457554f82d11c",
+    "index.html": "2a668207e468b8b33a3ebcb6c572f874e9f05440f43578f44e6b9f52a92a8a02",
+    "scripts/browser-qa.mjs": "28fb1806ef8adb64e214b21ef20ec2c62bf3848a14b41ee3d06c6fea80efe32b"
+  },
+  "browser": "151.0.7922.34",
+  "error": "Touch right: {\"before\":{\"phase\":\"finished\",\"score\":475,\"position\":{\"x\":0,\"y\":0},\"distance\":1188.333333333337,\"gatesPassed\":4,\"gatesMissed\":10,\"boostEnergy\":100,\"timeRemainingSeconds\":52.233333333334684,\"variant\":\"standard\",\"loading\":false,\"meshLoaded\":true,\"error\":null},\"after\":{\"phase\":\"finished\",\"score\":475,\"position\":{\"x\":0,\"y\":0},\"distance\":1188.333333333337,\"gatesPassed\":4,\"gatesMissed\":10,\"boostEnergy\":100,\"timeRemainingSeconds\":52.233333333334684,\"variant\":\"standard\",\"loading\":false,\"meshLoaded\":true,\"error\":null},\"pressed\":\"false\",\"box\":{\"x\":180.5,\"y\":424.0625,\"width\":44,\"height\":44}}"
+}

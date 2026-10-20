@@ -6,7 +6,7 @@ import { ARCADE_CONFIGS, FIXED_DT_SECONDS, createState, step } from '../src/arca
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDirectory = join(root, 'public', 'data');
-const assetRevision = 'r2';
+const assetRevision = 'r3';
 const designId = 'AX-01';
 const displayName = 'AX-01 SUZAKU';
 const seed = 20_261_020;
@@ -74,7 +74,7 @@ function simulate(variant, runKind = 'route-following') {
   const recordedAt = new Date().toISOString();
   const record = {
     schemaVersion: 1,
-    recordId: `AX01-ARCADE-${variant}-${runKind}-R2-${seed}`,
+    recordId: `AX01-ARCADE-${variant}-${runKind}-R3-${seed}`,
     designId,
     displayName,
     assetRevision,
@@ -84,7 +84,7 @@ function simulate(variant, runKind = 'route-following') {
     runKind,
     valueKinds: { samples: 'simulated-game-state', inputs: 'scripted-synthetic', tuning: 'artistic', runtimeVersion: 'observed' },
     license: 'CC-BY-4.0',
-    attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade record ${variant} r2`,
+    attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade record ${variant} r3`,
     scope: 'Deterministic fictional gate-flight gameplay only. This record is simulated input and game state, not user telemetry, physical flight, or aircraft performance data.',
     units: {
       time: 'second',
@@ -144,7 +144,7 @@ const summary = {
   recordedAt: new Date().toISOString(),
   status: 'generated',
   license: 'CC-BY-4.0',
-  attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade simulations r2`,
+  attribution: `ONIZUKA AERO AGI Co., ${displayName} arcade simulations r3`,
   scope: 'Deterministic fictional gate-flight gameplay only. No real-flight simulation or user telemetry.',
   runs: [],
 };

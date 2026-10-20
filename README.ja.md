@@ -2,11 +2,11 @@
 
 [日本語](README.ja.md) | [English](README.md)
 
-[SUZAKUで遊ぶ](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [CADプレビュー](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
+[公開中のr2ゲーム](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/) · [公開中のr2 CADプレビュー](https://onizuka-agi-co.github.io/onizuka-aero-agi-co/assets/ax01/standard/preview.svg)
 
 ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、形状確認、民生向けアーケードゲームを再現可能な成果物として公開する実験会社です。使命と公開方針は人間のミッションオーナーが定めます。
 
-現行デザインは赤・アイボリー・金の配色と前進翼を持つ架空のコレクショントイ `AX-01 SUZAKU r2` です。`standard` と `longwing` は造形上のバリアントで、操作・ルールと、バリアントごとのゲーム内調整値は従来のままです。
+ソース上の現行デザインは、赤・アイボリー・金の配色と前進翼を持つ架空のコレクショントイ `AX-01 SUZAKU r3` です。選択されたC案の画像は `design/concepts/ax01-r2/c-suzaku.png` にあり、r3でも視覚資料として使っています。r3用の新しいコンセプトアートは生成していません。`standard` と `longwing` はr3のデザインから生成するバリアントです。
 
 組み込みの `image_gen imagegen` ツールで4枚のコンセプトシートを生成しました。ユーザーは C / SUZAKU を選びました。各案のプロンプトと選択結果は `design/concepts/ax01-r2/concepts.json` にあります。PNGはコンセプトアートであり、CADレンダリングや工学的解析の結果ではありません。
 
@@ -16,15 +16,15 @@ ONIZUKA AERO AGI Co. は、航空をテーマにしたデジタルアート、�
 
 ## プロジェクトの状況
 
-FreeCAD 1.1.3 の形状レポートは両バリアントで合格しました。各バリアントは妥当な形状を40個含みます。メッシュは `standard` が2,800三角形、`longwing` が2,752三角形です。FreeCAD形式とSTEPは各40形状を再読み込みでき、STLの三角形数もメッシュと一致しました。左右主翼の最大偏差は任意設計単位で0.0です。再生成チェックでは両メッシュのSHA-256が一致しました。詳細は[形状レポート](public/data/geometry-report.json)を参照してください。
+現在のr3[形状レポート](public/data/geometry-report.json)では、形状の妥当性、FreeCAD・STEP・STLの再読み込み、左右主翼の対称性、メッシュの決定性チェックに合格しています。定性的な見た目の確認では、架空のコレクショントイとして6つの主要条件を満たすと評価されました。ユーザーの承認や、写真のような完全再現を意味しません。[確認記録](evidence/suzaku-concept-review.json)と[最終CADビュー](evidence/suzaku-r3-cad-final.jpg)を参照してください。
 
-アーケード記録は3件です。`standard` と `longwing` のコース走行はどちらも14ゲートを通過し、3,300点を記録しました。ミス制御の記録はゲートを通過せず、0点でした。再生成後のリプレイテストは3件すべて通過しました。[アーケード記録の概要](public/data/arcade-summary.json)に結果をまとめています。
+現在のr3アーケード概要には、合成入力を使った記録を3件収録しています。`npm test` はリプレイテストを含むNodeテスト15件すべてに合格しました。[アーケード記録の概要](public/data/arcade-summary.json)を参照してください。
 
-r2では本番ビルドが成功し、Chromiumによる自動確認12/12件、直接UI確認9/9件に合格しました。Node.jsテストは15件すべてに合格し、マニフェストには公開ファイル20件とハッシュ付きソース20件が登録されています。直接UI確認ではコースの完了とポーズ／再開の動作も確認しました。いずれもローカルプレビューでの結果です。スマートフォン実機では確認していません。[GitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)は成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した41ファイルのサイズとSHA-256が一致しました。r1と明記された記録は履歴として扱います。[自動ブラウザ確認](evidence/browser-automated.json)と[直接操作のUI確認](evidence/browser-suzaku-ui.json)を参照してください。
+r3の本番ビルドとカタログ確認は合格しました。ビルドでは572 kBのチャンクサイズ警告が出ており、カタログは公開ファイル20件とハッシュ付きソース21件を照合しています。タッチ操作をエミュレートしたChromiumの自動確認は12/12件に合格しました。[成功レポート](evidence/browser-automated.json)を参照してください。スマートフォン実機では確認していません。最初のモバイルタッチ確認が停止した記録は[初回失敗レポート](evidence/suzaku-r3-browser-first-failure.json)にあります。CIと公開サイトの確認は未実施です。r2のビルド、ブラウザ、CI、公開確認の記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)にあります。冒頭のゲームとCADプレビューのリンクは、現在公開中のr2を指しています。
 
 ## 再現方法
 
-[公開サイトの操作記録](evidence/browser-public.json)と[匿名取得・ハッシュ照合記録](evidence/publication.json)を保存しています。
+r3の形状、Nodeテスト、本番ビルド、カタログ確認、Chromium自動確認は合格しました。CIと公開サイトの確認は未実施です。実行コマンドと記録は[再現手順](docs/reproduce.md)にあります。r2の公開確認記録は[evidence/history/suzaku-r2](evidence/history/suzaku-r2/)に保存しています。
 
 依存関係は `npm ci` で導入します。テストは `npm test`、本番ビルドは `npm run build` で実行できます。CAD、データ、ブラウザ確認のコマンドは[再現手順](docs/reproduce.md)を参照してください。
 

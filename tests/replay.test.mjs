@@ -12,7 +12,7 @@ for (const stem of ['arcade-standard', 'arcade-longwing', 'arcade-miss']) {
     const record = JSON.parse(await readFile(url(`${stem}.json`), 'utf8'));
     assert.equal(record.designId, 'AX-01');
     assert.equal(record.displayName, 'AX-01 SUZAKU');
-    assert.equal(record.assetRevision, 'r2');
+    assert.equal(record.assetRevision, 'r3');
     assert.equal(record.license, 'CC-BY-4.0');
     assert.match(record.scope, /not user telemetry/);
     assert.equal(record.generator.configHash, hash(JSON.stringify(ARCADE_CONFIGS[record.variant])));

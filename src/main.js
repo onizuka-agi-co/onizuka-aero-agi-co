@@ -6,6 +6,8 @@ const variants = Object.keys(ARCADE_CONFIGS);
 const elements = {
   canvas: document.querySelector('#flight-view'),
   stage: document.querySelector('#flight-stage'),
+  modelRevisions: [...document.querySelectorAll('[data-model-revision]')],
+  partCounts: [...document.querySelectorAll('[data-part-count]')],
   loadCover: document.querySelector('#load-cover'),
   loadTitle: document.querySelector('#load-title'),
   loadDetail: document.querySelector('#load-detail'),
@@ -65,6 +67,14 @@ function setLoadCover(title, detail) {
   elements.loadCover.hidden = false;
 }
 
+function updateModelMetadata() {
+  const metadata = assets.get(selectedVariant)?.userData;
+  const revision = metadata?.revision?.toUpperCase() ?? '—';
+  const partCount = Number.isInteger(metadata?.partCount) ? `${metadata.partCount} PARTS` : '—';
+  elements.modelRevisions.forEach(element => { element.textContent = revision; });
+  elements.partCounts.forEach(element => { element.textContent = partCount; });
+}
+
 function canFly() {
   return !loading && !displayError && assets.has(selectedVariant);
 }
@@ -91,8 +101,10 @@ function collectInput() {
 
 function updatePhaseUI() {
   const phase = gameState.phase;
+  elements.stage.dataset.view = phase === 'ready' ? 'hangar' : 'flight';
   const config = ARCADE_CONFIGS[selectedVariant];
   const assetError = selectedAssetError();
+  updateModelMetadata();
   const showFlightHud = phase !== 'ready' && assets.has(selectedVariant);
   elements.stageHud.hidden = !showFlightHud;
   elements.pause.hidden = phase !== 'running';
@@ -108,7 +120,7 @@ function updatePhaseUI() {
   });
 
   if (loading) {
-    setLoadCover('SUZAKUの機体データを確認中', 'AX-01 SUZAKU / STANDARD + LONGWING / R2');
+    setLoadCover('SUZAKUの機体データを確認中', 'AX-01 SUZAKU / STANDARD + LONGWING');
     setStatus('3Dメッシュを読み込んでいます。');
   } else if (displayError) {
     setLoadCover('3D表示を開始できません', displayError);

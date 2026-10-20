@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-direct-browser-verification",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r3",
+  "license": "CC-BY-4.0",
+  "checkedAt": "2026-10-20T15:25:05.9428083Z",
+  "target": "http://127.0.0.1:4178/",
+  "status": "pass",
+  "method": "Actual in-app browser mouse and keyboard input, accessibility observations, and saved screenshots",
+  "checks": [
+    {
+      "name": "Standard READY shows complete craft and R3 / 49 parts",
+      "passed": true,
+      "evidence": "evidence/suzaku-r3-ready.jpg"
+    },
+    {
+      "name": "Longwing selection displays its complete alternate mesh",
+      "passed": true,
+      "evidence": "evidence/suzaku-r3-longwing.jpg"
+    },
+    {
+      "name": "Start flight with real button input",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Shift+Right then Escape enters PAUSED",
+      "passed": true,
+      "evidence": "evidence/suzaku-r3-play-final.jpg"
+    },
+    {
+      "name": "Paused score and clock remain at 0 points / 75 seconds across separate observations",
+      "passed": true
+    },
+    {
+      "name": "Resume returns to LIVE then course reaches RESULT",
+      "passed": true,
+      "evidence": "evidence/suzaku-r3-finished.jpg",
+      "result": "0 points, 0 passed, 14 missed, 53 seconds remaining"
+    },
+    {
+      "name": "Return to selection restores READY with start and variants enabled",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Desktop in-app browser only; mobile touch is covered separately by automated Chromium emulation",
+    "Images were captured during r3 integration; the automated report binds exact tested source hashes"
+  ],
+  "standardMeshSha256": "5e4f70cf121fa5a95598e5ad3a9485fd815e0ccaa87c685e6757340c4e9f476c"
+}

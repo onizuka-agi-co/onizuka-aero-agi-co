@@ -1,6 +1,6 @@
 {
   "assemblyGeometryNote": "Parts are separate artistic outer shapes and may overlap. No assembled watertight-solid claim is made.",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU geometry record r2",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU geometry record r3",
   "conceptReference": {
     "classification": "generated-concept-art-reference",
     "path": "design/concepts/ax01-r2/c-suzaku.png",
@@ -18,10 +18,10 @@
     "gitRevision": "145529fe741292ff0b3977a01195bf0247425794",
     "version": "1.1.3"
   },
-  "generatedAtUtc": "2026-10-20T14:00:03Z",
+  "generatedAtUtc": "2026-10-20T15:14:32Z",
   "generatorSource": {
     "path": "scripts/generate-cad.py",
-    "sha256": "9047466d3858619d1fd5124c2b883185b8ad0520151563e8a533e8834825baf5"
+    "sha256": "7e67422f7ac7de1cd143d658ccee30652c4a2d17080ffa5af5a6207209537840"
   },
   "license": "CC-BY-4.0",
   "meshBudgets": {
@@ -30,18 +30,18 @@
   },
   "regenerationCheck": {
     "currentMeshSha256": {
-      "longwing": "05dc28266e0eea2f3c9a560c2c81f133de928f24a22466f9cdda6a63a783658c",
-      "standard": "32d6d3be43abc33f687473d6780d14ae54b8288cf595998d2353adc9b72272ad"
+      "longwing": "0dcc3798b6b080f19725eedce63e3478bb31306f458937199895bcbabdef8418",
+      "standard": "5e4f70cf121fa5a95598e5ad3a9485fd815e0ccaa87c685e6757340c4e9f476c"
     },
     "executed": true,
     "matches": true,
     "previousMeshSha256": {
-      "longwing": "05dc28266e0eea2f3c9a560c2c81f133de928f24a22466f9cdda6a63a783658c",
-      "standard": "32d6d3be43abc33f687473d6780d14ae54b8288cf595998d2353adc9b72272ad"
+      "longwing": "0dcc3798b6b080f19725eedce63e3478bb31306f458937199895bcbabdef8418",
+      "standard": "5e4f70cf121fa5a95598e5ad3a9485fd815e0ccaa87c685e6757340c4e9f476c"
     }
   },
   "reportType": "geometry-analysis",
-  "revision": "r2",
+  "revision": "r3",
   "schemaVersion": 1,
   "scope": "Fictional visual CAD geometry and export validity only. No aerodynamic, structural, propulsion, stealth, weapon, or flight-performance analysis.",
   "status": "passed",
@@ -64,20 +64,20 @@
         "max": [
           8.45,
           9.2,
-          3.56
+          3.48
         ],
         "min": [
-          -8.35,
+          -8.48,
           -9.2,
-          -0.688344
+          -0.681953
         ]
       },
       "exportReopenChecks": {
         "nativeCad": {
           "allShapesValid": true,
-          "expectedShapeObjectCount": 40,
+          "expectedShapeObjectCount": 49,
           "reopened": true,
-          "shapeObjectCount": 40,
+          "shapeObjectCount": 49,
           "valid": true
         },
         "nativeCadArchiveScan": {
@@ -87,9 +87,9 @@
         },
         "step": {
           "allShapesValid": true,
-          "expectedShapeObjectCount": 40,
+          "expectedShapeObjectCount": 49,
           "reimported": true,
-          "shapeObjectCount": 40,
+          "shapeObjectCount": 49,
           "valid": true
         },
         "stepHeaderScan": {
@@ -98,9 +98,9 @@
           "localPathScanPassed": true
         },
         "stl": {
-          "expectedTriangleCount": 2800,
+          "expectedTriangleCount": 5138,
           "reopened": true,
-          "triangleCount": 2800,
+          "triangleCount": 5138,
           "triangleCountMatches": true,
           "valid": true
         }
@@ -113,299 +113,341 @@
         "underMeshByteTarget": true,
         "underTriangleTarget": true
       },
-      "meshJsonBytes": 62320,
+      "meshJsonBytes": 112925,
       "outputs": {
         "mesh": {
-          "bytes": 62320,
+          "bytes": 112925,
           "path": "public/assets/ax01/standard/mesh.json",
-          "sha256": "32d6d3be43abc33f687473d6780d14ae54b8288cf595998d2353adc9b72272ad"
+          "sha256": "5e4f70cf121fa5a95598e5ad3a9485fd815e0ccaa87c685e6757340c4e9f476c"
         },
         "nativeCad": {
-          "bytes": 90307,
+          "bytes": 155572,
           "path": "public/assets/ax01/standard/ax01.FCStd",
-          "sha256": "14bc6799356b7a323351c21bc66468b0ee71686ffa89da61609a79fbd0ac5629"
+          "sha256": "68073c339887637c68d37eb3a710c028f665217266239f67bc614b0cbded9f24"
         },
         "preview": {
-          "bytes": 38255,
+          "bytes": 143788,
           "path": "public/assets/ax01/standard/preview.svg",
-          "sha256": "34272aee63f32ff20e8f605c6c26b4736bebdd76ff46289ff41e737c066f9585"
+          "sha256": "84afc8a23c4946ab26aad9d39f4dd5bf17fa72b62a3109c6e65e51d31cf863e2"
         },
         "step": {
-          "bytes": 835471,
+          "bytes": 1351247,
           "path": "public/assets/ax01/standard/ax01.step",
-          "sha256": "6fb7e358796b3777eb3a9619bb2e355ecd9d4ca8280310a5a7221a1a54ad89f5"
+          "sha256": "93757ff8d04049677003b5b6dfbdf8b135777031dfb957c0927fdf418bc0249f"
         },
         "stl": {
-          "bytes": 140084,
+          "bytes": 256984,
           "path": "public/assets/ax01/standard/ax01.stl",
-          "sha256": "0fb8a5e46618a7dac7f59f8fb569439dcb9d57ef852654578a4c4f6d3a2faa25"
+          "sha256": "2b766f2527aa0f181c256d25023183f463567d25a2152e98469005a7878a91a9"
         }
       },
-      "partCount": 40,
+      "partCount": 49,
       "partValidity": [
         {
           "bounds": {
             "max": [
-              6.9,
+              7.02,
               9.2,
-              0.82083
+              1.30559
             ],
             "min": [
-              -3.58,
-              0.92,
-              -0.1976
+              -3.62,
+              2.05,
+              -0.2664
             ]
           },
-          "indexCount": 348,
+          "indexCount": 552,
           "isNull": false,
           "name": "LeftForwardSweptWing",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 184,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 94
         },
         {
           "bounds": {
             "max": [
-              6.9,
-              -0.92,
-              0.82083
+              7.02,
+              -2.05,
+              1.30559
             ],
             "min": [
-              -3.58,
+              -3.62,
               -9.2,
-              -0.1976
+              -0.2664
             ]
           },
-          "indexCount": 348,
+          "indexCount": 552,
           "isNull": false,
           "name": "RightForwardSweptWing",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 184,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 94
         },
         {
           "bounds": {
             "max": [
-              2.42336,
-              6.3848,
-              -0.040145
+              2.744667,
+              6.769,
+              0.075125
             ],
             "min": [
-              -2.9464,
-              1.9136,
-              -0.28338
+              -2.978514,
+              2.908,
+              -0.286378
             ]
           },
-          "indexCount": 258,
+          "indexCount": 306,
           "isNull": false,
           "name": "LeftWingVentralArmor",
           "solidCount": 1,
-          "triangleCount": 86,
+          "triangleCount": 102,
           "valid": true,
-          "vertexCount": 45
+          "vertexCount": 53
         },
         {
           "bounds": {
             "max": [
-              2.42336,
-              -1.9136,
-              -0.040145
+              2.744667,
+              -2.908,
+              0.075125
             ],
             "min": [
-              -2.9464,
-              -6.3848,
-              -0.28338
+              -2.978514,
+              -6.769,
+              -0.286378
             ]
           },
-          "indexCount": 258,
+          "indexCount": 306,
           "isNull": false,
           "name": "RightWingVentralArmor",
           "solidCount": 1,
-          "triangleCount": 86,
+          "triangleCount": 102,
           "valid": true,
-          "vertexCount": 45
+          "vertexCount": 53
         },
         {
           "bounds": {
             "max": [
-              -3.15,
-              1.982045,
-              0.928179
+              3.5875,
+              2.59,
+              0.887
             ],
             "min": [
-              -8.05,
-              1.077955,
-              0.265352
+              1.72,
+              2.043,
+              0.0
             ]
           },
-          "indexCount": 336,
+          "indexCount": 72,
+          "isNull": false,
+          "name": "LeftIntakeGraphite",
+          "solidCount": 1,
+          "triangleCount": 24,
+          "valid": true,
+          "vertexCount": 14
+        },
+        {
+          "bounds": {
+            "max": [
+              3.5875,
+              -2.043,
+              0.887
+            ],
+            "min": [
+              1.72,
+              -2.59,
+              0.0
+            ]
+          },
+          "indexCount": 72,
+          "isNull": false,
+          "name": "RightIntakeGraphite",
+          "solidCount": 1,
+          "triangleCount": 24,
+          "valid": true,
+          "vertexCount": 14
+        },
+        {
+          "bounds": {
+            "max": [
+              -3.55,
+              4.29821,
+              1.213132
+            ],
+            "min": [
+              -8.38,
+              2.40179,
+              -0.031107
+            ]
+          },
+          "indexCount": 636,
           "isNull": false,
           "name": "LeftRearPod",
           "solidCount": 1,
-          "triangleCount": 112,
+          "triangleCount": 212,
           "valid": true,
-          "vertexCount": 58
+          "vertexCount": 108
         },
         {
           "bounds": {
             "max": [
-              -3.15,
-              -1.077955,
-              0.928179
+              -3.55,
+              -2.40179,
+              1.213132
             ],
             "min": [
-              -8.05,
-              -1.982045,
-              0.265352
+              -8.38,
+              -4.29821,
+              -0.031107
             ]
           },
-          "indexCount": 336,
+          "indexCount": 636,
           "isNull": false,
           "name": "RightRearPod",
           "solidCount": 1,
-          "triangleCount": 112,
+          "triangleCount": 212,
           "valid": true,
-          "vertexCount": 58
+          "vertexCount": 108
         },
         {
           "bounds": {
             "max": [
-              -4.72,
-              1.7,
-              3.56
+              -4.35,
+              3.45,
+              3.48
             ],
             "min": [
               -7.25,
-              1.24,
-              0.46
+              2.23,
+              0.52
             ]
           },
-          "indexCount": 36,
+          "indexCount": 90,
           "isNull": false,
           "name": "LeftTailFin",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 30,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 17
         },
         {
           "bounds": {
             "max": [
-              -4.72,
-              -1.24,
-              3.56
+              -4.35,
+              -2.23,
+              3.48
             ],
             "min": [
               -7.25,
-              -1.7,
-              0.46
+              -3.45,
+              0.52
             ]
           },
-          "indexCount": 36,
+          "indexCount": 90,
           "isNull": false,
           "name": "RightTailFin",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 30,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 17
         },
         {
           "bounds": {
             "max": [
               8.45,
-              2.038092,
-              1.548828
+              2.62,
+              1.5
             ],
             "min": [
               -8.35,
-              -2.038092,
-              -0.490123
+              -2.62,
+              -0.26
             ]
           },
-          "indexCount": 348,
+          "indexCount": 720,
           "isNull": false,
           "name": "FuselageCore",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 240,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 122
         },
         {
           "bounds": {
             "max": [
               4.55,
-              1.270987,
-              0.327128
+              1.458629,
+              0.287752
             ],
             "min": [
               -7.35,
-              -1.270987,
-              -0.688344
+              -1.458629,
+              -0.646735
             ]
           },
-          "indexCount": 294,
+          "indexCount": 336,
           "isNull": false,
           "name": "BellyKeel",
           "solidCount": 1,
-          "triangleCount": 98,
+          "triangleCount": 112,
           "valid": true,
-          "vertexCount": 51
+          "vertexCount": 58
         },
         {
           "bounds": {
             "max": [
               8.25,
-              0.524703,
+              0.629576,
               0.21
             ],
             "min": [
               3.05,
-              -0.524703,
-              -0.276002
+              -0.629576,
+              -0.275988
             ]
           },
-          "indexCount": 258,
+          "indexCount": 270,
           "isNull": false,
           "name": "NoseChinArmor",
           "solidCount": 1,
-          "triangleCount": 86,
+          "triangleCount": 90,
           "valid": true,
-          "vertexCount": 45
+          "vertexCount": 47
         },
         {
           "bounds": {
             "max": [
-              3.55,
-              1.011869,
-              1.892732
+              4.2,
+              1.24,
+              1.42
             ],
             "min": [
               -6.15,
-              -1.011869,
-              0.663504
+              -1.24,
+              0.8352
             ]
           },
-          "indexCount": 348,
+          "indexCount": 276,
           "isNull": false,
           "name": "UpperSpineArmor",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 92,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 48
         },
         {
           "bounds": {
             "max": [
-              0.45,
-              1.868483,
-              1.800644
+              2.8,
+              2.2,
+              1.5
             ],
             "min": [
-              -4.65,
-              0.851517,
-              0.9
+              -5.1,
+              -0.16,
+              0.8824
             ]
           },
           "indexCount": 228,
@@ -419,14 +461,14 @@
         {
           "bounds": {
             "max": [
-              0.45,
-              -0.851517,
-              1.800644
+              2.8,
+              0.16,
+              1.5
             ],
             "min": [
-              -4.65,
-              -1.868483,
-              0.9
+              -5.1,
+              -2.2,
+              0.8824
             ]
           },
           "indexCount": 228,
@@ -440,86 +482,128 @@
         {
           "bounds": {
             "max": [
-              5.1912,
-              7.8752,
-              0.9102
+              4.55,
+              2.74,
+              1.54
             ],
             "min": [
-              -2.3056,
-              1.9136,
-              0.125
+              -5.45,
+              -0.42,
+              0.7724
             ]
           },
-          "indexCount": 210,
+          "indexCount": 276,
+          "isNull": false,
+          "name": "LeftShoulderRedShell",
+          "solidCount": 1,
+          "triangleCount": 92,
+          "valid": true,
+          "vertexCount": 48
+        },
+        {
+          "bounds": {
+            "max": [
+              4.55,
+              0.42,
+              1.54
+            ],
+            "min": [
+              -5.45,
+              -2.74,
+              0.7724
+            ]
+          },
+          "indexCount": 276,
+          "isNull": false,
+          "name": "RightShoulderRedShell",
+          "solidCount": 1,
+          "triangleCount": 92,
+          "valid": true,
+          "vertexCount": 48
+        },
+        {
+          "bounds": {
+            "max": [
+              5.842255,
+              8.056,
+              1.398
+            ],
+            "min": [
+              -2.012533,
+              3.909,
+              0.260304
+            ]
+          },
+          "indexCount": 324,
           "isNull": false,
           "name": "LeftWingArmorPanel",
           "solidCount": 1,
-          "triangleCount": 70,
+          "triangleCount": 108,
           "valid": true,
-          "vertexCount": 37
+          "vertexCount": 56
         },
         {
           "bounds": {
             "max": [
-              5.1912,
-              -1.9136,
-              0.9102
+              5.842255,
+              -3.909,
+              1.398
             ],
             "min": [
-              -2.3056,
-              -7.8752,
-              0.125
+              -2.012533,
+              -8.056,
+              0.260304
             ]
           },
-          "indexCount": 210,
+          "indexCount": 324,
           "isNull": false,
           "name": "RightWingArmorPanel",
           "solidCount": 1,
-          "triangleCount": 70,
+          "triangleCount": 108,
           "valid": true,
-          "vertexCount": 37
+          "vertexCount": 56
         },
         {
           "bounds": {
             "max": [
-              -4.16,
-              1.794983,
-              1.02972
+              -4.48,
+              3.956684,
+              1.294508
             ],
             "min": [
-              -7.52,
-              1.265017,
-              0.69
+              -7.75,
+              2.743316,
+              0.749765
             ]
           },
-          "indexCount": 168,
+          "indexCount": 288,
           "isNull": false,
           "name": "LeftRearPodCrown",
           "solidCount": 1,
-          "triangleCount": 56,
+          "triangleCount": 96,
           "valid": true,
-          "vertexCount": 30
+          "vertexCount": 50
         },
         {
           "bounds": {
             "max": [
-              -4.16,
-              -1.265017,
-              1.02972
+              -4.48,
+              -2.743316,
+              1.294508
             ],
             "min": [
-              -7.52,
-              -1.794983,
-              0.69
+              -7.75,
+              -3.956684,
+              0.749765
             ]
           },
-          "indexCount": 168,
+          "indexCount": 288,
           "isNull": false,
           "name": "RightRearPodCrown",
           "solidCount": 1,
-          "triangleCount": 56,
+          "triangleCount": 96,
           "valid": true,
-          "vertexCount": 30
+          "vertexCount": 50
         },
         {
           "bounds": {
@@ -566,313 +650,481 @@
         {
           "bounds": {
             "max": [
-              5.7,
-              0.694476,
-              1.566581
+              4.05,
+              1.239403,
+              -0.18
             ],
             "min": [
-              0.3,
-              -0.694476,
-              0.98
+              -5.25,
+              -1.239403,
+              -0.681953
             ]
           },
-          "indexCount": 264,
+          "indexCount": 492,
           "isNull": false,
-          "name": "CanopyBaseTrim",
+          "name": "IvoryBellyShell",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 164,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 84
         },
         {
           "bounds": {
             "max": [
-              6.78985,
-              9.0758,
-              0.9194
+              5.58,
+              0.798597,
+              1.452804
             ],
             "min": [
-              0.748267,
-              1.5824,
-              -0.018306
+              0.28,
+              -0.798597,
+              1.07
             ]
           },
-          "indexCount": 186,
+          "indexCount": 222,
+          "isNull": false,
+          "name": "GraphiteSeatUnderlay",
+          "solidCount": 1,
+          "triangleCount": 74,
+          "valid": true,
+          "vertexCount": 39
+        },
+        {
+          "bounds": {
+            "max": [
+              6.35,
+              1.18,
+              1.19
+            ],
+            "min": [
+              -0.32,
+              -1.18,
+              1.07
+            ]
+          },
+          "indexCount": 336,
+          "isNull": false,
+          "name": "GoldTrimCockpitFrame",
+          "solidCount": 1,
+          "triangleCount": 112,
+          "valid": true,
+          "vertexCount": 56
+        },
+        {
+          "bounds": {
+            "max": [
+              3.855,
+              2.7955,
+              1.094
+            ],
+            "min": [
+              1.48,
+              2.042,
+              -0.18
+            ]
+          },
+          "indexCount": 168,
+          "isNull": false,
+          "name": "LeftIntakeGoldTrim",
+          "solidCount": 1,
+          "triangleCount": 56,
+          "valid": true,
+          "vertexCount": 28
+        },
+        {
+          "bounds": {
+            "max": [
+              3.855,
+              -2.042,
+              1.094
+            ],
+            "min": [
+              1.48,
+              -2.7955,
+              -0.18
+            ]
+          },
+          "indexCount": 168,
+          "isNull": false,
+          "name": "RightIntakeGoldTrim",
+          "solidCount": 1,
+          "triangleCount": 56,
+          "valid": true,
+          "vertexCount": 28
+        },
+        {
+          "bounds": {
+            "max": [
+              6.967975,
+              9.09275,
+              1.558226
+            ],
+            "min": [
+              -0.009314,
+              2.336,
+              -0.00414
+            ]
+          },
+          "indexCount": 516,
           "isNull": false,
           "name": "LeftIvoryLeadingEdge",
           "solidCount": 1,
-          "triangleCount": 62,
+          "triangleCount": 172,
           "valid": true,
-          "vertexCount": 33
+          "vertexCount": 88
         },
         {
           "bounds": {
             "max": [
-              6.78985,
-              -1.5824,
-              0.9194
+              6.967975,
+              -2.336,
+              1.558226
             ],
             "min": [
-              0.748267,
-              -9.0758,
-              -0.018306
+              -0.009314,
+              -9.09275,
+              -0.00414
             ]
           },
-          "indexCount": 186,
+          "indexCount": 516,
           "isNull": false,
           "name": "RightIvoryLeadingEdge",
           "solidCount": 1,
-          "triangleCount": 62,
+          "triangleCount": 172,
           "valid": true,
-          "vertexCount": 33
+          "vertexCount": 88
         },
         {
           "bounds": {
             "max": [
-              1.04776,
-              3.404,
-              0.903067
+              0.0504,
+              2.622,
+              1.4238
             ],
             "min": [
-              -0.563333,
-              1.748,
-              0.629488
+              -0.93,
+              2.193,
+              1.168806
             ]
           },
-          "indexCount": 162,
+          "indexCount": 84,
           "isNull": false,
           "name": "LeftWingRootChevron",
           "solidCount": 1,
-          "triangleCount": 54,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 29
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              1.04776,
-              -1.748,
-              0.903067
+              0.0504,
+              -2.193,
+              1.4238
             ],
             "min": [
-              -0.563333,
-              -3.404,
-              0.629488
+              -0.93,
+              -2.622,
+              1.168806
             ]
           },
-          "indexCount": 162,
+          "indexCount": 84,
           "isNull": false,
           "name": "RightWingRootChevron",
           "solidCount": 1,
-          "triangleCount": 54,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 29
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              -6.86,
-              1.871387,
-              0.859329
+              -7.21,
+              4.032643,
+              0.964995
             ],
             "min": [
-              -7.38,
-              1.188613,
-              0.317617
+              -7.75,
+              2.667357,
+              0.084348
             ]
           },
-          "indexCount": 264,
+          "indexCount": 756,
           "isNull": false,
           "name": "LeftRearPodGoldCollar",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 252,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 128
         },
         {
           "bounds": {
             "max": [
-              -6.86,
-              -1.188613,
-              0.859329
+              -7.21,
+              -2.667357,
+              0.964995
             ],
             "min": [
-              -7.38,
-              -1.871387,
-              0.317617
+              -7.75,
+              -4.032643,
+              0.084348
             ]
           },
-          "indexCount": 264,
+          "indexCount": 756,
           "isNull": false,
           "name": "RightRearPodGoldCollar",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 252,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 128
         },
         {
           "bounds": {
             "max": [
-              -5.06,
-              1.735,
-              2.91
+              -5.05,
+              3.44,
+              3.08
             ],
             "min": [
-              -6.6,
-              1.7,
-              1.0
+              -6.98,
+              2.72,
+              0.92
             ]
           },
-          "indexCount": 36,
+          "indexCount": 96,
           "isNull": false,
           "name": "LeftFinIvoryInlay",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 32,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 18
         },
         {
           "bounds": {
             "max": [
-              -5.06,
-              -1.7,
-              2.91
+              -5.05,
+              -2.72,
+              3.08
             ],
             "min": [
-              -6.6,
-              -1.735,
-              1.0
+              -6.98,
+              -3.44,
+              0.92
             ]
           },
-          "indexCount": 36,
+          "indexCount": 96,
           "isNull": false,
           "name": "RightFinIvoryInlay",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 32,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 18
         },
         {
           "bounds": {
             "max": [
               8.05,
-              0.348299,
-              0.975
+              0.03602,
+              0.995
             ],
             "min": [
               5.1,
-              0.211701,
-              0.342
+              -0.03602,
+              0.35
             ]
           },
-          "indexCount": 228,
+          "indexCount": 222,
           "isNull": false,
-          "name": "LeftNoseGoldStripe",
+          "name": "NoseGoldCenterEdge",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 74,
           "valid": true,
-          "vertexCount": 40
-        },
-        {
-          "bounds": {
-            "max": [
-              8.05,
-              -0.211701,
-              0.975
-            ],
-            "min": [
-              5.1,
-              -0.348299,
-              0.342
-            ]
-          },
-          "indexCount": 228,
-          "isNull": false,
-          "name": "RightNoseGoldStripe",
-          "solidCount": 1,
-          "triangleCount": 76,
-          "valid": true,
-          "vertexCount": 40
+          "vertexCount": 39
         },
         {
           "bounds": {
             "max": [
               7.92,
-              1.060984,
-              0.741236
+              2.348057,
+              0.87869
             ],
             "min": [
-              3.3,
-              0.379016,
-              0.23
+              3.15,
+              -0.085164,
+              0.21
             ]
           },
-          "indexCount": 228,
+          "indexCount": 336,
           "isNull": false,
           "name": "LeftIvoryNoseFairing",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 112,
           "valid": true,
-          "vertexCount": 40
+          "vertexCount": 58
         },
         {
           "bounds": {
             "max": [
               7.92,
-              -0.379016,
-              0.741236
+              0.082251,
+              0.878552
             ],
             "min": [
-              3.3,
-              -1.060984,
-              0.23
+              3.15,
+              -2.347297,
+              0.21
             ]
           },
-          "indexCount": 228,
+          "indexCount": 330,
           "isNull": false,
           "name": "RightIvoryNoseFairing",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 110,
           "valid": true,
-          "vertexCount": 40
+          "vertexCount": 57
         },
         {
           "bounds": {
             "max": [
-              6.8824,
+              7.0008,
               9.2,
-              0.1111
+              0.212
             ],
             "min": [
-              5.586,
-              8.5376,
-              -0.033968
+              5.86,
+              8.628,
+              -0.020952
             ]
           },
-          "indexCount": 84,
+          "indexCount": 132,
           "isNull": false,
           "name": "LeftGoldWingTip",
           "solidCount": 1,
-          "triangleCount": 28,
+          "triangleCount": 44,
           "valid": true,
-          "vertexCount": 16
+          "vertexCount": 24
         },
         {
           "bounds": {
             "max": [
-              6.8824,
-              -8.5376,
-              0.1111
+              7.0008,
+              -8.628,
+              0.212
             ],
             "min": [
-              5.586,
+              5.86,
               -9.2,
-              -0.033968
+              -0.020952
+            ]
+          },
+          "indexCount": 132,
+          "isNull": false,
+          "name": "RightGoldWingTip",
+          "solidCount": 1,
+          "triangleCount": 44,
+          "valid": true,
+          "vertexCount": 24
+        },
+        {
+          "bounds": {
+            "max": [
+              6.985,
+              9.09275,
+              1.4711
+            ],
+            "min": [
+              1.5407,
+              2.336,
+              0.01038
+            ]
+          },
+          "indexCount": 516,
+          "isNull": false,
+          "name": "LeftGoldWingLeadingEdgeRim",
+          "solidCount": 1,
+          "triangleCount": 172,
+          "valid": true,
+          "vertexCount": 88
+        },
+        {
+          "bounds": {
+            "max": [
+              6.985,
+              -2.336,
+              1.4711
+            ],
+            "min": [
+              1.5407,
+              -9.09275,
+              0.01038
+            ]
+          },
+          "indexCount": 516,
+          "isNull": false,
+          "name": "RightGoldWingLeadingEdgeRim",
+          "solidCount": 1,
+          "triangleCount": 172,
+          "valid": true,
+          "vertexCount": 88
+        },
+        {
+          "bounds": {
+            "max": [
+              -8.02,
+              3.85,
+              0.91
+            ],
+            "min": [
+              -8.48,
+              2.85,
+              0.188265
+            ]
+          },
+          "indexCount": 540,
+          "isNull": false,
+          "name": "LeftRearPodRearCap",
+          "solidCount": 1,
+          "triangleCount": 180,
+          "valid": true,
+          "vertexCount": 92
+        },
+        {
+          "bounds": {
+            "max": [
+              -8.02,
+              -2.85,
+              0.91
+            ],
+            "min": [
+              -8.48,
+              -3.85,
+              0.188265
+            ]
+          },
+          "indexCount": 540,
+          "isNull": false,
+          "name": "RightRearPodRearCap",
+          "solidCount": 1,
+          "triangleCount": 180,
+          "valid": true,
+          "vertexCount": 92
+        },
+        {
+          "bounds": {
+            "max": [
+              -6.36,
+              3.7225,
+              3.48
+            ],
+            "min": [
+              -7.003507,
+              3.495,
+              3.02
             ]
           },
           "indexCount": 84,
           "isNull": false,
-          "name": "RightGoldWingTip",
+          "name": "LeftFinGoldTip",
           "solidCount": 1,
           "triangleCount": 28,
           "valid": true,
@@ -881,116 +1133,53 @@
         {
           "bounds": {
             "max": [
-              -7.68,
-              1.81,
-              0.79
+              -6.36,
+              -3.495,
+              3.48
             ],
             "min": [
-              -8.18,
-              1.25,
-              0.35
+              -7.003507,
+              -3.7225,
+              3.02
             ]
           },
-          "indexCount": 444,
-          "isNull": false,
-          "name": "LeftRearPodRearCap",
-          "solidCount": 1,
-          "triangleCount": 148,
-          "valid": true,
-          "vertexCount": 76
-        },
-        {
-          "bounds": {
-            "max": [
-              -7.68,
-              -1.25,
-              0.79
-            ],
-            "min": [
-              -8.18,
-              -1.81,
-              0.35
-            ]
-          },
-          "indexCount": 444,
-          "isNull": false,
-          "name": "RightRearPodRearCap",
-          "solidCount": 1,
-          "triangleCount": 148,
-          "valid": true,
-          "vertexCount": 76
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.98,
-              1.775,
-              3.56
-            ],
-            "min": [
-              -5.47,
-              1.74,
-              3.08
-            ]
-          },
-          "indexCount": 36,
-          "isNull": false,
-          "name": "LeftFinGoldTip",
-          "solidCount": 1,
-          "triangleCount": 12,
-          "valid": true,
-          "vertexCount": 8
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.98,
-              -1.74,
-              3.56
-            ],
-            "min": [
-              -5.47,
-              -1.775,
-              3.08
-            ]
-          },
-          "indexCount": 36,
+          "indexCount": 84,
           "isNull": false,
           "name": "RightFinGoldTip",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              5.55,
-              0.603053,
-              2.115226
+              6.12,
+              1.056915,
+              2.273695
             ],
             "min": [
-              0.42,
-              -0.603053,
-              1.0
+              -0.12,
+              -1.056915,
+              1.04
             ]
           },
-          "indexCount": 312,
+          "indexCount": 474,
           "isNull": false,
           "name": "TeardropCanopy",
           "solidCount": 1,
-          "triangleCount": 104,
+          "triangleCount": 158,
           "valid": true,
-          "vertexCount": 54
+          "vertexCount": 81
         }
       ],
       "status": "passed",
-      "triangleCount": 2800,
+      "triangleCount": 5138,
       "variant": "standard",
-      "vertexCount": 1480,
+      "vertexCount": 2661,
       "wingSymmetry": {
-        "comparedLeftVertices": 60,
-        "comparedRightVertices": 60,
+        "comparedLeftVertices": 94,
+        "comparedRightVertices": 94,
         "leftPart": "LeftForwardSweptWing",
         "maximumVertexDeviation": 0.0,
         "method": "symmetric Hausdorff distance between tessellated wing vertex sets after Y reflection",
@@ -1003,21 +1192,21 @@
       "bounds": {
         "max": [
           8.45,
-          11.4,
-          3.56
+          10.0,
+          3.48
         ],
         "min": [
-          -8.35,
-          -11.4,
-          -0.688344
+          -8.48,
+          -10.0,
+          -0.681953
         ]
       },
       "exportReopenChecks": {
         "nativeCad": {
           "allShapesValid": true,
-          "expectedShapeObjectCount": 40,
+          "expectedShapeObjectCount": 49,
           "reopened": true,
-          "shapeObjectCount": 40,
+          "shapeObjectCount": 49,
           "valid": true
         },
         "nativeCadArchiveScan": {
@@ -1027,9 +1216,9 @@
         },
         "step": {
           "allShapesValid": true,
-          "expectedShapeObjectCount": 40,
+          "expectedShapeObjectCount": 49,
           "reimported": true,
-          "shapeObjectCount": 40,
+          "shapeObjectCount": 49,
           "valid": true
         },
         "stepHeaderScan": {
@@ -1038,9 +1227,9 @@
           "localPathScanPassed": true
         },
         "stl": {
-          "expectedTriangleCount": 2752,
+          "expectedTriangleCount": 5126,
           "reopened": true,
-          "triangleCount": 2752,
+          "triangleCount": 5126,
           "triangleCountMatches": true,
           "valid": true
         }
@@ -1053,241 +1242,94 @@
         "underMeshByteTarget": true,
         "underTriangleTarget": true
       },
-      "meshJsonBytes": 61278,
+      "meshJsonBytes": 112691,
       "outputs": {
         "mesh": {
-          "bytes": 61278,
+          "bytes": 112691,
           "path": "public/assets/ax01/longwing/mesh.json",
-          "sha256": "05dc28266e0eea2f3c9a560c2c81f133de928f24a22466f9cdda6a63a783658c"
+          "sha256": "0dcc3798b6b080f19725eedce63e3478bb31306f458937199895bcbabdef8418"
         },
         "nativeCad": {
-          "bytes": 90378,
+          "bytes": 155460,
           "path": "public/assets/ax01/longwing/ax01.FCStd",
-          "sha256": "4b8838c63433abcf9316b1a292bd68fca7c1b65bbd1c203204ea9d62e915cf71"
+          "sha256": "711ec5fc73b117895e83b1d9a7d2a9e05ef2fd1aaa7cb72ea1c88f868a976fe0"
         },
         "preview": {
-          "bytes": 38097,
+          "bytes": 144568,
           "path": "public/assets/ax01/longwing/preview.svg",
-          "sha256": "c6da6de28f60098cb5036c69b0725406afffa1203380ed73d51a1bf502b00233"
+          "sha256": "5cef559325b662f43672fe3b3da49ae720fc7443b6aa787d48896c143a92779d"
         },
         "step": {
-          "bytes": 835737,
+          "bytes": 1346648,
           "path": "public/assets/ax01/longwing/ax01.step",
-          "sha256": "5a6ec20cdf5eb0fc0ea1fa82390a5f5647fd19d12809f3e71a0aeb9ffa6a6800"
+          "sha256": "cb35c6a42ef0413efe0271faeac47fa4264eb247b4f94e7f488e400c1eb65c17"
         },
         "stl": {
-          "bytes": 137684,
+          "bytes": 256384,
           "path": "public/assets/ax01/longwing/ax01.stl",
-          "sha256": "8dc54698a82da00553cbade9b089f6171420fc8626a72664afee21a8bef3ee93"
+          "sha256": "eb1e04e591c3d93996c4e6d62ef019ddf53bf9f12a28bbcc62c6cf01ab519fec"
         }
       },
-      "partCount": 40,
+      "partCount": 49,
       "partValidity": [
         {
           "bounds": {
             "max": [
-              6.9,
-              11.4,
-              0.82
+              7.02,
+              10.0,
+              1.306808
             ],
             "min": [
-              -3.58,
-              0.92,
-              -0.1976
+              -3.62,
+              2.05,
+              -0.2664
             ]
           },
-          "indexCount": 348,
+          "indexCount": 558,
           "isNull": false,
           "name": "LeftForwardSweptWing",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 186,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 95
         },
         {
           "bounds": {
             "max": [
-              6.9,
-              -0.92,
-              0.82
+              7.02,
+              -2.05,
+              1.306808
             ],
             "min": [
-              -3.58,
-              -11.4,
-              -0.1976
+              -3.62,
+              -10.0,
+              -0.2664
             ]
           },
-          "indexCount": 348,
+          "indexCount": 558,
           "isNull": false,
           "name": "RightForwardSweptWing",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 186,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 95
         },
         {
           "bounds": {
             "max": [
-              2.42336,
-              7.8368,
-              -0.040346
+              2.744667,
+              7.297,
+              0.074588
             ],
             "min": [
-              -2.9464,
-              2.1776,
-              -0.28338
-            ]
-          },
-          "indexCount": 246,
-          "isNull": false,
-          "name": "LeftWingVentralArmor",
-          "solidCount": 1,
-          "triangleCount": 82,
-          "valid": true,
-          "vertexCount": 43
-        },
-        {
-          "bounds": {
-            "max": [
-              2.42336,
-              -2.1776,
-              -0.040346
-            ],
-            "min": [
-              -2.9464,
-              -7.8368,
-              -0.28338
-            ]
-          },
-          "indexCount": 246,
-          "isNull": false,
-          "name": "RightWingVentralArmor",
-          "solidCount": 1,
-          "triangleCount": 82,
-          "valid": true,
-          "vertexCount": 43
-        },
-        {
-          "bounds": {
-            "max": [
-              -3.15,
-              1.982045,
-              0.928179
-            ],
-            "min": [
-              -8.05,
-              1.077955,
-              0.265352
-            ]
-          },
-          "indexCount": 336,
-          "isNull": false,
-          "name": "LeftRearPod",
-          "solidCount": 1,
-          "triangleCount": 112,
-          "valid": true,
-          "vertexCount": 58
-        },
-        {
-          "bounds": {
-            "max": [
-              -3.15,
-              -1.077955,
-              0.928179
-            ],
-            "min": [
-              -8.05,
-              -1.982045,
-              0.265352
-            ]
-          },
-          "indexCount": 336,
-          "isNull": false,
-          "name": "RightRearPod",
-          "solidCount": 1,
-          "triangleCount": 112,
-          "valid": true,
-          "vertexCount": 58
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.72,
-              1.7,
-              3.56
-            ],
-            "min": [
-              -7.25,
-              1.24,
-              0.46
-            ]
-          },
-          "indexCount": 36,
-          "isNull": false,
-          "name": "LeftTailFin",
-          "solidCount": 1,
-          "triangleCount": 12,
-          "valid": true,
-          "vertexCount": 8
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.72,
-              -1.24,
-              3.56
-            ],
-            "min": [
-              -7.25,
-              -1.7,
-              0.46
-            ]
-          },
-          "indexCount": 36,
-          "isNull": false,
-          "name": "RightTailFin",
-          "solidCount": 1,
-          "triangleCount": 12,
-          "valid": true,
-          "vertexCount": 8
-        },
-        {
-          "bounds": {
-            "max": [
-              8.45,
-              2.038092,
-              1.548828
-            ],
-            "min": [
-              -8.35,
-              -2.038092,
-              -0.490123
-            ]
-          },
-          "indexCount": 348,
-          "isNull": false,
-          "name": "FuselageCore",
-          "solidCount": 1,
-          "triangleCount": 116,
-          "valid": true,
-          "vertexCount": 60
-        },
-        {
-          "bounds": {
-            "max": [
-              4.55,
-              1.270987,
-              0.327128
-            ],
-            "min": [
-              -7.35,
-              -1.270987,
-              -0.688344
+              -2.978514,
+              3.004,
+              -0.286378
             ]
           },
           "indexCount": 294,
           "isNull": false,
-          "name": "BellyKeel",
+          "name": "LeftWingVentralArmor",
           "solidCount": 1,
           "triangleCount": 98,
           "valid": true,
@@ -1296,56 +1338,245 @@
         {
           "bounds": {
             "max": [
+              2.744667,
+              -3.004,
+              0.074588
+            ],
+            "min": [
+              -2.978514,
+              -7.297,
+              -0.286378
+            ]
+          },
+          "indexCount": 294,
+          "isNull": false,
+          "name": "RightWingVentralArmor",
+          "solidCount": 1,
+          "triangleCount": 98,
+          "valid": true,
+          "vertexCount": 51
+        },
+        {
+          "bounds": {
+            "max": [
+              3.5875,
+              2.59,
+              0.887
+            ],
+            "min": [
+              1.72,
+              2.043,
+              0.0
+            ]
+          },
+          "indexCount": 72,
+          "isNull": false,
+          "name": "LeftIntakeGraphite",
+          "solidCount": 1,
+          "triangleCount": 24,
+          "valid": true,
+          "vertexCount": 14
+        },
+        {
+          "bounds": {
+            "max": [
+              3.5875,
+              -2.043,
+              0.887
+            ],
+            "min": [
+              1.72,
+              -2.59,
+              0.0
+            ]
+          },
+          "indexCount": 72,
+          "isNull": false,
+          "name": "RightIntakeGraphite",
+          "solidCount": 1,
+          "triangleCount": 24,
+          "valid": true,
+          "vertexCount": 14
+        },
+        {
+          "bounds": {
+            "max": [
+              -3.55,
+              4.29821,
+              1.213132
+            ],
+            "min": [
+              -8.38,
+              2.40179,
+              -0.031107
+            ]
+          },
+          "indexCount": 636,
+          "isNull": false,
+          "name": "LeftRearPod",
+          "solidCount": 1,
+          "triangleCount": 212,
+          "valid": true,
+          "vertexCount": 108
+        },
+        {
+          "bounds": {
+            "max": [
+              -3.55,
+              -2.40179,
+              1.213132
+            ],
+            "min": [
+              -8.38,
+              -4.29821,
+              -0.031107
+            ]
+          },
+          "indexCount": 636,
+          "isNull": false,
+          "name": "RightRearPod",
+          "solidCount": 1,
+          "triangleCount": 212,
+          "valid": true,
+          "vertexCount": 108
+        },
+        {
+          "bounds": {
+            "max": [
+              -4.35,
+              3.45,
+              3.48
+            ],
+            "min": [
+              -7.25,
+              2.23,
+              0.52
+            ]
+          },
+          "indexCount": 90,
+          "isNull": false,
+          "name": "LeftTailFin",
+          "solidCount": 1,
+          "triangleCount": 30,
+          "valid": true,
+          "vertexCount": 17
+        },
+        {
+          "bounds": {
+            "max": [
+              -4.35,
+              -2.23,
+              3.48
+            ],
+            "min": [
+              -7.25,
+              -3.45,
+              0.52
+            ]
+          },
+          "indexCount": 90,
+          "isNull": false,
+          "name": "RightTailFin",
+          "solidCount": 1,
+          "triangleCount": 30,
+          "valid": true,
+          "vertexCount": 17
+        },
+        {
+          "bounds": {
+            "max": [
+              8.45,
+              2.62,
+              1.5
+            ],
+            "min": [
+              -8.35,
+              -2.62,
+              -0.26
+            ]
+          },
+          "indexCount": 720,
+          "isNull": false,
+          "name": "FuselageCore",
+          "solidCount": 1,
+          "triangleCount": 240,
+          "valid": true,
+          "vertexCount": 122
+        },
+        {
+          "bounds": {
+            "max": [
+              4.55,
+              1.458629,
+              0.287752
+            ],
+            "min": [
+              -7.35,
+              -1.458629,
+              -0.646735
+            ]
+          },
+          "indexCount": 336,
+          "isNull": false,
+          "name": "BellyKeel",
+          "solidCount": 1,
+          "triangleCount": 112,
+          "valid": true,
+          "vertexCount": 58
+        },
+        {
+          "bounds": {
+            "max": [
               8.25,
-              0.524703,
+              0.629576,
               0.21
             ],
             "min": [
               3.05,
-              -0.524703,
-              -0.276002
+              -0.629576,
+              -0.275988
             ]
           },
-          "indexCount": 258,
+          "indexCount": 270,
           "isNull": false,
           "name": "NoseChinArmor",
           "solidCount": 1,
-          "triangleCount": 86,
+          "triangleCount": 90,
           "valid": true,
-          "vertexCount": 45
+          "vertexCount": 47
         },
         {
           "bounds": {
             "max": [
-              3.55,
-              1.011869,
-              1.892732
+              4.2,
+              1.24,
+              1.42
             ],
             "min": [
               -6.15,
-              -1.011869,
-              0.663504
+              -1.24,
+              0.8352
             ]
           },
-          "indexCount": 348,
+          "indexCount": 276,
           "isNull": false,
           "name": "UpperSpineArmor",
           "solidCount": 1,
-          "triangleCount": 116,
+          "triangleCount": 92,
           "valid": true,
-          "vertexCount": 60
+          "vertexCount": 48
         },
         {
           "bounds": {
             "max": [
-              0.45,
-              1.868483,
-              1.800644
+              2.8,
+              2.2,
+              1.5
             ],
             "min": [
-              -4.65,
-              0.851517,
-              0.9
+              -5.1,
+              -0.16,
+              0.8824
             ]
           },
           "indexCount": 228,
@@ -1359,14 +1590,14 @@
         {
           "bounds": {
             "max": [
-              0.45,
-              -0.851517,
-              1.800644
+              2.8,
+              0.16,
+              1.5
             ],
             "min": [
-              -4.65,
-              -1.868483,
-              0.9
+              -5.1,
+              -2.2,
+              0.8824
             ]
           },
           "indexCount": 228,
@@ -1380,86 +1611,128 @@
         {
           "bounds": {
             "max": [
-              5.1912,
-              9.7232,
-              0.9102
+              4.55,
+              2.74,
+              1.54
             ],
             "min": [
-              -2.3056,
-              2.1776,
-              0.125
+              -5.45,
+              -0.42,
+              0.7724
             ]
           },
-          "indexCount": 210,
+          "indexCount": 276,
+          "isNull": false,
+          "name": "LeftShoulderRedShell",
+          "solidCount": 1,
+          "triangleCount": 92,
+          "valid": true,
+          "vertexCount": 48
+        },
+        {
+          "bounds": {
+            "max": [
+              4.55,
+              0.42,
+              1.54
+            ],
+            "min": [
+              -5.45,
+              -2.74,
+              0.7724
+            ]
+          },
+          "indexCount": 276,
+          "isNull": false,
+          "name": "RightShoulderRedShell",
+          "solidCount": 1,
+          "triangleCount": 92,
+          "valid": true,
+          "vertexCount": 48
+        },
+        {
+          "bounds": {
+            "max": [
+              5.842255,
+              8.728,
+              1.398
+            ],
+            "min": [
+              -2.012533,
+              4.117,
+              0.260304
+            ]
+          },
+          "indexCount": 324,
           "isNull": false,
           "name": "LeftWingArmorPanel",
           "solidCount": 1,
-          "triangleCount": 70,
+          "triangleCount": 108,
           "valid": true,
-          "vertexCount": 37
+          "vertexCount": 56
         },
         {
           "bounds": {
             "max": [
-              5.1912,
-              -2.1776,
-              0.9102
+              5.842255,
+              -4.117,
+              1.398
             ],
             "min": [
-              -2.3056,
-              -9.7232,
-              0.125
+              -2.012533,
+              -8.728,
+              0.260304
             ]
           },
-          "indexCount": 210,
+          "indexCount": 324,
           "isNull": false,
           "name": "RightWingArmorPanel",
           "solidCount": 1,
-          "triangleCount": 70,
+          "triangleCount": 108,
           "valid": true,
-          "vertexCount": 37
+          "vertexCount": 56
         },
         {
           "bounds": {
             "max": [
-              -4.16,
-              1.794983,
-              1.02972
+              -4.48,
+              3.956684,
+              1.294508
             ],
             "min": [
-              -7.52,
-              1.265017,
-              0.69
+              -7.75,
+              2.743316,
+              0.749765
             ]
           },
-          "indexCount": 168,
+          "indexCount": 288,
           "isNull": false,
           "name": "LeftRearPodCrown",
           "solidCount": 1,
-          "triangleCount": 56,
+          "triangleCount": 96,
           "valid": true,
-          "vertexCount": 30
+          "vertexCount": 50
         },
         {
           "bounds": {
             "max": [
-              -4.16,
-              -1.265017,
-              1.02972
+              -4.48,
+              -2.743316,
+              1.294508
             ],
             "min": [
-              -7.52,
-              -1.794983,
-              0.69
+              -7.75,
+              -3.956684,
+              0.749765
             ]
           },
-          "indexCount": 168,
+          "indexCount": 288,
           "isNull": false,
           "name": "RightRearPodCrown",
           "solidCount": 1,
-          "triangleCount": 56,
+          "triangleCount": 96,
           "valid": true,
-          "vertexCount": 30
+          "vertexCount": 50
         },
         {
           "bounds": {
@@ -1506,313 +1779,481 @@
         {
           "bounds": {
             "max": [
-              5.7,
-              0.694476,
-              1.566581
+              4.05,
+              1.239403,
+              -0.18
             ],
             "min": [
-              0.3,
-              -0.694476,
-              0.98
+              -5.25,
+              -1.239403,
+              -0.681953
             ]
           },
-          "indexCount": 264,
+          "indexCount": 492,
           "isNull": false,
-          "name": "CanopyBaseTrim",
+          "name": "IvoryBellyShell",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 164,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 84
         },
         {
           "bounds": {
             "max": [
-              6.78985,
-              11.2428,
-              0.9194
+              5.58,
+              0.798597,
+              1.452804
             ],
             "min": [
-              0.748267,
-              1.7584,
-              -0.018306
+              0.28,
+              -0.798597,
+              1.07
             ]
           },
-          "indexCount": 180,
+          "indexCount": 222,
+          "isNull": false,
+          "name": "GraphiteSeatUnderlay",
+          "solidCount": 1,
+          "triangleCount": 74,
+          "valid": true,
+          "vertexCount": 39
+        },
+        {
+          "bounds": {
+            "max": [
+              6.35,
+              1.18,
+              1.19
+            ],
+            "min": [
+              -0.32,
+              -1.18,
+              1.07
+            ]
+          },
+          "indexCount": 336,
+          "isNull": false,
+          "name": "GoldTrimCockpitFrame",
+          "solidCount": 1,
+          "triangleCount": 112,
+          "valid": true,
+          "vertexCount": 56
+        },
+        {
+          "bounds": {
+            "max": [
+              3.855,
+              2.7955,
+              1.094
+            ],
+            "min": [
+              1.48,
+              2.042,
+              -0.18
+            ]
+          },
+          "indexCount": 168,
+          "isNull": false,
+          "name": "LeftIntakeGoldTrim",
+          "solidCount": 1,
+          "triangleCount": 56,
+          "valid": true,
+          "vertexCount": 28
+        },
+        {
+          "bounds": {
+            "max": [
+              3.855,
+              -2.042,
+              1.094
+            ],
+            "min": [
+              1.48,
+              -2.7955,
+              -0.18
+            ]
+          },
+          "indexCount": 168,
+          "isNull": false,
+          "name": "RightIntakeGoldTrim",
+          "solidCount": 1,
+          "triangleCount": 56,
+          "valid": true,
+          "vertexCount": 28
+        },
+        {
+          "bounds": {
+            "max": [
+              6.967975,
+              9.88075,
+              1.558544
+            ],
+            "min": [
+              -0.009314,
+              2.368,
+              -0.00414
+            ]
+          },
+          "indexCount": 504,
           "isNull": false,
           "name": "LeftIvoryLeadingEdge",
           "solidCount": 1,
-          "triangleCount": 60,
+          "triangleCount": 168,
           "valid": true,
-          "vertexCount": 32
+          "vertexCount": 86
         },
         {
           "bounds": {
             "max": [
-              6.78985,
-              -1.7584,
-              0.9194
+              6.967975,
+              -2.368,
+              1.558544
             ],
             "min": [
-              0.748267,
-              -11.2428,
-              -0.018306
+              -0.009314,
+              -9.88075,
+              -0.00414
             ]
           },
-          "indexCount": 180,
+          "indexCount": 504,
           "isNull": false,
           "name": "RightIvoryLeadingEdge",
           "solidCount": 1,
-          "triangleCount": 60,
+          "triangleCount": 168,
           "valid": true,
-          "vertexCount": 32
+          "vertexCount": 86
         },
         {
           "bounds": {
             "max": [
-              1.04776,
-              4.064,
-              0.903067
+              0.0504,
+              2.686,
+              1.4238
             ],
             "min": [
-              -0.563333,
-              1.968,
-              0.629488
+              -0.93,
+              2.209,
+              1.168806
             ]
           },
-          "indexCount": 108,
+          "indexCount": 84,
           "isNull": false,
           "name": "LeftWingRootChevron",
           "solidCount": 1,
-          "triangleCount": 36,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 20
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              1.04776,
-              -1.968,
-              0.903067
+              0.0504,
+              -2.209,
+              1.4238
             ],
             "min": [
-              -0.563333,
-              -4.064,
-              0.629488
+              -0.93,
+              -2.686,
+              1.168806
             ]
           },
-          "indexCount": 108,
+          "indexCount": 84,
           "isNull": false,
           "name": "RightWingRootChevron",
           "solidCount": 1,
-          "triangleCount": 36,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 20
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              -6.86,
-              1.871387,
-              0.859329
+              -7.21,
+              4.032643,
+              0.964995
             ],
             "min": [
-              -7.38,
-              1.188613,
-              0.317617
+              -7.75,
+              2.667357,
+              0.084348
             ]
           },
-          "indexCount": 264,
+          "indexCount": 756,
           "isNull": false,
           "name": "LeftRearPodGoldCollar",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 252,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 128
         },
         {
           "bounds": {
             "max": [
-              -6.86,
-              -1.188613,
-              0.859329
+              -7.21,
+              -2.667357,
+              0.964995
             ],
             "min": [
-              -7.38,
-              -1.871387,
-              0.317617
+              -7.75,
+              -4.032643,
+              0.084348
             ]
           },
-          "indexCount": 264,
+          "indexCount": 756,
           "isNull": false,
           "name": "RightRearPodGoldCollar",
           "solidCount": 1,
-          "triangleCount": 88,
+          "triangleCount": 252,
           "valid": true,
-          "vertexCount": 46
+          "vertexCount": 128
         },
         {
           "bounds": {
             "max": [
-              -5.06,
-              1.735,
-              2.91
+              -5.05,
+              3.44,
+              3.08
             ],
             "min": [
-              -6.6,
-              1.7,
-              1.0
+              -6.98,
+              2.72,
+              0.92
             ]
           },
-          "indexCount": 36,
+          "indexCount": 96,
           "isNull": false,
           "name": "LeftFinIvoryInlay",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 32,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 18
         },
         {
           "bounds": {
             "max": [
-              -5.06,
-              -1.7,
-              2.91
+              -5.05,
+              -2.72,
+              3.08
             ],
             "min": [
-              -6.6,
-              -1.735,
-              1.0
+              -6.98,
+              -3.44,
+              0.92
             ]
           },
-          "indexCount": 36,
+          "indexCount": 96,
           "isNull": false,
           "name": "RightFinIvoryInlay",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 32,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 18
         },
         {
           "bounds": {
             "max": [
               8.05,
-              0.348299,
-              0.975
+              0.03602,
+              0.995
             ],
             "min": [
               5.1,
-              0.211701,
-              0.342
+              -0.03602,
+              0.35
             ]
           },
-          "indexCount": 228,
+          "indexCount": 222,
           "isNull": false,
-          "name": "LeftNoseGoldStripe",
+          "name": "NoseGoldCenterEdge",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 74,
           "valid": true,
-          "vertexCount": 40
-        },
-        {
-          "bounds": {
-            "max": [
-              8.05,
-              -0.211701,
-              0.975
-            ],
-            "min": [
-              5.1,
-              -0.348299,
-              0.342
-            ]
-          },
-          "indexCount": 228,
-          "isNull": false,
-          "name": "RightNoseGoldStripe",
-          "solidCount": 1,
-          "triangleCount": 76,
-          "valid": true,
-          "vertexCount": 40
+          "vertexCount": 39
         },
         {
           "bounds": {
             "max": [
               7.92,
-              1.060984,
-              0.741236
+              2.348057,
+              0.87869
             ],
             "min": [
-              3.3,
-              0.379016,
-              0.23
+              3.15,
+              -0.085164,
+              0.21
             ]
           },
-          "indexCount": 228,
+          "indexCount": 336,
           "isNull": false,
           "name": "LeftIvoryNoseFairing",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 112,
           "valid": true,
-          "vertexCount": 40
+          "vertexCount": 58
         },
         {
           "bounds": {
             "max": [
               7.92,
-              -0.379016,
-              0.741236
+              0.082251,
+              0.878552
             ],
             "min": [
-              3.3,
-              -1.060984,
-              0.23
+              3.15,
+              -2.347297,
+              0.21
             ]
           },
-          "indexCount": 228,
+          "indexCount": 330,
           "isNull": false,
           "name": "RightIvoryNoseFairing",
           "solidCount": 1,
-          "triangleCount": 76,
+          "triangleCount": 110,
           "valid": true,
-          "vertexCount": 40
+          "vertexCount": 57
         },
         {
           "bounds": {
             "max": [
-              6.8824,
-              11.4,
-              0.1111
+              7.0008,
+              10.0,
+              0.212
             ],
             "min": [
-              5.586,
-              10.5616,
-              -0.033968
+              5.86,
+              9.364,
+              -0.020952
             ]
           },
-          "indexCount": 84,
+          "indexCount": 132,
           "isNull": false,
           "name": "LeftGoldWingTip",
           "solidCount": 1,
-          "triangleCount": 28,
+          "triangleCount": 44,
           "valid": true,
-          "vertexCount": 16
+          "vertexCount": 24
         },
         {
           "bounds": {
             "max": [
-              6.8824,
-              -10.5616,
-              0.1111
+              7.0008,
+              -9.364,
+              0.212
             ],
             "min": [
-              5.586,
-              -11.4,
-              -0.033968
+              5.86,
+              -10.0,
+              -0.020952
+            ]
+          },
+          "indexCount": 132,
+          "isNull": false,
+          "name": "RightGoldWingTip",
+          "solidCount": 1,
+          "triangleCount": 44,
+          "valid": true,
+          "vertexCount": 24
+        },
+        {
+          "bounds": {
+            "max": [
+              6.985,
+              9.88075,
+              1.471417
+            ],
+            "min": [
+              1.5407,
+              2.368,
+              0.01038
+            ]
+          },
+          "indexCount": 516,
+          "isNull": false,
+          "name": "LeftGoldWingLeadingEdgeRim",
+          "solidCount": 1,
+          "triangleCount": 172,
+          "valid": true,
+          "vertexCount": 88
+        },
+        {
+          "bounds": {
+            "max": [
+              6.985,
+              -2.368,
+              1.471417
+            ],
+            "min": [
+              1.5407,
+              -9.88075,
+              0.01038
+            ]
+          },
+          "indexCount": 516,
+          "isNull": false,
+          "name": "RightGoldWingLeadingEdgeRim",
+          "solidCount": 1,
+          "triangleCount": 172,
+          "valid": true,
+          "vertexCount": 88
+        },
+        {
+          "bounds": {
+            "max": [
+              -8.02,
+              3.85,
+              0.91
+            ],
+            "min": [
+              -8.48,
+              2.85,
+              0.188265
+            ]
+          },
+          "indexCount": 540,
+          "isNull": false,
+          "name": "LeftRearPodRearCap",
+          "solidCount": 1,
+          "triangleCount": 180,
+          "valid": true,
+          "vertexCount": 92
+        },
+        {
+          "bounds": {
+            "max": [
+              -8.02,
+              -2.85,
+              0.91
+            ],
+            "min": [
+              -8.48,
+              -3.85,
+              0.188265
+            ]
+          },
+          "indexCount": 540,
+          "isNull": false,
+          "name": "RightRearPodRearCap",
+          "solidCount": 1,
+          "triangleCount": 180,
+          "valid": true,
+          "vertexCount": 92
+        },
+        {
+          "bounds": {
+            "max": [
+              -6.36,
+              3.7225,
+              3.48
+            ],
+            "min": [
+              -7.003507,
+              3.495,
+              3.02
             ]
           },
           "indexCount": 84,
           "isNull": false,
-          "name": "RightGoldWingTip",
+          "name": "LeftFinGoldTip",
           "solidCount": 1,
           "triangleCount": 28,
           "valid": true,
@@ -1821,116 +2262,53 @@
         {
           "bounds": {
             "max": [
-              -7.68,
-              1.81,
-              0.79
+              -6.36,
+              -3.495,
+              3.48
             ],
             "min": [
-              -8.18,
-              1.25,
-              0.35
+              -7.003507,
+              -3.7225,
+              3.02
             ]
           },
-          "indexCount": 444,
-          "isNull": false,
-          "name": "LeftRearPodRearCap",
-          "solidCount": 1,
-          "triangleCount": 148,
-          "valid": true,
-          "vertexCount": 76
-        },
-        {
-          "bounds": {
-            "max": [
-              -7.68,
-              -1.25,
-              0.79
-            ],
-            "min": [
-              -8.18,
-              -1.81,
-              0.35
-            ]
-          },
-          "indexCount": 444,
-          "isNull": false,
-          "name": "RightRearPodRearCap",
-          "solidCount": 1,
-          "triangleCount": 148,
-          "valid": true,
-          "vertexCount": 76
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.98,
-              1.775,
-              3.56
-            ],
-            "min": [
-              -5.47,
-              1.74,
-              3.08
-            ]
-          },
-          "indexCount": 36,
-          "isNull": false,
-          "name": "LeftFinGoldTip",
-          "solidCount": 1,
-          "triangleCount": 12,
-          "valid": true,
-          "vertexCount": 8
-        },
-        {
-          "bounds": {
-            "max": [
-              -4.98,
-              -1.74,
-              3.56
-            ],
-            "min": [
-              -5.47,
-              -1.775,
-              3.08
-            ]
-          },
-          "indexCount": 36,
+          "indexCount": 84,
           "isNull": false,
           "name": "RightFinGoldTip",
           "solidCount": 1,
-          "triangleCount": 12,
+          "triangleCount": 28,
           "valid": true,
-          "vertexCount": 8
+          "vertexCount": 16
         },
         {
           "bounds": {
             "max": [
-              5.55,
-              0.603053,
-              2.115226
+              6.12,
+              1.056915,
+              2.273695
             ],
             "min": [
-              0.42,
-              -0.603053,
-              1.0
+              -0.12,
+              -1.056915,
+              1.04
             ]
           },
-          "indexCount": 312,
+          "indexCount": 474,
           "isNull": false,
           "name": "TeardropCanopy",
           "solidCount": 1,
-          "triangleCount": 104,
+          "triangleCount": 158,
           "valid": true,
-          "vertexCount": 54
+          "vertexCount": 81
         }
       ],
       "status": "passed",
-      "triangleCount": 2752,
+      "triangleCount": 5126,
       "variant": "longwing",
-      "vertexCount": 1456,
+      "vertexCount": 2655,
       "wingSymmetry": {
-        "comparedLeftVertices": 60,
-        "comparedRightVertices": 60,
+        "comparedLeftVertices": 95,
+        "comparedRightVertices": 95,
         "leftPart": "LeftForwardSweptWing",
         "maximumVertexDeviation": 0.0,
         "method": "symmetric Hausdorff distance between tessellated wing vertex sets after Y reflection",

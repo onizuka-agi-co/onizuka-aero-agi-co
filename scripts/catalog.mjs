@@ -57,13 +57,13 @@ if (process.argv.includes('--check')) {
   }
   const manifest = {
     schemaVersion: 1,
-    datasetId: 'onizuka-aero-ax01-r2',
+    datasetId: 'onizuka-aero-ax01-r3',
     designId: 'AX-01',
     displayName: 'AX-01 SUZAKU',
-    revision: 'r2',
+    revision: 'r3',
     generatedAt: new Date().toISOString(),
     publisher: 'ONIZUKA AERO AGI Co.',
-    attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU dataset r2',
+    attribution: 'ONIZUKA AERO AGI Co., AX-01 SUZAKU dataset r3',
     repository: 'https://github.com/onizuka-agi-co/onizuka-aero-agi-co',
     scope: 'Fictional art geometry and simulated arcade gameplay. No physical aircraft performance data.',
     files,

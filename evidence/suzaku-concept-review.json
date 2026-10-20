@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "recordType": "observed-visual-concept-review",
+  "designId": "AX-01",
+  "displayName": "AX-01 SUZAKU",
+  "revision": "r3",
+  "license": "CC-BY-4.0",
+  "recordedAt": "2026-10-20T14:42:58.2374884Z",
+  "status": "accepted-as-fictional-toy-interpretation",
+  "reference": {
+    "path": "design/concepts/ax01-r2/c-suzaku.png",
+    "sha256": "f5b1f44f8565680a4c954068cb0879e3e9c4d5029fae3a9d11a80af36fb54a29",
+    "kind": "generated-concept-art",
+    "selection": "C / SUZAKU"
+  },
+  "before": {
+    "revision": "r2",
+    "commit": "eba47432f6a042ee1f4431de3a6a22996778d6e8",
+    "screenshot": "evidence/suzaku-public-ready.jpg",
+    "judgment": "rejected",
+    "reason": "User rejected visual similarity. Direct inspection confirms narrow central fuselage, thin wings, narrow canopy, missing prominent framed side recesses and twin dark rear pods, upright rectangular fins."
+  },
+  "criteria": [
+    "Broad blended red central body and pointed ivory-cheek nose",
+    "Long wide amber-gold canopy with dark interior and gold frame",
+    "Cranked pointed main wings with substantial ivory outer panels and narrow gold edge",
+    "Visible dark side recesses in angular gold frames and separate twin charcoal rear pods",
+    "Tall swept canted fins with red ivory and gold panels",
+    "Whole craft readable in matching front three-quarter view on both variants and mobile"
+  ],
+  "limits": [
+    "Visual judgments are qualitative observations, not an automated similarity score.",
+    "Generated reference views contain inconsistencies; the hero three-quarter and top silhouettes set the visual target.",
+    "Geometry validity and browser operation are separate from visual acceptance."
+  ],
+  "iterations": [
+    {
+      "iteration": 1,
+      "screenshot": "evidence/suzaku-r3-first-ready.jpg",
+      "judgment": "rejected",
+      "observedParts": 47,
+      "findings": [
+        "Shoulder shells read as rounded separate masses",
+        "Decorative dark side insets are hidden",
+        "Gold wing border is not readable",
+        "Canopy frame and glass lack separation",
+        "Only one rear pod is visible in this primary view"
+      ],
+      "review": "Root and independent reviewer agree visual changes are insufficient"
+    },
+    {
+      "iteration": 2,
+      "screenshot": "evidence/suzaku-r3-second-ready.jpg",
+      "judgment": "rejected",
+      "observedParts": 49,
+      "findings": [
+        "Wing-root solids still occlude side recesses",
+        "Smooth shoulder lofts retain rounded silhouette"
+      ],
+      "improvements": [
+        "Ivory nose cheeks broadened",
+        "Gold leading-edge band visible",
+        "Canopy frame separated from glass",
+        "Both rear pods partly visible"
+      ],
+      "next": "Cut actual wing-root occluders and create flatter ruled shoulder surfaces"
+    },
+    {
+      "iteration": 3,
+      "screenshot": "evidence/suzaku-r3-third-ready.jpg",
+      "judgment": "rejected",
+      "findings": [
+        "Gold top-opening frames read as handles",
+        "Near-side dark inset remained hidden behind wing armor"
+      ],
+      "evidence": "evidence/suzaku-r3-occlusion-before.json"
+    },
+    {
+      "iteration": 4,
+      "screenshot": "evidence/suzaku-r3-ready.jpg",
+      "judgment": "accepted",
+      "observedParts": 49,
+      "findings": [
+        "Broad roof and stepped shoulder surfaces",
+        "Wide amber canopy with separate gold base frame",
+        "Ivory wing leading panels and gold edge bands",
+        "Visible near-side dark gold-framed flank panel",
+        "Two distinct rear pods",
+        "Swept canted twin fins visible across front side and rear views"
+      ],
+      "cadScreenshot": "evidence/suzaku-r3-cad-final.jpg",
+      "occlusionEvidence": "evidence/suzaku-r3-occlusion-after.json"
+    }
+  ],
+  "finalReview": {
+    "checkedAt": "2026-10-20T15:18:56.2057997Z",
+    "method": "Direct in-app browser inspection and an independent GPT-6 Luna review of the selected concept, ready game and four CAD projections",
+    "result": "All six salient visual criteria accepted for a fictional toy interpretation",
+    "userApproval": "Not claimed",
+    "limits": [
+      "Does not reproduce every generated panel seam or photoreal surface finish",
+      "Far-side flank is naturally occluded from the primary view; simultaneous visibility is not required",
+      "Native export validity and browser operation are separately verified"
+    ],
+    "generatorSha256": "7e67422f7ac7de1cd143d658ccee30652c4a2d17080ffa5af5a6207209537840",
+    "standardMeshSha256": "5e4f70cf121fa5a95598e5ad3a9485fd815e0ccaa87c685e6757340c4e9f476c",
+    "longwingMeshSha256": "0dcc3798b6b080f19725eedce63e3478bb31306f458937199895bcbabdef8418"
+  }
+}

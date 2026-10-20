@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "cad-generation-first-run",
+  "designId": "AX-01",
+  "revision": "r3",
+  "status": "failed",
+  "capturedAtUtc": null,
+  "generator": "scripts/generate-cad.py",
+  "freeCADVersion": null,
+  "observed": {
+    "variant": "standard",
+    "partCount": 47,
+    "triangleCount": 4900,
+    "nativeCadReopenedShapeObjectCount": 47,
+    "nativeCadExpectedShapeObjectCount": 47,
+    "stlReopenedTriangleCount": 4900,
+    "stlExpectedTriangleCount": 4900,
+    "stepReimportedShapeObjectCount": 53,
+    "stepExpectedShapeObjectCount": 47,
+    "failedCheck": "STEP reimport object count differed from the 47 authored parts"
+  },
+  "repairNote": "Each IntakeGoldTrim was a compound of four separate solids, so STEP reimport split two frames into eight solids and produced 53 objects. The generator now creates each frame as one connected extruded ring solid; rerun validation is required.",
+  "provenanceNote": "The initial generator stdout and exact run timestamp/version were not retained. This compact record preserves the observed counts without asserting uncaptured hashes or build identifiers.",
+  "resolution": {
+    "status": "repaired-and-verified",
+    "evidence": "public/data/geometry-report.json",
+    "note": "Final r3 has 49 valid parts per variant; native CAD STEP STL reopen and deterministic mesh checks passed"
+  }
+}

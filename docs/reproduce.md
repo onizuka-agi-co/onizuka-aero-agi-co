@@ -43,7 +43,9 @@ npx playwright install chromium
 npm run test:browser
 ~~~
 
-`npm test` はNodeのテストを実行し、`npm run build` は本番用ファイルを生成します。r2の実行ではNodeテスト15件と本番ビルドが合格しました。`npm run test:browser` はビルド済みアプリを使い、ポート4188で専用のVite previewを起動します。別途 `npm run preview` を起動する必要はありません。現在のローカル記録では自動Chromium確認12件、直接UI確認9件が合格しています（[自動確認](../evidence/browser-automated.json)、[直接UI確認](../evidence/browser-suzaku-ui.json)）。スマートフォン実機では未確認です。[GitHub Actions CIとPagesデプロイ](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215)は成功しました。公開サイトでもブラウザ12項目が通過し、匿名取得した41ファイルのサイズとSHA-256が一致しました。
+`npm test` はリプレイを含むNodeテスト15件すべてに合格しました。本番ビルドも合格しましたが、JavaScriptチャンクサイズ572 kBの警告が1件あります。カタログ照合は公開ファイル20件とハッシュ付きソース21件で合格しました。FreeCAD形状、ネイティブ形式・STEP・STLの再読み込み、主翼の対称性、メッシュの決定性確認も合格しています。自動Chromium確認は12/12件に合格しました。タッチ操作はエミュレーションで、スマートフォン実機では未確認です。[成功レポート](../evidence/browser-automated.json)と、初回のモバイルタッチ確認が停止した[失敗レポート](../evidence/suzaku-r3-browser-first-failure.json)を参照してください。CIと公開サイトの確認は未実施です。r2の確認記録は[履歴フォルダー](../evidence/history/suzaku-r2/)にあります。
+
+standardとlongwingをC案画像と見比べ、真上、側面、前方3/4、後方3/4から肩の量感、キャノピー、翼面、側面の暗色部、後部ポッド、尾翼を確認します。最終確認では、架空のコレクショントイとして6つの主要条件を満たすと評価されました。これは定性的評価であり、ユーザー承認や写真のような完全再現を意味しません。[コンセプト確認記録](../evidence/suzaku-concept-review.json)と[最終CADビュー](../evidence/suzaku-r3-cad-final.jpg)に記録しています。形状レポートの合格だけで、C案との見た目の近さを判定しないでください。
 
 開発サーバーは `npm run dev` で起動します。ビルド済みアプリを確認する場合は、先に `npm run build` を実行し、その後 `npm run preview` を起動します。
 
@@ -60,7 +62,7 @@ node .\scripts\verify-public.mjs
 
 ### 記録の解釈
 
-形状値は任意設計単位です。アーケード記録は模擬ゲーム状態です。どちらも実際の飛行性能や航空宇宙工学の評価として解釈しないでください。ブラウザ確認はChromiumの画面とタッチ操作のエミュレーションです。スマートフォン実機の確認とは異なります。r2のローカル確認に加え、公開URLでの操作と匿名取得も確認しました。r1と明記された以前のブラウザ・公開記録は履歴資料として扱います。
+形状値は任意設計単位です。アーケード記録は模擬ゲーム状態です。どちらも実際の飛行性能や航空宇宙工学の評価として解釈しないでください。Chromiumのタッチ確認はエミュレーションで、スマートフォン実機とは異なります。r3の形状、Nodeテスト、本番ビルド、カタログ、ローカルブラウザ確認は合格しました。CIと公開確認は未実施です。r2の結果は[履歴フォルダー](../evidence/history/suzaku-r2/)で確認できます。
 
 ## English
 
@@ -103,7 +105,9 @@ npx playwright install chromium
 npm run test:browser
 ~~~
 
-`npm test` runs the Node tests, and `npm run build` creates the production files. `npm run test:browser` uses the built app and starts its own Vite preview on port 4188. You do not need to start `npm run preview` separately.
+All 15 Node tests passed, including replay tests. The production build passed with one 572 kB JavaScript chunk-size warning. Catalog verification passed for 20 public files and 21 hashed source entries. FreeCAD shape checks, native/STEP/STL reopen checks, mirrored-wing symmetry, and deterministic mesh regeneration passed. Automated Chromium checks passed 12/12 with an emulated touch viewport; see the [passing browser report](../evidence/browser-automated.json). Physical phones are untested. An initial mobile-touch failure is retained in the [first-failure report](../evidence/suzaku-r3-browser-first-failure.json). `npm run test:browser` uses the built app and starts its own Vite preview on port 4188. You do not need to start `npm run preview` separately. CI and public-site verification are pending. The archived r2 results do not verify the current revision.
+
+Compare `standard` and `longwing` with the selected C concept from the top, side, front three-quarter, and rear three-quarter views. Check shoulder volume, canopy, wing panels, dark side recesses, rear pods, and fins. The final qualitative review accepted all six salient criteria for a fictional toy interpretation; it does not claim user approval or exact photoreal reproduction. See the [concept review](../evidence/suzaku-concept-review.json) and [final CAD views](../evidence/suzaku-r3-cad-final.jpg). A passing geometry report alone does not establish visual similarity to the concept.
 
 Start the development server with `npm run dev`. To inspect the built app, run `npm run build` first, then start `npm run preview`.
 
@@ -120,4 +124,4 @@ node .\scripts\verify-public.mjs
 
 ### Interpret the records
 
-Geometry values use arbitrary design units. Arcade records are simulated game state. Do not interpret either as actual flight performance or aerospace engineering results. Current local r2 browser checks are recorded in the automated Chromium and direct UI reports. The automated touch check uses an emulated viewport; the direct session used a desktop in-app browser. Neither tests physical phones. [GitHub Actions CI and Pages deployment](https://github.com/onizuka-agi-co/onizuka-aero-agi-co/actions/runs/39439337215) passed for r2. All 12 browser checks also passed on the public site, and 41 anonymous downloads matched byte sizes and SHA-256 hashes. Older reports labeled r1 are historical.
+Geometry values use arbitrary design units. Arcade records are simulated game state. Do not interpret either as actual flight performance or aerospace engineering results. R3 geometry, Node, build, catalog, and local Chromium checks passed. CI and publication verification are pending. The [archived r2 records](../evidence/history/suzaku-r2/) describe the earlier revision only.

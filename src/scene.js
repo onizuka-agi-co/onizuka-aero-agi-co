@@ -1,22 +1,30 @@
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { toCreasedNormals } from 'three/addons/utils/BufferGeometryUtils.js';
 
 const EXPECTED_COORDINATES = Object.freeze({ forward: '+X', span: 'Y', up: '+Z' });
+const EXPECTED_MODEL_REVISION = 'r3';
+const STUDIO_BACKGROUND = '#bcbec0';
+const STUDIO_FLOOR = '#bcbec0';
+const FLIGHT_BACKGROUND = '#0d1b25';
+const FLIGHT_FLOOR = '#10212a';
 const HANGAR_FORWARD_LENGTH = 18;
-const HANGAR_FRAME_FILL = 0.88;
-const HANGAR_CAMERA_DIRECTION = new THREE.Vector3(0.65, 0.5, 0.65).normalize();
+const HANGAR_FRAME_FILL = 0.82;
+const HANGAR_FLOOR_CLEARANCE = 0.55;
+const HANGAR_CAMERA_DIRECTION = new THREE.Vector3(0.82, 0.56, 0.59).normalize();
 const HANGAR_CAMERA_FORWARD = HANGAR_CAMERA_DIRECTION.clone().negate();
 const HANGAR_CAMERA_RIGHT = HANGAR_CAMERA_FORWARD.clone().cross(new THREE.Vector3(0, 1, 0)).normalize();
 const HANGAR_CAMERA_UP = HANGAR_CAMERA_RIGHT.clone().cross(HANGAR_CAMERA_FORWARD).normalize();
-const DEFAULT_PART_FINISH = Object.freeze({ metalness: 0.12, roughness: 0.27 });
+const DEFAULT_PART_FINISH = Object.freeze({ metalness: 0.24, roughness: 0.28 });
 const PART_FINISHES = Object.freeze([
-  Object.freeze({ match: /canopy$/i, finish: Object.freeze({ metalness: 0.28, roughness: 0.17, emissive: '#59300f', emissiveIntensity: 0.1 }) }),
-  Object.freeze({ match: /gold|trim|tip|chevron|collar/i, finish: Object.freeze({ metalness: 0.44, roughness: 0.22 }) }),
-  Object.freeze({ match: /ivory|leading.?edge/i, finish: Object.freeze({ metalness: 0.14, roughness: 0.28 }) }),
-  Object.freeze({ match: /pod|nozzle|exhaust|graphite|charcoal/i, finish: Object.freeze({ metalness: 0.28, roughness: 0.31 }) }),
+  Object.freeze({ match: /teardropcanopy|canopyglass|transparentcanopy/i, finish: Object.freeze({ metalness: 0, roughness: 0.12, transmission: 0.42, thickness: 0.22, ior: 1.5, clearcoat: 1, clearcoatRoughness: 0.06 }) }),
+  Object.freeze({ match: /ivory|leading.?edge|canopybasetrim/i, finish: Object.freeze({ metalness: 0.04, roughness: 0.31 }) }),
+  Object.freeze({ match: /gold|trim|tip|chevron|collar/i, finish: Object.freeze({ metalness: 0.58, roughness: 0.24 }) }),
+  Object.freeze({ match: /pod|nozzle|exhaust|graphite|charcoal|intake/i, finish: Object.freeze({ metalness: 0.08, roughness: 0.42 }) }),
 ]);
 
 function assertMeshDocument(document, variant) {
-  if (!document || document.schemaVersion !== 1 || document.designId !== 'AX-01' || document.displayName !== 'AX-01 SUZAKU' || document.revision !== 'r2') {
+  if (!document || document.schemaVersion !== 1 || document.designId !== 'AX-01' || document.displayName !== 'AX-01 SUZAKU' || document.revision !== EXPECTED_MODEL_REVISION) {
     throw new Error('AX-01のメッシュ識別情報が契約と一致しません。');
   }
   if (document.variant !== variant || document.units !== 'arbitrary-design-unit') {
@@ -78,8 +86,14 @@ export async function loadAircraftAsset(variant) {
     geometry.computeVertexNormals();
     geometry.computeBoundingSphere();
 
-    const material = new THREE.MeshStandardMaterial({ color: part.color, ...getPartFinish(part.name), side: THREE.DoubleSide });
-    const piece = new THREE.Mesh(geometry, material);
+    const finish = getPartFinish(part.name);
+    const materialOptions = { color: part.color, ...finish, side: THREE.DoubleSide };
+    const material = /teardropcanopy|canopyglass|transparentcanopy/i.test(part.name)
+      ? new THREE.MeshPhysicalMaterial(materialOptions)
+      : new THREE.MeshStandardMaterial(materialOptions);
+    const shadedGeometry = toCreasedNormals(geometry, THREE.MathUtils.degToRad(38));
+    geometry.dispose();
+    const piece = new THREE.Mesh(shadedGeometry, material);
     piece.name = part.name;
     piece.castShadow = true;
     piece.receiveShadow = true;
@@ -92,7 +106,9 @@ export async function loadAircraftAsset(variant) {
   const center = bounds.getCenter(new THREE.Vector3());
   const scale = HANGAR_FORWARD_LENGTH / size.z;
   aircraft.scale.setScalar(scale);
-  aircraft.position.set(-center.x * scale, -center.y * scale, -center.z * scale);
+  aircraft.traverse(object => {
+    if (object.isMesh) object.geometry.translate(-center.x, -center.y, -center.z);
+  });
   aircraft.userData = {
     designId: meshDocument.designId,
     displayName: meshDocument.displayName,
@@ -125,8 +141,8 @@ export class FlightScene {
     this.canvas = canvas;
     this.stage = stage;
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color('#0d1b25');
-    this.scene.fog = new THREE.FogExp2('#0d1b25', 0.00072);
+    this.scene.background = new THREE.Color(STUDIO_BACKGROUND);
+    this.scene.fog = new THREE.FogExp2(FLIGHT_BACKGROUND, 0.00072);
     this.camera = new THREE.PerspectiveCamera(48, 1, 0.5, 2_200);
     this.camera.position.set(21, 17, -24);
     this.cameraTarget = new THREE.Vector3(0, 0, 4);
@@ -143,9 +159,16 @@ export class FlightScene {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.12;
+    this.renderer.toneMappingExposure = 0.9;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.environment = new RoomEnvironment();
+    this.environmentGenerator = new THREE.PMREMGenerator(this.renderer);
+    this.environmentTexture = this.environmentGenerator.fromScene(this.environment, 0.04).texture;
+    this.environment.dispose();
+    this.environmentGenerator.dispose();
+    this.scene.environment = this.environmentTexture;
+    this.scene.environmentIntensity = 0.55;
 
     this.configureLights();
     this.configureFloor();
@@ -160,22 +183,25 @@ export class FlightScene {
   }
 
   configureLights() {
-    this.scene.add(new THREE.HemisphereLight('#fff3e4', '#392d2a', 2));
-    this.keyLight = new THREE.DirectionalLight('#fff2de', 4.2);
-    this.keyLight.position.set(-45, 74, -30);
+    this.scene.add(new THREE.HemisphereLight('#ffffff', '#74777a', 0.55));
+    this.keyLight = new THREE.DirectionalLight('#ffffff', 2.2);
+    this.keyLight.position.set(-32, 48, 24);
     this.keyLight.castShadow = true;
     this.keyLight.shadow.mapSize.set(1024, 1024);
     this.keyLight.shadow.camera.near = 1;
     this.keyLight.shadow.camera.far = 260;
-    this.keyLight.shadow.camera.left = -45;
-    this.keyLight.shadow.camera.right = 45;
-    this.keyLight.shadow.camera.top = 45;
-    this.keyLight.shadow.camera.bottom = -45;
-    this.keyLight.shadow.bias = -0.0005;
-    this.keyLight.shadow.normalBias = 0.12;
+    this.keyLight.shadow.camera.left = -40;
+    this.keyLight.shadow.camera.right = 40;
+    this.keyLight.shadow.camera.top = 40;
+    this.keyLight.shadow.camera.bottom = -40;
+    this.keyLight.shadow.bias = -0.0004;
+    this.keyLight.shadow.normalBias = 0.06;
     this.scene.add(this.keyLight);
-    this.rimLight = new THREE.DirectionalLight('#ffd184', 2.3);
-    this.rimLight.position.set(50, 18, 72);
+    this.fillLight = new THREE.DirectionalLight('#eef5ff', 0.55);
+    this.fillLight.position.set(28, 20, 36);
+    this.scene.add(this.fillLight);
+    this.rimLight = new THREE.DirectionalLight('#ffffff', 1.8);
+    this.rimLight.position.set(-24, 18, -30);
     this.scene.add(this.rimLight);
     this.boostLight = new THREE.PointLight('#ff7955', 0, 48, 1.6);
     this.scene.add(this.boostLight);
@@ -183,14 +209,15 @@ export class FlightScene {
 
   configureFloor() {
     const floor = new THREE.Mesh(
-      new THREE.PlaneGeometry(1_500, 2_500),
-      new THREE.MeshStandardMaterial({ color: '#10212a', roughness: 0.58, metalness: 0.2 }),
+      new THREE.PlaneGeometry(1_800, 2_500),
+      new THREE.MeshStandardMaterial({ color: STUDIO_FLOOR, roughness: 0.92, metalness: 0.02 }),
     );
     floor.rotation.x = -Math.PI / 2;
-    floor.position.y = -48;
-    floor.position.z = 520;
+    floor.position.y = -7;
+    floor.position.z = 4;
     floor.receiveShadow = true;
     this.scene.add(floor);
+    this.floor = floor;
 
     this.gridSections = [];
     for (let index = 0; index < 3; index += 1) {
@@ -273,15 +300,21 @@ export class FlightScene {
     if (!this.activeAircraft) return;
     const verticalFov = THREE.MathUtils.degToRad(this.camera.fov);
     const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * this.camera.aspect);
-    const halfExtents = this.hangarFrameHalfExtents;
-    const projectedHalfWidth = halfExtents.x * Math.abs(HANGAR_CAMERA_RIGHT.x) +
-      halfExtents.y * Math.abs(HANGAR_CAMERA_RIGHT.y) + halfExtents.z * Math.abs(HANGAR_CAMERA_RIGHT.z);
-    const projectedHalfHeight = halfExtents.x * Math.abs(HANGAR_CAMERA_UP.x) +
-      halfExtents.y * Math.abs(HANGAR_CAMERA_UP.y) + halfExtents.z * Math.abs(HANGAR_CAMERA_UP.z);
-    const distance = Math.max(
-      projectedHalfWidth / (Math.tan(horizontalFov / 2) * HANGAR_FRAME_FILL),
-      projectedHalfHeight / (Math.tan(verticalFov / 2) * HANGAR_FRAME_FILL),
-    );
+    const horizontalSlope = Math.tan(horizontalFov / 2) * HANGAR_FRAME_FILL;
+    const verticalSlope = Math.tan(verticalFov / 2) * HANGAR_FRAME_FILL;
+    const point = new THREE.Vector3();
+    let distance = 0;
+    this.activeAircraft.traverse(object => {
+      if (!object.isMesh) return;
+      const positions = object.geometry.getAttribute('position');
+      for (let index = 0; index < positions.count; index += 1) {
+        point.fromBufferAttribute(positions, index).multiply(this.activeAircraft.scale);
+        const depth = point.dot(HANGAR_CAMERA_DIRECTION);
+        distance = Math.max(distance,
+          depth + Math.abs(point.dot(HANGAR_CAMERA_RIGHT)) / horizontalSlope,
+          depth + Math.abs(point.dot(HANGAR_CAMERA_UP)) / verticalSlope);
+      }
+    });
     this.hangarCameraGoal.copy(this.hangarTarget).addScaledVector(HANGAR_CAMERA_DIRECTION, distance);
   }
 
@@ -319,6 +352,16 @@ export class FlightScene {
     this.lastState = state;
     this.setCourse(state.course, state.seed);
     this.viewMode = state.phase === 'ready' ? 'hangar' : 'flight';
+    const inHangar = this.viewMode === 'hangar';
+    this.scene.background.set(inHangar ? STUDIO_BACKGROUND : FLIGHT_BACKGROUND);
+    this.scene.fog.color.set(inHangar ? STUDIO_BACKGROUND : FLIGHT_BACKGROUND);
+    this.scene.fog.density = inHangar ? 0 : 0.00072;
+    this.floor.material.color.set(inHangar ? STUDIO_FLOOR : FLIGHT_FLOOR);
+    this.floor.position.y = inHangar
+      ? -(this.hangarFrameHalfExtents?.y ?? 2.8) - HANGAR_FLOOR_CLEARANCE
+      : -48;
+    this.floor.position.z = inHangar ? this.hangarTarget.z : 520;
+    for (const grid of this.gridSections) grid.visible = !inHangar;
     this.gatesRoot.visible = this.viewMode !== 'hangar';
     this.route.visible = this.viewMode !== 'hangar';
     this.courseDecor.visible = this.viewMode !== 'hangar';
@@ -327,7 +370,7 @@ export class FlightScene {
     const aircraft = this.activeAircraft;
 
     if (aircraft) {
-      if (this.viewMode === 'hangar') {
+      if (inHangar) {
         aircraft.position.set(0, 0, 4);
         aircraft.rotation.set(0.025, Math.sin(time * 0.12) * 0.12, Math.sin(time * 0.38) * 0.025);
         this.cameraTarget.copy(this.hangarTarget);
@@ -357,8 +400,15 @@ export class FlightScene {
       gate.scale.setScalar(radius);
     }
 
-    this.keyLight.position.set(state.x - 42, state.y + 74, state.distance - 24);
-    this.rimLight.position.set(state.x + 48, state.y + 22, state.distance + 60);
+    if (inHangar) {
+      this.keyLight.position.set(-32, 48, 24);
+      this.fillLight.position.set(28, 20, 36);
+      this.rimLight.position.set(-24, 18, -30);
+    } else {
+      this.keyLight.position.set(state.x - 42, state.y + 74, state.distance - 24);
+      this.fillLight.position.set(state.x + 32, state.y + 18, state.distance + 28);
+      this.rimLight.position.set(state.x + 48, state.y + 22, state.distance + 60);
+    }
     this.camera.lookAt(this.cameraTarget);
     this.renderer.render(this.scene, this.camera);
   }
@@ -367,5 +417,6 @@ export class FlightScene {
     this.resizeObserver?.disconnect();
     window.removeEventListener('resize', this.resize);
     this.renderer.dispose();
+    this.environmentTexture.dispose();
   }
 }

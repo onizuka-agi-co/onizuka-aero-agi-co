@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "recordId": "AX01-ARCADE-standard-route-following-R2-20261020",
+  "recordId": "AX01-ARCADE-standard-route-following-R3-20261020",
   "designId": "AX-01",
   "displayName": "AX-01 SUZAKU",
-  "assetRevision": "r2",
+  "assetRevision": "r3",
   "variant": "standard",
-  "recordedAt": "2026-10-20T13:55:13.686Z",
+  "recordedAt": "2026-10-20T14:44:35.061Z",
   "status": "generated",
   "runKind": "route-following",
   "valueKinds": {
@@ -15,7 +15,7 @@
     "runtimeVersion": "observed"
   },
   "license": "CC-BY-4.0",
-  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU arcade record standard r2",
+  "attribution": "ONIZUKA AERO AGI Co., AX-01 SUZAKU arcade record standard r3",
   "scope": "Deterministic fictional gate-flight gameplay only. This record is simulated input and game state, not user telemetry, physical flight, or aircraft performance data.",
   "units": {
     "time": "second",
